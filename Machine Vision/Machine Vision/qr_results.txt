@@ -1,12 +1,9 @@
 
 Decode Result: 
-http://e-qr.me/b1a0b5
+Hello :)
 
 Decode Result: 
-http://promtec.com.br
+https://pt.wikipedia.org
 
 Decode Result: 
-https://whts.co/chat?fromQR=1
-
-Decode Result: 
-https://l.ead.me/api-1
+https://www.kaspersky.com

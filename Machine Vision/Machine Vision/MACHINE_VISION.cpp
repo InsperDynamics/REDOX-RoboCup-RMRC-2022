@@ -1,6 +1,7 @@
 #include <iostream>
 #include <opencv2\opencv.hpp>
 #include "QR_read.h"
+#include "Motion_detection.h"
 
 int main()
 {
@@ -12,7 +13,10 @@ int main()
 	while (true)
 	{
 		capture >> image;
-		ReadQR(image);
+		image = ReadQR(image);
+		image = DetectMotion(image);
+		cv::imshow("Result", image);
+		cv::waitKey(1);
 	}
 	return 0;
 }

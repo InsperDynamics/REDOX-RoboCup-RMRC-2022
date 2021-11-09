@@ -1,3 +1,4 @@
+#pragma once
 #include <zbar.h>
 #include <opencv2\opencv.hpp>
 #include <numeric>
@@ -29,7 +30,7 @@ static void InitializeQR()
 }
 
 
-static void ReadQR(cv::Mat image)
+static cv::Mat ReadQR(cv::Mat image)
 {
 	cv::Mat imageGray;
 	cv::cvtColor(image, imageGray, cv::COLOR_RGB2GRAY);
@@ -67,6 +68,5 @@ static void ReadQR(cv::Mat image)
 		}
 		imageZbar.set_data(NULL, 0);
 	}
-	cv::imshow("Result", image);
-	cv::waitKey(1);
+	return image;
 }
