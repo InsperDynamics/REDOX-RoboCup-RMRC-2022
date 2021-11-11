@@ -1,9 +1,0 @@
-
-Decode Result: 
-Hello :)
-
-Decode Result: 
-https://pt.wikipedia.org
-
-Decode Result: 
-https://www.kaspersky.com

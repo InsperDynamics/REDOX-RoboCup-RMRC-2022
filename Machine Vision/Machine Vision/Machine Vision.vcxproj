@@ -146,6 +146,7 @@
     <ClCompile Include="QR_read.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hazmat_detection.h" />
     <ClInclude Include="Motion_detection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

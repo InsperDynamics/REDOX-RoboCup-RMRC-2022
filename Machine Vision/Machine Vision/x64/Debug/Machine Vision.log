@@ -1,4 +1,3 @@
 ﻿  MACHINE_VISION.cpp
-  QR_read.h
-  Gerando Código...
+C:\Users\Felipe Catapano\Documents\GitHub\NOME_TBD-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(26,30): warning C4305: 'inicializando': truncamento de 'double' para 'float'
   Machine Vision.vcxproj -> C:\Users\Felipe Catapano\Documents\GitHub\NOME_TBD-RoboCup-RMRC-Challenge\Machine Vision\x64\Debug\Machine Vision.exe
