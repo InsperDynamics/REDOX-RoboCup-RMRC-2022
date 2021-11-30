@@ -15,34 +15,44 @@
 #define basearmB_pin 0
 #define forearm_pin 0
 #define hand_pin 0
-#define gripperTurner 0
-#define gripperOpener 0
+#define gripperTurner_pin 0
+#define gripperOpener_pin 0
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
 
 void RetractArm(){
-	
+	basearmA.write(90);
+  basearmB.write(90);
+  forearm.write(90);
+  hand.write(90);
+  gripperTurner.write(90);
+  gripperOpener.write(90);
 }
 void ExtendArm(){
-	
+	basearmA.write(90);
+  basearmB.write(90);
+  forearm.write(90);
+  hand.write(90);
+  gripperTurner.write(90);
+  gripperOpener.write(90);
 }
 
-void MoveBasearmA(int dir){
-
+void MoveBasearmA(int pos){
+  basearmA.write(constrain(pos, 0, 180));
 }
-void MoveBasearmB(int dir){
-  
+void MoveBasearmB(int pos){
+  basearmB.write(constrain(pos, 0, 180));
 }
-void MoveForearm(int dir){
-  
+void MoveForearm(int pos){
+  forearm.write(constrain(pos, 0, 180));
 }
-void MoveHand(int dir){
-  
+void MoveHand(int pos){
+  hand.write(constrain(pos, 0, 180));
 }
-void MoveGripperTurner(int dir){
-  
+void MoveGripperTurner(int pos){
+  gripperTurner.write(constrain(pos, 0, 180));
 }
-void MoveGripperTurner(int dir){
-  
+void MoveGripperOpener(int pos){
+  gripperOpener.write(constrain(pos, 0, 180));
 }
 
 void MotorsRelease(){
@@ -83,6 +93,12 @@ void MotorsInitialize(){
   pwm.begin();
   pwm.setOscillatorFrequency(27000000);
   pwm.setPWMFreq(50);
+  basearmA.attach(basearmA_pin);
+  basearmB.attach(basearmB_pin);
+  forearm.attach(forearm_pin);
+  hand.attach(hand_pin);
+  gripperOpener.attach(gripperOpener_pin);
+  gripperTurner.attach(gripperTurner_pin);
   MotorsRelease();
 }
 

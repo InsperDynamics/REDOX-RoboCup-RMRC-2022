@@ -16,8 +16,9 @@ void SerialOperations() {
   		Serial.readBytesUntil('\n', inputarray, sizeof(inputarray))
   	}
     //Control motors
-  	for(int i=1; i<=AMG88xx_PIXEL_ARRAY_SIZE; i++){
-      	Serial.print(pixels[i-1]);
+    //Control servos
+  	for(int i=0; i<AMG88xx_PIXEL_ARRAY_SIZE; i++){
+      	Serial.print(pixels[i]);
       	Serial.print(", ");
     }
   	Serial.println(CO2level);
