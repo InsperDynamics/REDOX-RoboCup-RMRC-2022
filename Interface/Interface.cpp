@@ -1,14 +1,15 @@
-// wxWidgets "Hello world" Program
-// For compilers that support precompilation, includes "wx/wx.h".
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
+
 class MyApp : public wxApp
 {
 public:
     virtual bool OnInit();
 };
+
+
 class MyFrame : public wxFrame
 {
 public:
@@ -29,9 +30,11 @@ EVT_MENU(wxID_EXIT, MyFrame::OnExit)
 EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
 wxIMPLEMENT_APP(MyApp);
+
+
 bool MyApp::OnInit()
 {
-    MyFrame* frame = new MyFrame("Hello World", wxPoint(50, 50), wxSize(450, 340));
+    MyFrame* frame = new MyFrame("REDOX Interface", wxPoint(50, 50), wxSize(1366, 768));
     frame->Show(true);
     return true;
 }
@@ -50,7 +53,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     menuBar->Append(menuHelp, "&Help");
     SetMenuBar(menuBar);
     CreateStatusBar();
-    SetStatusText("Welcome to wxWidgets!");
+    SetStatusText("Status: Started");
 }
 void MyFrame::OnExit(wxCommandEvent& event)
 {
