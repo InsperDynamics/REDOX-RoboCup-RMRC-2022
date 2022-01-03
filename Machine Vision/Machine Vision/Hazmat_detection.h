@@ -6,31 +6,34 @@
 #include <opencv2/dnn.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/imgproc.hpp>
+using namespace std;
+using namespace cv;
+using namespace dnn;
 
-cv::dnn::Net network;
+Net network;
 
 static void InitializeHazmat()
 {
-    std::string model = "yolov3-tiny.weights";
-    std::string config = "yolov3-tiny.cfg";
-    network = cv::dnn::readNet(model, config, "Darknet");
-    network.setPreferableBackend(cv::dnn::DNN_BACKEND_DEFAULT);
-    network.setPreferableTarget(cv::dnn::DNN_TARGET_OPENCL);
+    string model = "yolov3-tiny.weights";
+    string config = "yolov3-tiny.cfg";
+    network = readNet(model, config, "Darknet");
+    network.setPreferableBackend(DNN_BACKEND_DEFAULT);
+    network.setPreferableTarget(DNN_TARGET_OPENCL);
 }
 
-static cv::Mat DetectHazmat(cv::Mat image)
+static Mat DetectHazmat(Mat image)
 {
-    static cv::Mat blobFromImg;
+    static Mat blobFromImg;
     bool swapRB = true;
-    cv::dnn::blobFromImage(image, blobFromImg, 1, cv::Size(416, 416), cv::Scalar(), swapRB, false);
+    blobFromImage(image, blobFromImg, 1, Size(416, 416), Scalar(), swapRB, false);
     float scale = 1.0 / 255.0;
     network.setInput(blobFromImg, "", scale, 0);
-    cv::Mat outMat;
+    Mat outMat;
     network.forward(outMat);
     for (int j = 0; j < outMat.rows; ++j)
     {
-        cv::Mat scores = outMat.row(j).colRange(5, outMat.cols);
-        cv::Point PositionOfMax;
+        Mat scores = outMat.row(j).colRange(5, outMat.cols);
+        Point PositionOfMax;
         double confidence;
         minMaxLoc(scores, 0, &confidence, 0, &PositionOfMax);
         if (confidence > 0.0001)
@@ -41,15 +44,15 @@ static cv::Mat DetectHazmat(cv::Mat image)
             int height = (int)(outMat.at<float>(j, 3) * image.rows + 100);
             int left = centerX - width / 2;
             int top = centerY - height / 2;
-            std::stringstream ss;
+            stringstream ss;
             ss << PositionOfMax.x;
-            std::string clas = ss.str();
+            string clas = ss.str();
             int color = PositionOfMax.x * 10;
-            cv::putText(image, clas, cv::Point(left, top), 1, 2, cv::Scalar(color, 255, 255), 2, false);
-            std::stringstream ss2;
+            putText(image, clas, Point(left, top), 1, 2, Scalar(color, 255, 255), 2, false);
+            stringstream ss2;
             ss << confidence;
-            std::string conf = ss.str();
-            cv::rectangle(image, cv::Rect(left, top, width, height), cv::Scalar(color, 0, 0), 2, 8, 0);
+            string conf = ss.str();
+            rectangle(image, Rect(left, top, width, height), Scalar(color, 0, 0), 2, 8, 0);
         }
     }
     return image;
