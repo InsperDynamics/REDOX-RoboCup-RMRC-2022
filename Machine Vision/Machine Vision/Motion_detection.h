@@ -1,24 +1,34 @@
 #pragma once
 #include <opencv2\opencv.hpp>
 #include <iostream>
+using namespace std;
+using namespace cv;
 
-static cv::Mat fgMaskKNN;
-static cv::Ptr<cv::BackgroundSubtractor> pKNN = cv::createBackgroundSubtractorKNN(60, 100, false);
+Mat firstFrame;
 
-static cv::Mat DetectMotion(cv::Mat image)
+static Mat DetectMotion(Mat image)
 {
-	pKNN->apply(image, fgMaskKNN);
-	cv::Mat eroded;
-	cv::erode(fgMaskKNN, eroded, 1);
-	cv::Mat no_noise;
-	cv::medianBlur(eroded, no_noise, 3);
-	std::vector<std::vector<cv::Point>> contours;
-	std::vector<cv::Vec4i> hierarchy1;
-	findContours(no_noise, contours, hierarchy1, cv::RETR_TREE, cv::CHAIN_APPROX_NONE);
-	for (int i = 0; i < contours.size(); i++)
+	Mat gray;
+	cvtColor(image, gray, COLOR_BGR2GRAY);
+	GaussianBlur(gray, gray, Size(21, 21), 0);
+	if (firstFrame.empty())
 	{
-		if (cv::contourArea(contours[i]) > 100)
-			drawContours(image, contours, i, cv::Scalar(0, 255, 0), 2);
+		firstFrame = gray;
 	}
+	Mat frameDelta;
+	absdiff(firstFrame, gray, frameDelta);
+	Mat DeltaThresholded;
+	double thresh = threshold(frameDelta, DeltaThresholded, 25, 255, THRESH_BINARY);
+	Mat dilate_kernel = getStructuringElement(MORPH_RECT, Size(5, 5), Point(2, 2));
+	dilate(DeltaThresholded, DeltaThresholded, dilate_kernel, Point(-1, -1), 2);
+	vector<vector<Point>> contours;
+	vector<Vec4i> hierarchy;
+	DeltaThresholded.convertTo(DeltaThresholded, CV_8UC1);
+	findContours(DeltaThresholded, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+	for (size_t c = 0; c < contours.size(); c++)
+	{
+		drawContours(image, contours, (int)c, Scalar(0, 0, 255), 2);
+	}
+	firstFrame = gray;
 	return image;
 }
