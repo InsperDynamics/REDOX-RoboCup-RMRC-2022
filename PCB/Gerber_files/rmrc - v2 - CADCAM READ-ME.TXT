@@ -1,0 +1,93 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'rmrc - v2.pdsprj'.
+CADCAM generated at 08:38:20 on segunda-feira, 10 de janeiro de 2022.
+
+File List
+---------
+Top Copper              : rmrc - v2 - CADCAM Top Copper.GBR
+Bottom Copper           : rmrc - v2 - CADCAM Bottom Copper.GBR
+Top Silk Screen         : rmrc - v2 - CADCAM Top Silk Screen.GBR
+Bottom Silk Screen      : rmrc - v2 - CADCAM Bottom Silk Screen.GBR
+Top Solder Resist       : rmrc - v2 - CADCAM Top Solder Resist.GBR
+Bottom Solder Resist    : rmrc - v2 - CADCAM Bottom Solder Resist.GBR
+Mechanical 1            : rmrc - v2 - CADCAM Mechanical 1.GBR
+Top Assembly            : rmrc - v2 - CADCAM Top Assembly.GBR
+Bottom Assembly         : rmrc - v2 - CADCAM Bottom Assembly.GBR
+Drill, Plated, 1-16     : rmrc - v2 - CADCAM Drill TOP-BOT Plated.GBR
+Netlist                 : rmrc - v2 - CADCAM Netlist.IPC
+
+Photoplotter Setup
+------------------
+Format: X2, ASCII, 4.3, metric, absolute, eob=*, LZO
+Bounds: -51.7mm -37mm 78.3mm 56mm
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer, I=Index
+
+D10	CIRCLE  D=1.016mm                                                         DRAW  Conductor
+D11	CIRCLE  D=0.508mm                                                         DRAW  Conductor
+D12	CIRCLE  D=0.762mm                                                         FLASH ViaPad
+D13	CIRCLE  D=1.016mm                                                         FLASH ViaPad
+D14	CIRCLE  D=1.778mm                                                         FLASH ComponentPad
+D15	DIL     W=1.524mm             H=2.54mm              C=0.305mm             FLASH ComponentPad
+D16	DIL     W=2.54mm              H=1.524mm             C=0.305mm             FLASH ComponentPad
+D17	CIRCLE  D=2.032mm                                                         FLASH ComponentPad
+D18	CIRCLE  D=3.048mm                                                         FLASH ComponentPad
+D19	DIL     W=1.45mm              H=2mm                 C=0.29mm              FLASH WasherPad
+D70	PPAD    W=1.45mm              H=2mm                 I=0                   FLASH WasherPad
+D71	SQUARE  S=2.25mm                                                          FLASH WasherPad
+D20	CIRCLE  D=2.25mm                                                          FLASH ComponentPad
+D21	CIRCLE  D=0.203mm                                                         DRAW  Profile
+D22	CIRCLE  D=0.254mm                                                         DRAW  Conductor
+D23	CIRCLE  D=0.203mm                                                         DRAW  Material
+D24	CIRCLE  D=0.1mm                                                           DRAW  Material
+D25	CIRCLE  D=0.2mm                                                           DRAW  Material
+D26	CIRCLE  D=1.016mm                                                         FLASH Material
+D27	CIRCLE  D=1.27mm                                                          FLASH Material
+D28	CIRCLE  D=2.032mm                                                         FLASH Material
+D29	PPAD    W=1.778mm             H=2.794mm             I=1                   FLASH Material
+D72	PPAD    W=2.794mm             H=1.778mm             I=2                   FLASH Material
+D73	PPAD    W=1.778mm             H=2.794mm             I=3                   FLASH Material
+D30	CIRCLE  D=2.286mm                                                         FLASH Material
+D31	CIRCLE  D=3.302mm                                                         FLASH Material
+D32	PPAD    W=1.45mm              H=2mm                 I=4                   FLASH Material
+D33	PPAD    W=1.45mm              H=2mm                 I=0                   FLASH Material
+D34	PPAD    W=2.25mm              H=2.25mm              I=5                   FLASH Material
+D35	CIRCLE  D=2.25mm                                                          FLASH Material
+D36	CIRCLE  D=0.711mm                                                         DRAW  Material
+D37	CIRCLE  D=0.356mm                                                         DRAW  Material
+D38	CIRCLE  D=1.016mm                                                         DRAW  Material
+D39	CIRCLE  D=0.267mm                                                         DRAW  Material
+D40	CIRCLE  D=0.8mm                                                           DRAW  Material
+D41	CIRCLE  D=0.269mm                                                         DRAW  Material
+D42	CIRCLE  D=0.051mm                                                         DRAW  Material
+D43	CIRCLE  D=0.813mm                                                         DRAW  Material
+D44	CIRCLE  D=0.184mm                                                         DRAW  Material
+D45	CIRCLE  D=0.05mm                                                          DRAW  Material
+D46	CIRCLE  D=0.9mm                                                           DRAW  Material
+D47	CIRCLE  D=0.379mm                                                         DRAW  Material
+D48	CIRCLE  D=0.11mm                                                          DRAW  Material
+D49	CIRCLE  D=1.219mm                                                         DRAW  Material
+D50	CIRCLE  D=0.314mm                                                         DRAW  Material
+D51	CIRCLE  D=0.191mm                                                         DRAW  Material
+D52	CIRCLE  D=0.22mm                                                          DRAW  Material
+D53	CIRCLE  D=0.381mm                                                         FLASH ViaDrill
+D54	CIRCLE  D=1mm                                                             FLASH ComponentDrill
+D55	CIRCLE  D=1.016mm                                                         FLASH ComponentDrill
+D56	CIRCLE  D=1.524mm                                                         FLASH ComponentDrill
+D57	CIRCLE  D=1.2mm                                                           FLASH ComponentDrill
+D58	CIRCLE  D=0.762mm                                                         FLASH ComponentDrill
+D59	CIRCLE  D=1.5mm                                                           FLASH ComponentDrill
+
+Layer Stackup
+-------------
+Top Solder Resist        : 0.01mm     Resist
+Top Copper               : 0.018mm    Copper
+Core                     : 1.55mm     FR4
+Bottom Copper            : 0.018mm    Copper
+Bottom Solder Resist     : 0.01mm     Resist
+
+
+[END OF FILE]
