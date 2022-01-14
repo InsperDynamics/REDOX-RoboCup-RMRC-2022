@@ -90,9 +90,6 @@ void MotorsInitialize(){
   pinMode(motorLR, OUTPUT);
   pinMode(motorLRdirA, OUTPUT);
   pinMode(motorLRdirB, OUTPUT);
-  pwm.begin();
-  pwm.setOscillatorFrequency(27000000);
-  pwm.setPWMFreq(50);
   basearmA.attach(basearmA_pin);
   basearmB.attach(basearmB_pin);
   forearm.attach(forearm_pin);

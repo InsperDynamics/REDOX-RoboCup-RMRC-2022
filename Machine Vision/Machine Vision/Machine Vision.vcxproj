@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="Hazmat_detection.h" />
     <ClInclude Include="Motion_detection.h" />
+    <ClInclude Include="Screen_resolution.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

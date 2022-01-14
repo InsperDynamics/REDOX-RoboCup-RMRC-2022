@@ -1,12 +1,14 @@
+#include <Vector.h>
 #include "Sensors.h"
 #include "Motors.h"
 String incoming_msg;
+String outgoing_msg;
 
 void ReadSerial() {
   incoming_msg = "";
   while (Serial.available()) {
-    incoming_char = (char)Serial.read();
-    if(incoming_char == '\n') {
+    char incoming_char = (char)Serial.read();
+    if(incoming_char == '\n' && Serial.available()) {
       incoming_msg = "";
     }
     else {
@@ -16,76 +18,63 @@ void ReadSerial() {
 }
 
 void WriteSerial() {
+  outgoing_msg = "";
 	for(int i=0; i<AMG88xx_PIXEL_ARRAY_SIZE; i++) {
-    	Serial.print(amg88_pixels[i]);
-    	Serial.print(", ");
+    	outgoing_msg += String(amg88_pixels[i]);
+    	outgoing_msg += ',';
   }
-	Serial.println(CO2level);
+  outgoing_msg += String(CO2level);
+	Serial.println(outgoing_msg);
 }
 
-String splitstring(String str) {
-  char splitted[sizeof(str)];
+Vector<String> splitstring(String str) {
+  Vector<String> splitted;
   String word = "";
-  word_index = 0;
+  int word_index = 0;
   for (auto c : str) {
-      if (c == ' ') {
-        splitted[word_index] = word;
-        word_index++;
-        word = "";
-      }
-      else {
-        word += c;
-      }
+    if (c == ',') {
+      splitted.push_back(word);
+      word_index++;
+      word = "";
+    }
+    else {
+      word += c;
+    }
   }
   return splitted;
 }
 
-void ControlMotors(String splitted) {
-  String command = splitted[0]
-  int command_parameter = atoi(splitted[1]);
-  switch(command) {
-    case "RetractArm":
-      RetractArm();
-      break;
-    case "ExtendArm":
-      ExtendArm();
-      break;
-    case "MoveBasearmA":
-      MoveBasearmA(command_parameter);
-      break;
-    case "MoveBasearmB":
-      MoveBasearmB(command_parameter);
-      break;
-    case "MoveForearm":
-      MoveForearm(command_parameter);
-      break;
-    case "MoveHand":
-      MoveHand(command_parameter);
-      break;
-    case "MoveGripperTurner":
-      MoveGripperTurner(command_parameter);
-      break;
-    case "MoveGripperOpener":
-      MoveGripperOpener(command_parameter);
-      break;
-    case "MotorsRelease":
-      MotorsRelease();
-      break;
-    case "MotorsStop":
-      MotorsStop();
-      break;
-    case "MoveForward":
-      MoveForward(command_parameter);
-      break;
-    case "MoveBackwards":
-      MoveBackwards(command_parameter);
-      break;
-    case "RotateLeft":
-      RotateLeft(command_parameter);
-      break;
-    case "RotateRight":
-      RotateRight(command_parameter);
-      break;
+void ControlMotors(Vector<String> splitted) {
+  String command = splitted[0];
+  int command_parameter = splitted[1].toInt();
+  if (command == "RetractArm"){
+    RetractArm();
+  } else if(command == "ExtendArm"){
+    ExtendArm();
+  } else if (command == "MoveBasearmA"){
+    MoveBasearmA(command_parameter);
+  } else if (command == "MoveBasearmB"){
+    MoveBasearmB(command_parameter);
+  } else if (command == "MoveForearm"){
+    MoveForearm(command_parameter);
+  } else if (command == "MoveHand"){
+    MoveHand(command_parameter);
+  } else if (command == "MoveGripperTurner"){
+    MoveGripperTurner(command_parameter);
+  } else if (command == "MoveGripperOpener"){
+    MoveGripperOpener(command_parameter);
+  } else if (command == "MotorsStop"){
+    MotorsStop();
+  } else if (command == "MotorsRelease"){
+    MotorsRelease();
+  } else if (command == "MoveForward"){
+    MoveForward(command_parameter);
+  } else if (command == "MoveBackwards"){
+    MoveBackwards(command_parameter);
+  } else if (command == "RotateLeft"){
+    RotateLeft(command_parameter);
+  } else if (command == "RotateRight"){
+    RotateRight(command_parameter);
   }
 }
 
@@ -96,8 +85,11 @@ void setup() {
 
 void loop() {
   ReadSerial();
-  Serial.flush();
-  ControlMotors(splitstring(incoming_msg));
+  Vector<String> splitted = splitstring(incoming_msg);
+  if (sizeof(splitted) >= 2){
+    ControlMotors(splitted);
+  }
   ReadSensors();
   WriteSerial();
+  Serial.flush();
 }
