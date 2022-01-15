@@ -1,3 +1,4 @@
-﻿  MV_INTERFACE.cpp
+﻿  REDOX_INTERFACE.cpp
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(29,30): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Serial_communication.h(43): warning C4715: 'ConnectSerial': nem todos os caminhos de controle retornam um valor
   Machine Vision.vcxproj -> C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\x64\Debug\Machine Vision.exe
