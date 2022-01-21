@@ -44,7 +44,9 @@ int main()
 		copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));
 		imshow("REDOX", webcam_image);
 		imshow("Thermal", thermal_image);
+		imshow("CO2", gas_image);
 		moveWindow("Thermal", 0, 0);
+		moveWindow("CO2", 0, thermal_height);
 		waitKey(1);
 	}
 	return 0;

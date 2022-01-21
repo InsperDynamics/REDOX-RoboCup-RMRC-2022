@@ -148,6 +148,7 @@
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gamepad_controller.h" />
     <ClInclude Include="Hazmat_detection.h" />
     <ClInclude Include="Motion_detection.h" />
     <ClInclude Include="Screen_resolution.h" />

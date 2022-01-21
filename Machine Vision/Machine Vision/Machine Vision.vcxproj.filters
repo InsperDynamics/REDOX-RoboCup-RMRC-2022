@@ -53,5 +53,8 @@
     <ClInclude Include="Thermal_gas.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
+    <ClInclude Include="Gamepad_controller.h">
+      <Filter>Arquivos de Origem</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

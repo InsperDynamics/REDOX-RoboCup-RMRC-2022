@@ -1,4 +1,29 @@
 ﻿  REDOX_INTERFACE.cpp
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(12,63): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(17,60): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(19,72): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(20,74): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(20,42): warning C4244: 'argumento': conversão de 'float' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(29,30): warning C4305: 'inicializando': truncamento de 'double' para 'float'
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Serial_communication.h(43): warning C4715: 'ConnectSerial': nem todos os caminhos de controle retornam um valor
   Machine Vision.vcxproj -> C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\x64\Debug\Machine Vision.exe

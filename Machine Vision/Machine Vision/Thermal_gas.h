@@ -7,12 +7,18 @@ using namespace cv;
 int thermal_width = 8;
 int thermal_height = 8;
 int upscale_factor = 20;
-Mat thermal_image = Mat::zeros(Size(thermal_width, thermal_height), CV_64FC1);
+Mat thermal_image = Mat::zeros(Size(thermal_width, thermal_height), CV_8UC3);
 int CO2level = 0;
+Mat gas_image = Mat::zeros(Size(thermal_width, thermal_height * 0.4), CV_8UC3);
 
 void UpdateGas(vector<string> splitted)
 {
 	CO2level = atoi(splitted.back().c_str());
+	gas_image = Mat::zeros(Size(thermal_width, thermal_height * 0.4), CV_8UC3);
+	float rectangle_width = (float(CO2level) / 8000) * float(thermal_width);
+	rectangle(gas_image, Point(0, 0), Point(thermal_width, thermal_height * 0.4), Scalar(255, 255, 255), FILLED);
+	rectangle(gas_image, Point(0, 0), Point(rectangle_width, thermal_height * 0.4), Scalar(0, 255, 255), FILLED);
+	putText(gas_image, to_string(CO2level) + "ppm", Point(0, gas_image.rows / 2), FONT_HERSHEY_DUPLEX, 1, Scalar(0, 0, 0));
 }
 
 void UpdateThermal(vector<string> splitted)
