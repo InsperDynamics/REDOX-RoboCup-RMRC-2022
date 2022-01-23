@@ -2,6 +2,7 @@
 #include <string>
 #include <opencv2\opencv.hpp>
 #include "Serial_communication.h"
+#include "Gamepad_controller.h"
 #include "Thermal_gas.h"
 #include "Screen_resolution.h"
 #include "QR_read.h"
@@ -15,9 +16,10 @@ int resolution_vertical = 0;
 Mat webcam_image;
 
 
-int main()
+int main(int argv, char** args)
 {
 	//ConnectSerial();
+	InitializeGamepad();
 	GetDesktopResolution(resolution_horizontal, resolution_vertical);
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	VideoCapture capture;
@@ -40,6 +42,7 @@ int main()
 			webcam_image = ReadQR(webcam_image);
 			webcam_image = DetectMotion(webcam_image);
 		}
+		UpdateGamepad();
 		resizeWindow("REDOX", resolution_horizontal, resolution_vertical);
 		copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));
 		imshow("REDOX", webcam_image);

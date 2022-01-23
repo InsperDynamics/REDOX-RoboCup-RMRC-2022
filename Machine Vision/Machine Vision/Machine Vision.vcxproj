@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\opencv\build\include;C:\Program Files (x86)\ZBar\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Program Files (x86)\ZBar\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files (x86)\SDL2-2.0.20\include;C:\opencv\build\include;C:\Program Files (x86)\ZBar\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\SDL2-2.0.20\lib\x64;C:\opencv\build\x64\vc15\lib;C:\Program Files (x86)\ZBar\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -122,7 +122,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_world420d.lib;libzbar-0.lib;libzbar64-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opencv_world420d.lib;libzbar-0.lib;libzbar64-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

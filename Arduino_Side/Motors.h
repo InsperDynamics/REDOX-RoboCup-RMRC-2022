@@ -1,22 +1,22 @@
 #include <Servo.h> 
-#define motorUR 0
-#define motorURdirA 0
-#define motorURdirB 0
-#define motorLR 0
-#define motorLRdirA 0
-#define motorLRdirB 0
-#define motorUL 0
-#define motorULdirA 0
-#define motorULdirB 0
-#define motorLL 0
-#define motorLLdirA 0
-#define motorLLdirB 0
-#define basearmA_pin 0
-#define basearmB_pin 0
-#define forearm_pin 0
-#define hand_pin 0
-#define gripperTurner_pin 0
-#define gripperOpener_pin 0
+#define motorUR 8
+#define motorURdirA 31
+#define motorURdirB 33
+#define motorLR 9
+#define motorLRdirA 35
+#define motorLRdirB 37
+#define motorUL 10
+#define motorULdirA 38
+#define motorULdirB 51
+#define motorLL 11
+#define motorLLdirA 50
+#define motorLLdirB 45
+#define basearmA_pin 2
+#define basearmB_pin 3
+#define forearm_pin 4
+#define hand_pin 5
+#define gripperTurner_pin 6
+#define gripperOpener_pin 7
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
 
 void RetractArm(){
