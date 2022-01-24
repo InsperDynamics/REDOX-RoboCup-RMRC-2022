@@ -10,9 +10,6 @@
 #include "Hazmat_detection.h"
 using namespace std;
 using namespace cv;
-bool image_processing = false;
-int resolution_horizontal = 0;
-int resolution_vertical = 0;
 Mat webcam_image;
 
 
@@ -42,12 +39,14 @@ int main(int argv, char** args)
 			webcam_image = ReadQR(webcam_image);
 			webcam_image = DetectMotion(webcam_image);
 		}
-		UpdateGamepad();
+		outgoing_msg = GamepadCommand();
+		cout << outgoing_msg;
+		//WriteSerial(outgoing_msg);
 		resizeWindow("REDOX", resolution_horizontal, resolution_vertical);
 		copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));
 		imshow("REDOX", webcam_image);
-		imshow("Thermal", thermal_image);
 		imshow("CO2", gas_image);
+		imshow("Thermal", thermal_image);
 		moveWindow("Thermal", 0, 0);
 		moveWindow("CO2", 0, thermal_height);
 		waitKey(1);

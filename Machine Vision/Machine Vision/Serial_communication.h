@@ -42,7 +42,8 @@ int ConnectSerial()
 	serial.RTS(false);
 }
 
-void ReadSerial() {
+void ReadSerial() 
+{
 	incoming_msg = "";
 	while (serial.available()) {
 		char incoming_char;
@@ -54,4 +55,12 @@ void ReadSerial() {
 			incoming_msg += incoming_char;
 		}
 	}
+}
+
+void WriteSerial(string outgoing_msg)
+{
+	char* char_arr;
+	string str_obj(outgoing_msg);
+	char_arr = &str_obj[0];
+	serial.writeString(char_arr);
 }

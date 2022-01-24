@@ -5,8 +5,10 @@ using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
 static const int JOYSTICK_DEAD_ZONE = 8000;
-static int xDir = 0;
-static int yDir = 0;
+static const int JOYSTICK_MAXIMUM_ZONE = 32900;
+static int xAnalog = 0;
+static int yAnalog = 0;
+bool image_processing = false;
 
 void InitializeGamepad()
 {
@@ -21,43 +23,80 @@ void InitializeGamepad()
     }
 }
 
-void UpdateGamepad()
+string GamepadCommand()
 {
     while (SDL_PollEvent(&sdl_event) != 0)
     {
-        if (sdl_event.type == SDL_JOYAXISMOTION)
-        {
-			if (sdl_event.jaxis.axis == 0)
+		if (sdl_event.type == SDL_JOYBUTTONDOWN)
+		{
+			int buttonId = sdl_event.jbutton.button;
+			switch (buttonId)
 			{
-				if (sdl_event.jaxis.value < -JOYSTICK_DEAD_ZONE)
-				{
-					xDir = -1;
-				}
-				else if (sdl_event.jaxis.value > JOYSTICK_DEAD_ZONE)
-				{
-					xDir = 1;
-				}
-				else
-				{
-					xDir = 0;
-				}
+			case 2:
+				return "ExtendArm\n";
+				break;
+			case 3:
+				return "RetractArm\n";
+				break;
+			case 6:
+			case 7:
+				image_processing = !image_processing;
+				return "";
+				break;
 			}
-			else if (sdl_event.jaxis.axis == 1)
+		}
+		else if (sdl_event.type == SDL_JOYAXISMOTION)
+        {
+			float pwm_to_joystick_zone = JOYSTICK_MAXIMUM_ZONE / 255;
+			switch (sdl_event.jaxis.axis)
 			{
-				if (sdl_event.jaxis.value < -JOYSTICK_DEAD_ZONE)
+			case 0:
+				if (abs(sdl_event.jaxis.value) > abs(JOYSTICK_DEAD_ZONE))
 				{
-					yDir = -1;
-				}
-				else if (sdl_event.jaxis.value > JOYSTICK_DEAD_ZONE)
-				{
-					yDir = 1;
+					xAnalog = sdl_event.jaxis.value / pwm_to_joystick_zone;
 				}
 				else
 				{
-					yDir = 0;
+					xAnalog = 0;
 				}
+				break;
+			case 1:
+				if (abs(sdl_event.jaxis.value) > abs(JOYSTICK_DEAD_ZONE))
+				{
+					yAnalog = -(sdl_event.jaxis.value / pwm_to_joystick_zone);
+				}
+				else
+				{
+					yAnalog = 0;
+				}
+				break;
 			}
         }
     }
-	cout << xDir << yDir << "\n";
+	if (xAnalog == 0 && yAnalog == 0)
+	{
+		return "MotorsStop\n";
+	}
+	else if (abs(yAnalog) >= abs(xAnalog))
+	{
+		if (yAnalog > 0)
+		{
+			return "MoveForward," + to_string(yAnalog) + "\n";
+		}
+		else if (yAnalog < 0)
+		{
+			return "MoveBackwards," + to_string(abs(yAnalog)) + "\n";
+		}
+	}
+	else
+	{
+		if (xAnalog > 0)
+		{
+			return "RotateRight," + to_string(xAnalog) + "\n";
+		}
+		else if (xAnalog < 0)
+		{
+			return "RotateLeft," + to_string(abs(xAnalog)) + "\n";
+		}
+	}
 }

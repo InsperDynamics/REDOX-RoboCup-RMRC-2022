@@ -46,7 +46,9 @@ Vector<String> splitstring(String str) {
 
 void ControlMotors(Vector<String> splitted) {
   String command = splitted[0];
-  int command_parameter = splitted[1].toInt();
+  if (sizeof(splitted) > 1){
+    int command_parameter = splitted[1].toInt();
+  }
   if (command == "RetractArm"){
     RetractArm();
   } else if(command == "ExtendArm"){

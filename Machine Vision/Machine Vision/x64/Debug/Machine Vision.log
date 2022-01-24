@@ -1,4 +1,6 @@
 ﻿  REDOX_INTERFACE.cpp
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Gamepad_controller.h(56,38): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Gamepad_controller.h(66,16): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Thermal_gas.h(12,63): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
           with
           [
@@ -26,4 +28,5 @@ C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine V
           ]
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(29,30): warning C4305: 'inicializando': truncamento de 'double' para 'float'
 C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Serial_communication.h(43): warning C4715: 'ConnectSerial': nem todos os caminhos de controle retornam um valor
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Gamepad_controller.h(102): warning C4715: 'GamepadCommand': nem todos os caminhos de controle retornam um valor
   Machine Vision.vcxproj -> C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\x64\Debug\Machine Vision.exe
