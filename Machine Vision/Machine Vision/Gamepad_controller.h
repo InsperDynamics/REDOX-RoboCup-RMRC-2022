@@ -38,6 +38,12 @@ string GamepadCommand()
 			case 3:
 				return "RetractArm\n";
 				break;
+			case 4:
+				return "previous_camera";
+				break;
+			case 5:
+				return "next_camera";
+				break;
 			case 6:
 			case 7:
 				image_processing = !image_processing;
