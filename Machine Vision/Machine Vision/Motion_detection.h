@@ -11,9 +11,7 @@ static Mat DetectMotion(Mat image)
 	Mat blurred;
 	GaussianBlur(image, blurred, Size(21, 21), 0);
 	if (firstFrame.empty())
-	{
 		firstFrame = blurred;
-	}
 	Mat frameDelta;
 	absdiff(firstFrame, blurred, frameDelta);
 	cvtColor(frameDelta, frameDelta, COLOR_BGR2GRAY);

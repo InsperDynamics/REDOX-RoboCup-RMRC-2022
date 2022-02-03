@@ -7,8 +7,8 @@ using namespace cv;
 int thermal_width = 8;
 int thermal_height = 8;
 int upscale_factor = 20;
-Mat thermal_image = Mat::zeros(Size(thermal_width, thermal_height), CV_8UC3);
 int CO2level = 0;
+Mat thermal_image = Mat::zeros(Size(thermal_width, thermal_height), CV_8UC3);
 Mat gas_image = Mat::zeros(Size(thermal_width, thermal_height * 0.4), CV_8UC3);
 
 void UpdateGas(vector<string> splitted)

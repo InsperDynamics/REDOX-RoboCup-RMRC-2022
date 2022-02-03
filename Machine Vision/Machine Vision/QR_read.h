@@ -64,9 +64,7 @@ static Mat ReadQR(Mat image)
 			putText(image, text, textOrg, fontFace, fontScale, (0, 0, 255), thickness);
 			obj_location.clear();
 			if (find(qr_results.begin(), qr_results.end(), symbol->get_data()) == qr_results.end())
-			{
 				myfile << "\nDecode Result: " << endl << symbol->get_data() << endl;
-			}
 			qr_results.push_back(symbol->get_data());
 		}
 		imageZbar.set_data(NULL, 0);
