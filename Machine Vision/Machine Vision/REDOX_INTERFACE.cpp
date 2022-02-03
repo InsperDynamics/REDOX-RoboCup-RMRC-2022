@@ -52,6 +52,7 @@ int main(int argv, char** args)
 	capture.open(current_camera_index);
 	InitializeQR();
 	//InitializeHazmat();
+	system("gnome-terminal play '|rec --buffer 512 -d'");
 	while (true)
 	{
 		//ReadSerial();
