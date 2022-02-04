@@ -50,30 +50,16 @@ void ControlMotors(Vector<String> splitted) {
   if (sizeof(splitted) > 1){
     int command_parameter = splitted[1].toInt();
   }
-  if (command == "RetractArm"){
-    RetractArm();
-  } else if(command == "ExtendArm"){
-    ExtendArm();
-  } else if (command == "MoveBasearmForward"){
-    MoveServo(0, command_parameter, 1);
-  } else if (command == "MoveBasearmBackwards"){
-    MoveServo(0, command_parameter, -1);
-  } else if (command == "MoveForearmForward"){
-    MoveServo(1, command_parameter, 1);
-  } else if (command == "MoveForearmBackwards"){
-    MoveServo(1, command_parameter, -1);
-  } else if (command == "MoveHandForward"){
-    MoveServo(2, command_parameter, 1);
-  } else if (command == "MoveHandBackwards"){
-    MoveServo(2, command_parameter, -1);
-  } else if (command == "MoveGripperTurnerForward"){
-    MoveServo(3, command_parameter, 1);
-  } else if (command == "MoveGripperTurnerBackwards"){
-    MoveServo(3, command_parameter, -1);
-  } else if (command == "MoveGripperOpenerForward"){
-    MoveServo(4, command_parameter, 1);
-  } else if (command == "MoveGripperOpenerBackwards"){
-    MoveServo(4, command_parameter, -1);
+  if (command == "MoveBasearm"){
+    MoveServo(0, command_parameter);
+  } else if (command == "MoveForearm"){
+    MoveServo(1, command_parameter);
+  } else if (command == "MoveHand"){
+    MoveServo(2, command_parameter);
+  } else if (command == "MoveGripperTurner"){
+    MoveServo(3, command_parameter);
+  } else if (command == "MoveGripperOpener"){
+    MoveServo(4, command_parameter);
   } else if (command == "MotorsStop"){
     MotorsStop();
   } else if (command == "MotorsRelease"){

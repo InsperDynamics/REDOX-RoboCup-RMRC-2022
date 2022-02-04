@@ -3,6 +3,7 @@
 #include <opencv2\opencv.hpp>
 #include "Serial_communication.h"
 #include "Gamepad_controller.h"
+#include "Servos_controller.h"
 #include "Thermal_gas.h"
 #include "QR_read.h"
 #include "Motion_detection.h"
@@ -14,40 +15,17 @@ int resolution_vertical = 768;
 const int number_of_cameras = 3;
 int current_camera_index = 0;
 Mat webcam_image;
-Mat claw_picture = imread("claw.png", IMREAD_COLOR);
-Mat servo_image;
 
-
-void UpdateServoImage()
-{
-	servo_image = claw_picture.clone();
-	Point circle_center;
-	switch (current_clawjoint_index)
-	{
-	case 0:
-		circle_center = Point(60, 150);
-		break;
-	case 1:
-		circle_center = Point(30, 85);
-		break;
-	case 2:
-		circle_center = Point(60, 30);
-		break;
-	case 3:
-		circle_center = Point(95, 35);
-		break;
-	case 4:
-		circle_center = Point(135, 50);
-		break;
-	}
-	circle(servo_image, circle_center, servo_image.cols / 10, Scalar(0, 0, 255), -1);
-}
 
 int main(int argv, char** args)
 {
 	//ConnectSerial();
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
+	namedWindow("Claw");
+	namedWindow("CO2");
+	namedWindow("Thermal");
+	CreateServoSliders();
 	VideoCapture capture;
 	capture.open(current_camera_index);
 	InitializeQR();
@@ -70,6 +48,7 @@ int main(int argv, char** args)
 			webcam_image = DetectMotion(webcam_image);
 		}
 		outgoing_msg = GamepadCommand();
+		outgoing_msg_2 = CheckServoCommand();
 		if (outgoing_msg == "previous_camera")
 		{
 			current_camera_index--;
@@ -84,6 +63,11 @@ int main(int argv, char** args)
 				current_camera_index = 0;
 			capture.open(current_camera_index);
 		}
+		else if (!outgoing_msg_2.empty())
+		{
+			cout << outgoing_msg_2;
+			//WriteSerial(outgoing_msg_2);
+		}
 		else if (!outgoing_msg.empty())
 		{
 			cout << outgoing_msg;
@@ -91,12 +75,10 @@ int main(int argv, char** args)
 		}
 		resizeWindow("REDOX", resolution_horizontal, resolution_vertical);
 		copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));
-		UpdateServoImage();
 		imshow("REDOX", webcam_image);
-		imshow("Claw", servo_image);
 		imshow("CO2", gas_image);
 		imshow("Thermal", thermal_image);
-		moveWindow("Claw", resolution_horizontal - servo_image.cols, 0);
+		moveWindow("REDOX", 0, 0);
 		moveWindow("Thermal", 0, 0);
 		moveWindow("CO2", 0, thermal_height);
 		waitKey(1);

@@ -153,6 +153,7 @@
     <ClInclude Include="Motion_detection.h" />
     <ClInclude Include="serialib.h" />
     <ClInclude Include="Serial_communication.h" />
+    <ClInclude Include="Servos_controller.h" />
     <ClInclude Include="Thermal_gas.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="times.h" />

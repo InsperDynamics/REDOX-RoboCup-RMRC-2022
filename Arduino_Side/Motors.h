@@ -18,56 +18,26 @@
 #define gripperTurner_pin 6
 #define gripperOpener_pin 7
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
-int basearmA_pos=0, forearm_pos=0, hand_pos=0, gripperTurner_pos=0, gripperOpener_pos=0;
 
-void RetractArm(){
-	basearmA.write(90);
-  basearmB.write(90);
-  forearm.write(90);
-  hand.write(90);
-  gripperTurner.write(90);
-  gripperOpener.write(90);
-}
-void ExtendArm(){
-	basearmA.write(90);
-  basearmB.write(90);
-  forearm.write(90);
-  hand.write(90);
-  gripperTurner.write(90);
-  gripperOpener.write(90);
-}
-
-void MoveServo(int servo, int velocity, int dir){
-  int* pos_var;
+void MoveServo(int servo, int pos){
   switch(servo){
     case 0:
-      basearmA.write(constrain(basearmA_pos, 0, 180));
-      basearmB.write(constrain(180 - basearmA_pos, 0, 180));
-      pos_var = &basearmA_pos;
+      basearmA.write(constrain(pos, 0, 180));
+      basearmB.write(constrain(180 - pos, 0, 180));
       break;
     case 1:
-      forearm.write(constrain(forearm_pos, 0, 180));
-      pos_var = &forearm_pos;
+      forearm.write(constrain(pos, 0, 180));
       break;
     case 2:
-      hand.write(constrain(hand_pos, 0, 180));
-      pos_var = &hand_pos;
+      hand.write(constrain(pos, 0, 180));
       break;
     case 3:
-      gripperTurner.write(constrain(gripperTurner_pos, 0, 180));
-      pos_var = &gripperTurner_pos;
+      gripperTurner.write(constrain(pos, 0, 180));
       break;
     case 4:
-      gripperOpener.write(constrain(gripperOpener_pos, 0, 180));
-      pos_var = &gripperOpener_pos;
+      gripperOpener.write(constrain(pos, 0, 180));
       break;
   }
-  if (dir > 0){
-    *pos_var++;
-  } else {
-    *pos_var--;
-  }
-  delay(2 * (255 - velocity));
 }
 
 void MotorsRelease(){
@@ -112,6 +82,12 @@ void MotorsInitialize(){
   gripperOpener.attach(gripperOpener_pin);
   gripperTurner.attach(gripperTurner_pin);
   MotorsRelease();
+  basearmA.write(90);
+  basearmB.write(90);
+  forearm.write(90);
+  hand.write(90);
+  gripperTurner.write(90);
+  gripperOpener.write(90);
 }
 
 void URForward(){

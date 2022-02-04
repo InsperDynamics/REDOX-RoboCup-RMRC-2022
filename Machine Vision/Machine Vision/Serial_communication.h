@@ -8,6 +8,7 @@ using namespace cv;
 serialib serial;
 string incoming_msg;
 string outgoing_msg;
+string outgoing_msg_2;
 
 #if defined (_WIN32) || defined(_WIN64)
 #define SERIAL_PORT "COM1"
