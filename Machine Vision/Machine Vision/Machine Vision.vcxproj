@@ -151,7 +151,6 @@
     <ClInclude Include="Gamepad_controller.h" />
     <ClInclude Include="Hazmat_detection.h" />
     <ClInclude Include="Motion_detection.h" />
-    <ClInclude Include="Screen_resolution.h" />
     <ClInclude Include="serialib.h" />
     <ClInclude Include="Serial_communication.h" />
     <ClInclude Include="Thermal_gas.h" />

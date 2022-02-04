@@ -4,12 +4,13 @@
 #include "Serial_communication.h"
 #include "Gamepad_controller.h"
 #include "Thermal_gas.h"
-#include "Screen_resolution.h"
 #include "QR_read.h"
 #include "Motion_detection.h"
 #include "Hazmat_detection.h"
 using namespace std;
 using namespace cv;
+int resolution_horizontal = 1366;
+int resolution_vertical = 768;
 const int number_of_cameras = 3;
 int current_camera_index = 0;
 Mat webcam_image;
@@ -46,7 +47,6 @@ int main(int argv, char** args)
 {
 	//ConnectSerial();
 	InitializeGamepad();
-	GetDesktopResolution(resolution_horizontal, resolution_vertical);
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	VideoCapture capture;
 	capture.open(current_camera_index);
