@@ -49,7 +49,6 @@ void MotorsRelease(){
   digitalWrite(motorLLdirB, LOW);
   digitalWrite(motorLRdirA, LOW);
   digitalWrite(motorLRdirB, LOW);
-  RetractArm();
 }
 void MotorsStop(){
   digitalWrite(motorULdirA, HIGH);

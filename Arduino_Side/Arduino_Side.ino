@@ -1,55 +1,27 @@
-#include <Vector.h>
+#include <ros.h>
+#include <std_msgs/String.h>
+#include <std_msgs/UInt16.h>
+#include <std_msgs/Float32MultiArray.h>
 #include "Sensors.h"
 #include "Motors.h"
-String incoming_msg;
-String outgoing_msg;
 
-void ReadSerial() {
-  incoming_msg = "";
-  while (Serial.available()) {
-    char incoming_char = (char)Serial.read();
-    if(incoming_char == '\n' && Serial.available()) {
-      incoming_msg = "";
-    }
-    else {
-      incoming_msg += incoming_char;
-    }
-  }
+String current_command = "";
+int current_value = 0;
+std_msgs::UInt16 gas;
+std_msgs::Float32MultiArray temperature;
+void commandCallback(std_msgs::String& command){
+  current_command = command.data;
 }
-
-void WriteSerial() {
-  outgoing_msg = "";
-	for(int i=0; i<AMG88xx_PIXEL_ARRAY_SIZE; i++) {
-    	outgoing_msg += String(amg88_pixels[i]);
-    	outgoing_msg += ',';
-  }
-  outgoing_msg += String(CO2level);
-	Serial.println(outgoing_msg);
+void valueCallback(std_msgs::UInt16& value){
+  current_value = value.data;
 }
+ros::NodeHandle nodehandle;
+ros::Publisher pub_temperature("temperature", &temperature);
+ros::Publisher pub_gas("gas", &gas);
+ros::Subscriber<std_msgs::String> sub_command("arduino_command", &commandCallback);
+ros::Subscriber<std_msgs::UInt16> sub_value("arduino_value", &valueCallback);
 
-Vector<String> splitstring(String str) {
-  Vector<String> splitted;
-  String word = "";
-  int word_index = 0;
-  for (auto c : str) {
-    if (c == ',') {
-      splitted.push_back(word);
-      word_index++;
-      word = "";
-    }
-    else {
-      word += c;
-    }
-  }
-  return splitted;
-}
-
-void ControlMotors(Vector<String> splitted) {
-  String command = splitted[0];
-  int command_parameter = 0;
-  if (sizeof(splitted) > 1){
-    int command_parameter = splitted[1].toInt();
-  }
+void ControlMotors(String command, int command_parameter) {
   if (command == "MoveBasearm"){
     MoveServo(0, command_parameter);
   } else if (command == "MoveForearm"){
@@ -76,17 +48,21 @@ void ControlMotors(Vector<String> splitted) {
 }
 
 void setup() {
-  Serial.begin(115200);
   MotorsInitialize();
+  nodehandle.initNode();
+  nodehandle.advertise(pub_temperature);
+  nodehandle.advertise(pub_gas);
+  nodehandle.subscribe(sub_command);
+  nodehandle.subscribe(sub_value);
 }
 
 void loop() {
-  ReadSerial();
-  Vector<String> splitted = splitstring(incoming_msg);
-  if (sizeof(splitted) >= 2){
-    ControlMotors(splitted);
-  }
   ReadSensors();
-  WriteSerial();
-  Serial.flush();
+  temperature.data_length = AMG88xx_PIXEL_ARRAY_SIZE;
+  memcpy(temperature.data, amg88_pixels, sizeof(amg88_pixels));
+  gas.data = CO2level;
+  pub_temperature.publish(&temperature);
+  pub_gas.publish(&gas);
+  nodehandle.spinOnce();
+  ControlMotors(current_command, current_value);
 }

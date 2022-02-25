@@ -21,12 +21,6 @@
     <ClCompile Include="REDOX_INTERFACE.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="serialib.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="time.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Motion_detection.h">
@@ -35,16 +29,7 @@
     <ClInclude Include="Hazmat_detection.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
-    <ClInclude Include="serialib.h">
-      <Filter>Arquivos de Origem</Filter>
-    </ClInclude>
-    <ClInclude Include="time.h">
-      <Filter>Arquivos de Origem</Filter>
-    </ClInclude>
-    <ClInclude Include="times.h">
-      <Filter>Arquivos de Origem</Filter>
-    </ClInclude>
-    <ClInclude Include="Serial_communication.h">
+    <ClInclude Include="ROS_communication.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
     <ClInclude Include="Thermal_gas.h">

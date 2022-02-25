@@ -144,19 +144,14 @@
   <ItemGroup>
     <ClCompile Include="REDOX_INTERFACE.cpp" />
     <ClCompile Include="QR_read.h" />
-    <ClCompile Include="serialib.cpp" />
-    <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gamepad_controller.h" />
     <ClInclude Include="Hazmat_detection.h" />
     <ClInclude Include="Motion_detection.h" />
-    <ClInclude Include="serialib.h" />
-    <ClInclude Include="Serial_communication.h" />
+    <ClInclude Include="ROS_communication.h" />
     <ClInclude Include="Servos_controller.h" />
     <ClInclude Include="Thermal_gas.h" />
-    <ClInclude Include="time.h" />
-    <ClInclude Include="times.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

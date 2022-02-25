@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <opencv2\opencv.hpp>
-#include "Serial_communication.h"
+//#include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Servos_controller.h"
 #include "Thermal_gas.h"
@@ -10,8 +10,8 @@
 #include "Hazmat_detection.h"
 using namespace std;
 using namespace cv;
-int resolution_horizontal = 1366;
-int resolution_vertical = 768;
+const int resolution_horizontal = 1366;
+const int resolution_vertical = 768;
 const int number_of_cameras = 3;
 int current_camera_index = 0;
 Mat webcam_image;
@@ -19,7 +19,7 @@ Mat webcam_image;
 
 int main(int argv, char** args)
 {
-	//ConnectSerial();
+	//ConnectROS();
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
@@ -33,45 +33,40 @@ int main(int argv, char** args)
 	system("gnome-terminal play '|rec --buffer 512 -d'");
 	while (true)
 	{
-		//ReadSerial();
-		if (!incoming_msg.empty())
-		{
-			vector<string> splitted = splitstring(incoming_msg);
-			UpdateGas(splitted);
-			splitted.pop_back();
-			UpdateThermal(splitted);
-		}
-		capture >> webcam_image;
-		if (image_processing){
-			//webcam_image = DetectHazmat(webcam_image);
-			webcam_image = ReadQR(webcam_image);
-			webcam_image = DetectMotion(webcam_image);
-		}
-		outgoing_msg = GamepadCommand();
-		outgoing_msg_2 = CheckServoCommand();
-		if (outgoing_msg == "previous_camera")
+		UpdateGamepadInput();
+		UpdateServosInput();
+		if (gamepad_command == "previous_camera")
 		{
 			current_camera_index--;
 			if (current_camera_index < 0)
 				current_camera_index = number_of_cameras - 1;
 			capture.open(current_camera_index);
 		}
-		else if (outgoing_msg == "next_camera")
+		else if (gamepad_command == "next_camera")
 		{
 			current_camera_index++;
 			if (current_camera_index > number_of_cameras - 1)
 				current_camera_index = 0;
 			capture.open(current_camera_index);
 		}
-		else if (!outgoing_msg_2.empty())
+		else if (!servos_command.empty())
 		{
-			cout << outgoing_msg_2;
-			//WriteSerial(outgoing_msg_2);
+			cout << servos_command;
+			//WriteArduino(servos_command, servos_value);
 		}
-		else if (!outgoing_msg.empty())
+		else if (!gamepad_command.empty())
 		{
-			cout << outgoing_msg;
-			//WriteSerial(outgoing_msg);
+			cout << gamepad_command;
+			//WriteArduino(gamepad_command, gamepad_value);
+		}
+		//ReadArduino();
+		//UpdateGas(current_gas);
+		//UpdateThermal(current_temperature);
+		capture >> webcam_image;
+		if (image_processing) {
+			//webcam_image = DetectHazmat(webcam_image);
+			webcam_image = ReadQR(webcam_image);
+			webcam_image = DetectMotion(webcam_image);
 		}
 		resizeWindow("REDOX", resolution_horizontal, resolution_vertical);
 		copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));

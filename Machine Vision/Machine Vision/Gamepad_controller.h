@@ -9,6 +9,8 @@ static const int JOYSTICK_DEAD_ZONE = 8000;
 static const int JOYSTICK_MAXIMUM_ZONE = 32900;
 static int xAnalog_left = 0;
 static int yAnalog_left = 0;
+string gamepad_command = "";
+int gamepad_value = 0;
 
 void InitializeGamepad()
 {
@@ -19,7 +21,7 @@ void InitializeGamepad()
         gGameController = SDL_JoystickOpen(0);
 }
 
-string GamepadCommand()
+void UpdateGamepadInput()
 {
     while (SDL_PollEvent(&sdl_event) != 0)
     {
@@ -29,15 +31,18 @@ string GamepadCommand()
 			switch (buttonId)
 			{
 			case 4:
-				return "previous_camera";
+				gamepad_command = "previous_camera";
+				return;
 				break;
 			case 5:
-				return "next_camera";
+				gamepad_command = "next_camera";
+				return;
 				break;
 			case 6:
 			case 7:
 				image_processing = !image_processing;
-				return "";
+				gamepad_command = "";
+				return;
 				break;
 			}
 		}
@@ -62,19 +67,33 @@ string GamepadCommand()
         }
     }
 	if (xAnalog_left == 0 && yAnalog_left == 0)
-		return "MotorsStop\n";
+	{
+		gamepad_command = "MotorsStop";
+	}
 	else if (abs(yAnalog_left) >= abs(xAnalog_left))
 	{
 		if (yAnalog_left > 0)
-			return "MoveForward," + to_string(yAnalog_left) + "\n";
+		{
+			gamepad_command = "MoveForward";
+			gamepad_value = yAnalog_left;
+		}
 		else if (yAnalog_left < 0)
-			return "MoveBackwards," + to_string(abs(yAnalog_left)) + "\n";
+		{
+			gamepad_command = "MoveBackwards";
+			gamepad_value = yAnalog_left;
+		}
 	}
 	else
 	{
 		if (xAnalog_left > 0)
-			return "RotateRight," + to_string(xAnalog_left) + "\n";
+		{
+			gamepad_command = "RotateRight";
+			gamepad_value = xAnalog_left;
+		}
 		else if (xAnalog_left < 0)
-			return "RotateLeft," + to_string(abs(xAnalog_left)) + "\n";
+		{
+			gamepad_command = "RotateLeft";
+			gamepad_value = xAnalog_left;
+		}
 	}
 }
