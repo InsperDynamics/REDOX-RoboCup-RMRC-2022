@@ -9,14 +9,14 @@ Mat firstFrame;
 static Mat DetectMotion(Mat image)
 {
 	Mat blurred;
-	GaussianBlur(image, blurred, Size(21, 21), 0);
+	GaussianBlur(image, blurred, Size(7, 7), 0);
 	if (firstFrame.empty())
 		firstFrame = blurred;
 	Mat frameDelta;
 	absdiff(firstFrame, blurred, frameDelta);
 	cvtColor(frameDelta, frameDelta, COLOR_BGR2GRAY);
 	Mat DeltaThresholded;
-	double thresh = threshold(frameDelta, DeltaThresholded, 25, 255, THRESH_BINARY);
+	double thresh = threshold(frameDelta, DeltaThresholded, 50, 255, THRESH_BINARY);
 	Mat dilate_kernel = getStructuringElement(MORPH_RECT, Size(5, 5), Point(2, 2));
 	dilate(DeltaThresholded, DeltaThresholded, dilate_kernel, Point(-1, -1), 2);
 	vector<vector<Point>> contours;
@@ -25,6 +25,7 @@ static Mat DetectMotion(Mat image)
 	findContours(DeltaThresholded, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 	for (size_t c = 0; c < contours.size(); c++)
 	{
+		cout << boundingRect(contours[c]).height << "\n";
 		drawContours(image, contours, (int)c, Scalar(0, 0, 255), 2);
 	}
 	firstFrame = blurred;
