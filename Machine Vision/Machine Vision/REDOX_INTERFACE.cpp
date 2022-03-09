@@ -51,12 +51,12 @@ int main(int argv, char** args)
 		}
 		else if (!servos_command.empty())
 		{
-			cout << servos_command;
+			cout << servos_command << "\n";
 			//WriteArduino(servos_command, servos_value);
 		}
 		else if (!gamepad_command.empty())
 		{
-			cout << gamepad_command;
+			cout << gamepad_command << "\n";
 			//WriteArduino(gamepad_command, gamepad_value);
 		}
 		//ReadArduino();

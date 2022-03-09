@@ -4,7 +4,7 @@
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
-bool image_processing = false;
+bool image_processing = true;
 static const int JOYSTICK_DEAD_ZONE = 8000;
 static const int JOYSTICK_MAXIMUM_ZONE = 32900;
 static int xAnalog_left = 0;
