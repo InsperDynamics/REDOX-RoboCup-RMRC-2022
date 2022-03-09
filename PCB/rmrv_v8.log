@@ -45,3 +45,6 @@ clean 5
 route 100 16
 clean 5
 filter 5
+recorner diagonal
+status_file
+
