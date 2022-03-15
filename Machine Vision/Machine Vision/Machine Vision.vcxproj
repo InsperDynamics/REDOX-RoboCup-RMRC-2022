@@ -153,6 +153,10 @@
     <ClInclude Include="Servos_controller.h" />
     <ClInclude Include="Thermal_gas.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="yolov3-tiny.cfg" />
+    <None Include="yolov3-tiny.weights" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

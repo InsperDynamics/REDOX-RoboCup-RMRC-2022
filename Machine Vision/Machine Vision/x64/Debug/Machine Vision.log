@@ -26,5 +26,16 @@ C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine V
           [
               _Tp=int
           ]
-C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(29,30): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Motion_detection.h(28,11): warning C4804: '<': uso não seguro de tipo 'bool' em operação
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(16,25): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(30,38): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
+C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\Machine Vision\Hazmat_detection.h(30,83): warning C4244: 'argumento': conversão de 'double' para '_Tp', possível perda de dados
+          with
+          [
+              _Tp=int
+          ]
   Machine Vision.vcxproj -> C:\Users\Felipe Catapano\Documents\GitHub\REDOX-RoboCup-RMRC-Challenge\Machine Vision\x64\Debug\Machine Vision.exe

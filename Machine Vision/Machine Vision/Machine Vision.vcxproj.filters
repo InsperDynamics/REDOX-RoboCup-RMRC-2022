@@ -42,4 +42,12 @@
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="yolov3-tiny.weights">
+      <Filter>Arquivos de Origem</Filter>
+    </None>
+    <None Include="yolov3-tiny.cfg">
+      <Filter>Arquivos de Origem</Filter>
+    </None>
+  </ItemGroup>
 </Project>

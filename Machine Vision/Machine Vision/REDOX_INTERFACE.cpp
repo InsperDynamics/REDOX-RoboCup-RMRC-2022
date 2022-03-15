@@ -29,7 +29,7 @@ int main(int argv, char** args)
 	VideoCapture capture;
 	capture.open(current_camera_index);
 	InitializeQR();
-	//InitializeHazmat();
+	InitializeHazmat();
 	system("gnome-terminal play '|rec --buffer 512 -d'");
 	while (true)
 	{
@@ -64,8 +64,8 @@ int main(int argv, char** args)
 		//UpdateThermal(current_temperature);
 		capture >> webcam_image;
 		if (image_processing) {
-			//webcam_image = DetectHazmat(webcam_image);
 			webcam_image = ReadQR(webcam_image);
+			webcam_image = DetectHazmat(webcam_image);
 			webcam_image = DetectMotion(webcam_image);
 		}
 		resizeWindow("REDOX", resolution_horizontal, resolution_vertical);

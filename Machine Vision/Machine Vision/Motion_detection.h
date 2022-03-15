@@ -9,7 +9,7 @@ Mat firstFrame;
 static Mat DetectMotion(Mat image)
 {
 	Mat blurred;
-	GaussianBlur(image, blurred, Size(7, 7), 0);
+	GaussianBlur(image, blurred, Size(3, 3), 0);
 	if (firstFrame.empty())
 		firstFrame = blurred;
 	Mat frameDelta;
@@ -25,8 +25,10 @@ static Mat DetectMotion(Mat image)
 	findContours(DeltaThresholded, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 	for (size_t c = 0; c < contours.size(); c++)
 	{
-		cout << boundingRect(contours[c]).height << "\n";
-		drawContours(image, contours, (int)c, Scalar(0, 0, 255), 2);
+		if (0.5 < boundingRect(contours[c]).height / boundingRect(contours[c]).width < 2) 
+		{
+			drawContours(image, contours, (int)c, Scalar(0, 0, 255), 2);
+		}
 	}
 	firstFrame = blurred;
 	return image;
