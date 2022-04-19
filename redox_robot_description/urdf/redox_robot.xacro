@@ -1,0 +1,599 @@
+<?xml version="1.0" ?>
+<robot name="redox_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find redox_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find redox_robot_description)/urdf/redox_robot.trans" />
+<xacro:include filename="$(find redox_robot_description)/urdf/redox_robot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.030018705409207293 0.02277308750672743 0.03005279524109006" rpy="0 0 0"/>
+    <mass value="3.8831887887628076"/>
+    <inertia ixx="0.032397" iyy="0.011887" izz="0.02869" ixy="-0.000377" iyz="0.003469" ixz="-1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_3">
+  <inertial>
+    <origin xyz="0.02664362537853835 -5.397499067000266e-07 1.4559471091246667e-07" rpy="0 0 0"/>
+    <mass value="3.1717827199849116"/>
+    <inertia ixx="0.008134" iyy="0.00516" izz="0.00516" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.080654 -0.11181 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.080654 -0.11181 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2">
+  <inertial>
+    <origin xyz="-0.026643352957820027 -2.287799444750105e-07 1.4559471170003113e-07" rpy="0 0 0"/>
+    <mass value="3.1717827199849116"/>
+    <inertia ixx="0.008134" iyy="0.00516" izz="0.00516" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144216 -0.111396 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144216 -0.111396 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_4">
+  <inertial>
+    <origin xyz="0.026643625378538316 -5.397499067555378e-07 1.4559471092460974e-07" rpy="0 0 0"/>
+    <mass value="3.1717827199849116"/>
+    <inertia ixx="0.008134" iyy="0.00516" izz="0.00516" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.080654 0.04959 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.080654 0.04959 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1">
+  <inertial>
+    <origin xyz="-0.026643352957819957 -2.287799444750105e-07 1.4559471170176586e-07" rpy="0 0 0"/>
+    <mass value="3.1717827199849116"/>
+    <inertia ixx="0.008134" iyy="0.00516" izz="0.00516" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144216 0.050004 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144216 0.050004 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gas_sensor_1">
+  <inertial>
+    <origin xyz="0.004746672182731395 -0.0008000921306509645 -0.007921901743374184" rpy="0 0 0"/>
+    <mass value="0.003460388744762866"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.006734 0.107777 -0.067433" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/gas_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.006734 0.107777 -0.067433" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/gas_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_scan_1">
+  <inertial>
+    <origin xyz="-0.000781 0.088274 -0.123077" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000781 0.088274 -0.123077" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/base_scan_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000781 0.088274 -0.123077" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/base_scan_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="realsense_t265_1">
+  <inertial>
+    <origin xyz="-0.024754295060534712 -0.006117361074135616 -1.7589246570359762e-07" rpy="0 0 0"/>
+    <mass value="0.22482888211310204"/>
+    <inertia ixx="1.3e-05" iyy="0.000224" izz="0.000216" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.079663 0.101969 -0.131791" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/realsense_t265_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.079663 0.101969 -0.131791" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/realsense_t265_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hub_4">
+  <inertial>
+    <origin xyz="0.003113509900325759 -9.136762218298067e-05 -0.00015428718992915869" rpy="0 0 0"/>
+    <mass value="0.02001967132782171"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.080654 0.04959 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.080654 0.04959 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hub_1">
+  <inertial>
+    <origin xyz="-0.003113237479607567 9.059909233208319e-05 -0.00015428718992845179" rpy="0 0 0"/>
+    <mass value="0.02001967132782171"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144216 0.050004 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144216 0.050004 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hub_2">
+  <inertial>
+    <origin xyz="-0.00311323747960765 9.059909233206931e-05 -0.00015428718992844398" rpy="0 0 0"/>
+    <mass value="0.02001967132782171"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144216 -0.111396 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144216 -0.111396 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hub_3">
+  <inertial>
+    <origin xyz="0.0031135099003257866 -9.13676221830223e-05 -0.00015428718992917343" rpy="0 0 0"/>
+    <mass value="0.02001967132782171"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.080654 -0.11181 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.080654 -0.11181 -0.006293" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/hub_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dcmotor_4">
+  <inertial>
+    <origin xyz="0.02690834299078937 0.007749476584377274 -0.013589835198918437" rpy="0 0 0"/>
+    <mass value="0.4471801539290962"/>
+    <inertia ixx="7.1e-05" iyy="0.000161" izz="0.00016" ixy="0.0" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.058654 0.05734 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.058654 0.05734 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dcmotor_1">
+  <inertial>
+    <origin xyz="-0.02690807057007101 0.007749754885771787 -0.013589835198917991" rpy="0 0 0"/>
+    <mass value="0.4471801539290962"/>
+    <inertia ixx="7.1e-05" iyy="0.000161" izz="0.00016" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.122216 0.057754 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.122216 0.057754 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dcmotor_2">
+  <inertial>
+    <origin xyz="-0.026908070570071024 0.007749754885771759 -0.01358983519891798" rpy="0 0 0"/>
+    <mass value="0.4471801539290962"/>
+    <inertia ixx="7.1e-05" iyy="0.000161" izz="0.00016" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.122216 -0.103646 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.122216 -0.103646 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dcmotor_3">
+  <inertial>
+    <origin xyz="0.026908342990789424 0.007749476584377177 -0.013589835198918434" rpy="0 0 0"/>
+    <mass value="0.4471801539290962"/>
+    <inertia ixx="7.1e-05" iyy="0.000161" izz="0.00016" ixy="0.0" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.058654 -0.10406 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.058654 -0.10406 -0.026717" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/dcmotor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bracket_1">
+  <inertial>
+    <origin xyz="-0.002859767439332389 0.015615634272172767 0.006770355606271952" rpy="0 0 0"/>
+    <mass value="0.04195982764049011"/>
+    <inertia ixx="9e-06" iyy="1.6e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.109529 0.065621 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.109529 0.065621 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bracket_2">
+  <inertial>
+    <origin xyz="-0.0028597674393324307 0.01561563427217276 0.006770355606271971" rpy="0 0 0"/>
+    <mass value="0.04195982764049011"/>
+    <inertia ixx="9e-06" iyy="1.6e-05" izz="1.7e-05" ixy="0.0" iyz="0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.109529 -0.095779 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.109529 -0.095779 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bracket_4">
+  <inertial>
+    <origin xyz="0.002859039860050941 0.015626500151939553 0.006770355606271875" rpy="0 0 0"/>
+    <mass value="0.04195982764049011"/>
+    <inertia ixx="9e-06" iyy="1.6e-05" izz="1.7e-05" ixy="0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.045966 0.065213 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.045966 0.065213 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bracket_3">
+  <inertial>
+    <origin xyz="0.002859039860050934 0.015626500151939504 0.006770355606271877" rpy="0 0 0"/>
+    <mass value="0.04195982764049011"/>
+    <inertia ixx="9e-06" iyy="1.6e-05" izz="1.7e-05" ixy="0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.045966 -0.096187 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.045966 -0.096187 0.007509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/bracket_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_camera_1">
+  <inertial>
+    <origin xyz="2.3451599559846936e-05 -0.0012721615487102378 0.013794968532879703" rpy="0 0 0"/>
+    <mass value="0.3938340663114922"/>
+    <inertia ixx="4.1e-05" iyy="0.000252" izz="0.000242" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.031781 -0.159556 -0.075491" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/back_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.031781 -0.159556 -0.075491" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/back_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thermal_camera_1">
+  <inertial>
+    <origin xyz="0.009852254547568662 -0.001102102803734406 -0.009785702572175273" rpy="0 0 0"/>
+    <mass value="0.004996183093515437"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007213 0.107777 -0.046041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/thermal_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007213 0.107777 -0.046041" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://redox_robot_description/meshes/thermal_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="hub_3"/>
+  <child link="wheel_3"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="hub_2"/>
+  <child link="wheel_2"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="hub_4"/>
+  <child link="wheel_4"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev4" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="hub_1"/>
+  <child link="wheel_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin xyz="0.006734 -0.107777 0.067433" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="gas_sensor_1"/>
+</joint>
+
+<joint name="Rigid7" type="fixed">
+  <origin xyz="0.000781 -0.088274 0.123077" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_scan_1"/>
+</joint>
+
+<joint name="Rigid8" type="fixed">
+  <origin xyz="0.079663 -0.101969 0.131791" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="realsense_t265_1"/>
+</joint>
+
+<joint name="Rigid9" type="fixed">
+  <origin xyz="-0.022 0.00775 -0.020424" rpy="0 0 0"/>
+  <parent link="dcmotor_4"/>
+  <child link="hub_4"/>
+</joint>
+
+<joint name="Rigid10" type="fixed">
+  <origin xyz="0.022 0.00775 -0.020424" rpy="0 0 0"/>
+  <parent link="dcmotor_1"/>
+  <child link="hub_1"/>
+</joint>
+
+<joint name="Rigid11" type="fixed">
+  <origin xyz="0.022 0.00775 -0.020424" rpy="0 0 0"/>
+  <parent link="dcmotor_2"/>
+  <child link="hub_2"/>
+</joint>
+
+<joint name="Rigid12" type="fixed">
+  <origin xyz="-0.022 0.00775 -0.020424" rpy="0 0 0"/>
+  <parent link="dcmotor_3"/>
+  <child link="hub_3"/>
+</joint>
+
+<joint name="Rigid13" type="fixed">
+  <origin xyz="-0.012688 0.007873 0.034226" rpy="0 0 0"/>
+  <parent link="bracket_4"/>
+  <child link="dcmotor_4"/>
+</joint>
+
+<joint name="Rigid14" type="fixed">
+  <origin xyz="0.012687 0.007867 0.034226" rpy="0 0 0"/>
+  <parent link="bracket_1"/>
+  <child link="dcmotor_1"/>
+</joint>
+
+<joint name="Rigid15" type="fixed">
+  <origin xyz="0.012687 0.007867 0.034226" rpy="0 0 0"/>
+  <parent link="bracket_2"/>
+  <child link="dcmotor_2"/>
+</joint>
+
+<joint name="Rigid16" type="fixed">
+  <origin xyz="-0.012688 0.007873 0.034226" rpy="0 0 0"/>
+  <parent link="bracket_3"/>
+  <child link="dcmotor_3"/>
+</joint>
+
+<joint name="Rigid17" type="fixed">
+  <origin xyz="0.109529 -0.065621 -0.007509" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bracket_1"/>
+</joint>
+
+<joint name="Rigid18" type="fixed">
+  <origin xyz="0.109529 0.095779 -0.007509" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bracket_2"/>
+</joint>
+
+<joint name="Rigid19" type="fixed">
+  <origin xyz="-0.045966 -0.065213 -0.007509" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bracket_4"/>
+</joint>
+
+<joint name="Rigid20" type="fixed">
+  <origin xyz="-0.045966 0.096187 -0.007509" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bracket_3"/>
+</joint>
+
+<joint name="Rigid21" type="fixed">
+  <origin xyz="0.031781 0.159556 0.075491" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_camera_1"/>
+</joint>
+
+<joint name="Rigid22" type="fixed">
+  <origin xyz="0.007213 -0.107777 0.046041" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="thermal_camera_1"/>
+</joint>
+
+</robot>
