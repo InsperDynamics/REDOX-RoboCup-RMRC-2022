@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <opencv2\opencv.hpp>
-//#include "ROS_communication.h"
+#include "opencv2/opencv.hpp"
+#include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Servos_controller.h"
 #include "Thermal_gas.h"
@@ -16,10 +16,10 @@ const int number_of_cameras = 3;
 int current_camera_index = 0;
 Mat webcam_image;
 
-
 int main(int argv, char** args)
 {
-	//ConnectROS();
+	ConnectROS(argv, args);
+	system("gnome-terminal play '|rec --buffer 512 -d'");
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
@@ -30,7 +30,6 @@ int main(int argv, char** args)
 	capture.open(current_camera_index);
 	InitializeQR();
 	InitializeHazmat();
-	system("gnome-terminal play '|rec --buffer 512 -d'");
 	while (true)
 	{
 		UpdateGamepadInput();
@@ -52,16 +51,16 @@ int main(int argv, char** args)
 		else if (!servos_command.empty())
 		{
 			cout << servos_command << "\n";
-			//WriteArduino(servos_command, servos_value);
+			WriteArduino(servos_command, servos_value);
 		}
 		else if (!gamepad_command.empty())
 		{
 			cout << gamepad_command << "\n";
-			//WriteArduino(gamepad_command, gamepad_value);
+			WriteArduino(gamepad_command, gamepad_value);
 		}
-		//ReadArduino();
-		//UpdateGas(current_gas);
-		//UpdateThermal(current_temperature);
+		ReadArduino();
+		UpdateGas(current_gas);
+		UpdateThermal(current_temperature);
 		capture >> webcam_image;
 		if (image_processing) {
 			webcam_image = ReadQR(webcam_image);
