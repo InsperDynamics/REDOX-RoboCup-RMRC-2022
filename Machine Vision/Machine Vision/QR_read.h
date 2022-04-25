@@ -1,6 +1,6 @@
 #pragma once
-#include <zbar.h>
-#include <opencv2\opencv.hpp>
+#include "zbar/zbar.h"
+#include "opencv2/opencv.hpp"
 #include <numeric>
 #include <fstream>
 using namespace std;

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <opencv2\opencv.hpp>
+#include "opencv2/opencv.hpp"
 using namespace std;
 using namespace cv;
 int basearmA_pos = 90, forearm_pos = 90, hand_pos = 90, gripperTurner_pos = 90, gripperOpener_pos = 90;

@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include <SDL.h>
+#include "SDL2/SDL.h"
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
