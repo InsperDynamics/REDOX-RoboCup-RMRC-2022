@@ -219,12 +219,6 @@ On our first version we had space problems, so we decided to take out the inputs
 
 To attach on the robot, we put two holes to attach using screw. The board is 2 faced, in another word, it conducts in both sides, the red part conduct at the top, and the blue part conduct at the bottom.
 
-After finished we had the following result:
-
-![Imagem 16](RackMultipart20220426-1-f7fytx_html_207eded9803cf1bb.gif)
-
-![Imagem 17](RackMultipart20220426-1-f7fytx_html_33d8f1a24ef041c8.gif)
-
 All the inputs from PCB have cables, specially done, for make this connection. On the photos we can see red and black cables. On the board are the cables that support the power of the h-bridges. The other one was to test the boar but are going to receive the battery supply. All the files to make the board can be find at the team github, also you can check pdf from the schematic, bottom, and upper face from the board.
 
 We haven&#39;t mentioned the Jetson Nano yet, but it is used to supply the Arduino, using the serial port. This way, the Arduino is supporting the power for the thermal camera and the CO2 sensor. Besides that, the power bank is responsible to supply the Jetson Nano, this way, we have the control and power parts with different sources.
