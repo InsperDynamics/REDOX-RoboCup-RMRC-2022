@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <opencv2/opencv.hpp>
+#include <ros/ros.h>
 #include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Servos_controller.h"
@@ -16,9 +17,9 @@ const int number_of_cameras = 3;
 int current_camera_index = 0;
 Mat webcam_image;
 
-int main(int argv, char** args)
+int main(int argc, char** argv)
 {
-	ConnectROS(argv, args);
+	ConnectROS(argc, argv);
 	system("gnome-terminal play '|rec --buffer 512 -d'");
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);

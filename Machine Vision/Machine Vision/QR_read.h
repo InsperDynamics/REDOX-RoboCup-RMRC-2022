@@ -1,5 +1,5 @@
 #pragma once
-#include "zbar/zbar.h"
+#include <zbar.h>
 #include <opencv2/opencv.hpp>
 #include <numeric>
 #include <fstream>
