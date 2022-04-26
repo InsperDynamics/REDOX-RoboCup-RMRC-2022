@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   genmsg
 )
 
+include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${zbar_INCLUDE_DIRS})
 include_directories(${catkin_INCLUDE_DIRS})
