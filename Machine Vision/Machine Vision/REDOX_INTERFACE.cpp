@@ -19,8 +19,8 @@ Mat webcam_image;
 
 int main(int argc, char** argv)
 {
+	ConnectSoX();
 	ConnectROS(argc, argv);
-	system("gnome-terminal play '|rec --buffer 512 -d'");
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");

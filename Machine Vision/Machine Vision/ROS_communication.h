@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <thread>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <std_msgs/UInt16.h>
@@ -23,8 +25,14 @@ void gasCallback(const std_msgs::UInt16& gas) {
 	current_gas = gas.data;
 }
 
+void ConnectSoX()
+{
+	system("gnome-terminal -- play '|rec --buffer 512 -d'");
+}
+
 void ConnectROS(int argc, char** argv)
 {
+	system("gnome-terminal -- roscore");
 	ros::init(argc, argv, "redox_main");
 	ros::NodeHandle nodehandle;
 	pub_command = nodehandle.advertise<std_msgs::String>("arduino_command", 1000);
