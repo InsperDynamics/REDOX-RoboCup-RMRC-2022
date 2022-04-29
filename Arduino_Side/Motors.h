@@ -1,22 +1,26 @@
 #include <Servo.h> 
-#define motorUR 8
-#define motorURdirA 31
-#define motorURdirB 33
-#define motorLR 9
-#define motorLRdirA 35
-#define motorLRdirB 37
-#define motorUL 10
-#define motorULdirA 38
-#define motorULdirB 51
-#define motorLL 11
-#define motorLLdirA 50
-#define motorLLdirB 45
+#define enableA 27
+#define enableB 29
+#define enableC 46
+#define enableD 48
+#define motorUR 10
+#define motorURdirA 36
+#define motorURdirB 32
+#define motorLR 8
+#define motorLRdirA 38
+#define motorLRdirB 44
+#define motorUL 11
+#define motorULdirA 30
+#define motorULdirB 34
+#define motorLL 9
+#define motorLLdirA 42
+#define motorLLdirB 40
 #define basearmA_pin 2
 #define basearmB_pin 3
-#define forearm_pin 4
-#define hand_pin 5
-#define gripperTurner_pin 6
-#define gripperOpener_pin 7
+#define forearm_pin 7
+#define hand_pin 4
+#define gripperTurner_pin 5
+#define gripperOpener_pin 6
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
 
 void MoveServo(int servo, int pos){
@@ -62,6 +66,14 @@ void MotorsStop(){
 }
 
 void MotorsInitialize(){
+  pinMode(enableA, OUTPUT);
+  pinMode(enableB, OUTPUT);
+  pinMode(enableC, OUTPUT);
+  pinMode(enableD, OUTPUT);
+  digitalWrite(enableA, HIGH);
+  digitalWrite(enableB, HIGH);
+  digitalWrite(enableC, HIGH);
+  digitalWrite(enableD, HIGH);
   pinMode(motorUL, OUTPUT);
   pinMode(motorULdirA, OUTPUT);
   pinMode(motorULdirB, OUTPUT);
