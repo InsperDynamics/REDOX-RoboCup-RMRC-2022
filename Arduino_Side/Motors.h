@@ -102,36 +102,36 @@ void MotorsInitialize(){
 }
 
 void URForward(){
-  digitalWrite(motorURdirA, HIGH);
-  digitalWrite(motorURdirB, LOW);
-}
-void URBackwards(){
   digitalWrite(motorURdirA, LOW);
   digitalWrite(motorURdirB, HIGH);
 }
-void ULForward(){
-  digitalWrite(motorULdirA, HIGH);
-  digitalWrite(motorULdirB, LOW);
+void URBackwards(){
+  digitalWrite(motorURdirA, HIGH);
+  digitalWrite(motorURdirB, LOW);
 }
-void ULBackwards(){
+void ULForward(){
   digitalWrite(motorULdirA, LOW);
   digitalWrite(motorULdirB, HIGH);
 }
-void LRForward(){
-  digitalWrite(motorLRdirA, HIGH);
-  digitalWrite(motorLRdirB, LOW);
+void ULBackwards(){
+  digitalWrite(motorULdirA, HIGH);
+  digitalWrite(motorULdirB, LOW);
 }
-void LRBackwards(){
+void LRForward(){
   digitalWrite(motorLRdirA, LOW);
   digitalWrite(motorLRdirB, HIGH);
 }
-void LLForward(){
-  digitalWrite(motorLLdirA, HIGH);
-  digitalWrite(motorLLdirB, LOW);
+void LRBackwards(){
+  digitalWrite(motorLRdirA, HIGH);
+  digitalWrite(motorLRdirB, LOW);
 }
-void LLBackwards(){
+void LLForward(){
   digitalWrite(motorLLdirA, LOW);
   digitalWrite(motorLLdirB, HIGH);
+}
+void LLBackwards(){
+  digitalWrite(motorLLdirA, HIGH);
+  digitalWrite(motorLLdirB, LOW);
 }
 
 void Move(int speedL, int speedR){
