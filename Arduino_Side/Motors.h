@@ -134,43 +134,25 @@ void LLBackwards(){
   digitalWrite(motorLLdirB, HIGH);
 }
 
-void MoveForward(int speed){
-  ULForward();
-  LLForward();
-  URForward();
-  LRForward();
-  analogWrite(motorUL, constrain(speed, 0, 250));
-  analogWrite(motorLL, constrain(speed, 0, 250));
-  analogWrite(motorUR, constrain(speed, 0, 250));
-  analogWrite(motorLR, constrain(speed, 0, 250));
-}
-void MoveBackwards(int speed){
-  ULBackwards();
-  LLBackwards();
-  URBackwards();
-  LRBackwards();
-  analogWrite(motorUL, constrain(speed, 0, 250));
-  analogWrite(motorLL, constrain(speed, 0, 250));
-  analogWrite(motorUR, constrain(speed, 0, 250));
-  analogWrite(motorLR, constrain(speed, 0, 250));
-}
-void RotateLeft(int speed){
-  ULBackwards();
-  LLBackwards();
-  URForward();
-  LRForward();
-  analogWrite(motorUL, constrain(speed, 0, 250));
-  analogWrite(motorLL, constrain(speed, 0, 250));
-  analogWrite(motorUR, constrain(speed, 0, 250));
-  analogWrite(motorLR, constrain(speed, 0, 250));
-}
-void RotateRight(int speed){
-  ULForward();
-  LLForward();
-  URBackwards();
-  LRBackwards();
-  analogWrite(motorUL, constrain(speed, 0, 250));
-  analogWrite(motorLL, constrain(speed, 0, 250));
-  analogWrite(motorUR, constrain(speed, 0, 250));
-  analogWrite(motorLR, constrain(speed, 0, 250));
+void Move(int speedL, int speedR){
+  if(speedL > 0){
+    ULForward();
+    LLForward();
+  }
+  else {
+    ULBackwards();
+    LLBackwards();
+  }
+  if(speedR > 0){
+    URForward();
+    LRForward();
+  }
+  else {
+    URBackwards();
+    LRBackwards();
+  }
+  analogWrite(motorUL, constrain(abs(speedL), 0, 255));
+  analogWrite(motorLL, constrain(abs(speedL), 0, 255));
+  analogWrite(motorUR, constrain(abs(speedR), 0, 255));
+  analogWrite(motorLR, constrain(abs(speedR), 0, 255));
 }

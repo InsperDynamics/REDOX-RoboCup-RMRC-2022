@@ -9,6 +9,8 @@
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Gamepad_controller.h
 iostream
 -
+math.h
+-
 SDL2/SDL.h
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/SDL2/SDL.h
 
@@ -50,8 +52,6 @@ iostream
 string
 -
 opencv2/opencv.hpp
--
-ros/ros.h
 -
 ROS_communication.h
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/ROS_communication.h
