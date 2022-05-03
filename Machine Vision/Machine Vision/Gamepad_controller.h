@@ -3,7 +3,6 @@
 #include <math.h>
 #include "SDL2/SDL.h"
 using namespace std;
-bool image_processing = false;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
 static const int JOYSTICK_DEAD_ZONE = 8000;
@@ -38,12 +37,6 @@ void UpdateAnalog()
 				break;
 			case 5:
 				gamepad_command = "next_camera";
-				return;
-				break;
-			case 6:
-			case 7:
-				image_processing = !image_processing;
-				gamepad_command = "";
 				return;
 				break;
 			}

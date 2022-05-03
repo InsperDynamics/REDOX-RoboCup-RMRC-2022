@@ -3,6 +3,7 @@
 
 CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../Gamepad_controller.h
 CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../Hazmat_detection.h
+CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../Mode_switcher.h
 CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../Motion_detection.h
 CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../QR_read.h
 CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp

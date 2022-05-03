@@ -8,7 +8,7 @@ const int thermal_width = 8;
 const int thermal_height = 8;
 const int upscale_factor = 20;
 Mat thermal_image = Mat::zeros(Size(thermal_width, thermal_height), CV_8UC3);
-Mat gas_image = Mat::zeros(Size(thermal_width, thermal_height * 0.4), CV_8UC3);
+Mat gas_image = Mat::zeros(Size((thermal_width*upscale_factor), (thermal_height*upscale_factor) * 0.4), CV_8UC3);
 
 void UpdateGas(int current_gas)
 {

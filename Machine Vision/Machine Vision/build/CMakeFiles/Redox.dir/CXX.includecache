@@ -30,6 +30,14 @@ opencv2/videoio.hpp
 opencv2/imgproc.hpp
 -
 
+/home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Mode_switcher.h
+iostream
+-
+string
+-
+opencv2/opencv.hpp
+-
+
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Motion_detection.h
 opencv2/opencv.hpp
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/opencv2/opencv.hpp
@@ -59,6 +67,8 @@ Gamepad_controller.h
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Gamepad_controller.h
 Servos_controller.h
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Servos_controller.h
+Mode_switcher.h
+/home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Mode_switcher.h
 Thermal_gas.h
 /home/borg/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Thermal_gas.h
 QR_read.h
