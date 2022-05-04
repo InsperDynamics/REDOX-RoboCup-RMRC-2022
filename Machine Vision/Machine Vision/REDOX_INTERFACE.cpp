@@ -11,8 +11,8 @@
 #include "Hazmat_detection.h"
 using namespace std;
 using namespace cv;
-int resolution_horizontal = 1920;
-int resolution_vertical = 1080;
+int resolution_horizontal = 1366;
+int resolution_vertical = 768;
 const int number_of_cameras = 4;
 int current_camera_index = 0;
 VideoCapture capture;
@@ -72,11 +72,14 @@ void updateInterface()
 	moveWindow("REDOX", 0, 0);
 	moveWindow("Thermal", 0, 0);
 	moveWindow("CO2", 0, thermal_height * upscale_factor);
+	moveWindow("Claw", 0, resolution_vertical - 300);
+	moveWindow("Processing", resolution_horizontal - 320, resolution_vertical - 250);
 }
 
 void setup(int argc, char** argv) 
 {
-	ConnectSoX();
+	system("gnome-terminal -- play '|rec --buffer 512 -d'");
+	system("gnome-terminal -- roscore");
 	ConnectROS(argc, argv);
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
@@ -84,6 +87,7 @@ void setup(int argc, char** argv)
 	namedWindow("Processing");
 	namedWindow("CO2");
 	namedWindow("Thermal");
+	system("gnome-terminal -- htop");
 	CreateServoSliders();
 	CreateModeButtons();
 	capture.open(current_camera_index);
