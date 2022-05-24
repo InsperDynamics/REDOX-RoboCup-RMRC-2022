@@ -4,8 +4,8 @@ global_costmap :
   transform_tolerance : 0.5
   width : 15
   height : 15
-  origin_x : -100
-  origin_y : -100
+  origin_x : 0
+  origin_y : 0
   rolling_window : true
   inflation_radius : 2.5
   resolution : 0.1

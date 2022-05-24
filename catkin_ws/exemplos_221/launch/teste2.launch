@@ -14,10 +14,8 @@
         <rosparam file="$(find exemplos_221)/cfg/global_costmap_params.yaml" command="load"/>
         <rosparam file="$(find exemplos_221)/cfg/local_costmap_params.yaml" command="load"/>
         <rosparam file="$(find exemplos_221)/cfg/teb_local_planner.yaml" command="load" />
-        <rosparam file="$(find exemplos_221)/cfg/voronoi.yaml" command="load" />
         <param name="clearing_rotation_allowed" value="false"/>
         <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-        <param name="base_global_planner" value="voronoi_planner/VoronoiPlanner" />
         <param name="conservative_reset_dist" value="4.0"/>
     </node>
 
