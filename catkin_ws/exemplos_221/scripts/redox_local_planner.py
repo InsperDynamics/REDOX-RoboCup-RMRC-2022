@@ -50,18 +50,20 @@ def getAlpha(x, y, theta, raio_robo, poses):
     alpha = degrees(beta - theta + pi)
     if alpha < 0:
         alpha += 360
+    elif alpha > 360:
+        alpha -= 360
     return alpha
     
 def getVel(alpha,k):
     vel = Twist()
-    if alpha < k and alpha > (360 - k):
-        vel.linear.x = 0.3
+    if alpha <= k or alpha >= (360 - k):
+        vel.linear.x = 0.1
     elif (alpha < 90 and alpha > k) or (alpha > (180 + k) and alpha < 270):
-        vel.angular.z = -0.3
-    elif (alpha > (180 - k) and alpha < (180 + k)):
-        vel.linear.x = -0.3
+        vel.angular.z = 0.1
+    elif (alpha >= (180 - k) and alpha <= (180 + k)):
+        vel.linear.x = -0.1
     else:
-        vel.angular.z = 0.3
+        vel.angular.z = -0.1
     return vel  
 
 
@@ -79,8 +81,8 @@ if __name__=="__main__":
         alpha = getAlpha(x, y, theta, 0.15, poses)
         print(alpha)
         rospy.sleep(0.1)
-        #vel = getVel(alpha,10)
-        #topic_vel.publish(vel)
+        vel = getVel(alpha,10)
+        topic_vel.publish(vel)
         
         
 
