@@ -5,8 +5,13 @@ import rospy
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, Path
 from tf.transformations import euler_from_quaternion
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Point
 from math import atan2, inf, sqrt, degrees,pi
+
+x = 0
+y = 0
+theta = 0
+poses = []
 
 def euclidean_distance(point1, point2):
     a = abs(point1[0] - point2[0])**2
@@ -47,7 +52,7 @@ def getAlpha(x, y, theta, raio_robo, poses):
             point2 = point_candidate
             dist_atual = euclidean_distance(point1, point2)
     beta = atan2(point2[1] - point1[1], point2[0] - point1[0])
-    alpha = degrees(beta - theta + pi)
+    alpha = degrees(beta - theta)
     if alpha < 0:
         alpha += 360
     elif alpha > 360:
@@ -70,12 +75,8 @@ def getVel(alpha,k):
 if __name__=="__main__":
     rospy.init_node("redox_local_planner")
     topic_odom = rospy.Subscriber("/odom", Odometry , recebeu_odom)
-    topic_voronoi = rospy.Subscriber("/voronoi/VoronoiPlanner/plan", Path, recebeu_path)
+    topic_voronoi = rospy.Subscriber("/roda/VoronoiPlanner/plan", Path, recebeu_path)
     topic_vel = rospy.Publisher('/cmd_vel',Twist)
-    x = 0
-    y = 0
-    theta = 0
-    poses = []
     rospy.sleep(1.0)
     while not rospy.is_shutdown():
         alpha = getAlpha(x, y, theta, 0.15, poses)

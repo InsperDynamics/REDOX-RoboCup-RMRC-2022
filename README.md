@@ -457,3 +457,39 @@ High-level machine vision and ROS algorithm processing can also be shifted to th
 The arm could also be improved with the utilization of servo units that benefit from daisy-chain technology. Models such as the DRS - 0101 HerkuleX Smart Servo can connect to one another reducing the total amount of wiring on the robot, as well as offering trapezoidal velocity profile, PID and other useful algorithms for precise control applied automatically.
 
 Finally, the team recognizes that higher-resolution thermal imaging sensors and 3D scanning capabilities are more well-suited for real rescue scenarios. Unfortunately, no alternatives that would not significantly increase the cost of the robot were found by the team yet.
+
+# How to setup a VNC connection 
+
+## For reference:
+
+* OS: Ubuntu 20.04.3 LTS
+* VNC Server library: Vino (OBS: It is GNOME based)
+* VNC Client: VNC viewer
+
+## Commands that manage Vino's settings (Run once):
+
+```
+sudo apt-get install vino
+
+gsettings set org.gnome.Vino require-encryption false
+
+gsettings set org.gnome.Vino propmpt-enabled false
+
+gsettings set org.gnome.Vino authentication-methods "[vnc]"
+
+gsettings set org.gnome.Vino vnc-password $(echo -n 'insertPasswordHere'|base64)
+```
+
+## Commands to start VNC Server (Run always):
+
+* To get the correct IP address:
+
+```
+hostname -I
+```
+
+* To start Vino:
+
+```
+/usr/lib/vino/vino-server
+```
