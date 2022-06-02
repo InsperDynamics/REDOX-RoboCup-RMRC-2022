@@ -14,10 +14,10 @@ void commandCallback(std_msgs::String& command){
   current_command = command.data;
 }
 void value1Callback(std_msgs::UInt16& value1){
-  current_value_1 = value.data;
+  current_value_1 = value1.data;
 }
 void value2Callback(std_msgs::UInt16& value2){
-  current_value_2 = value.data;
+  current_value_2 = value2.data;
 }
 ros::NodeHandle nodehandle;
 ros::Publisher pub_temperature("temperature", &temperature);
@@ -52,7 +52,8 @@ void setup() {
   nodehandle.advertise(pub_temperature);
   nodehandle.advertise(pub_gas);
   nodehandle.subscribe(sub_command);
-  nodehandle.subscribe(sub_value);
+  nodehandle.subscribe(sub_value_1);
+  nodehandle.subscribe(sub_value_2);
 }
 
 void loop() {
@@ -63,5 +64,5 @@ void loop() {
   pub_temperature.publish(&temperature);
   pub_gas.publish(&gas);
   nodehandle.spinOnce();
-  ControlMotors(current_command, current_value);
+  ControlMotors(current_command, current_value_1, current_value_2);
 }
