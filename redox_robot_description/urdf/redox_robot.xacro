@@ -149,6 +149,7 @@
       <mesh filename="package://redox_robot_description/meshes/base_scan_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
+    
 </link>
 
 <link name="realsense_t265_1">

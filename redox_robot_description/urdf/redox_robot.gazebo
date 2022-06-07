@@ -54,6 +54,25 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="ray" name="head_hokuyo_sensor">
+    <pose>-0.000781 0.088274 -0.123077 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>720</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.1415</min_angle>
+          <max_angle>3.1415</max_angle>
+        </horizontal>
+      </scan>
+    </ray>
+    <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+      <topicName>/scan</topicName>
+      <frameName>base_scan</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="realsense_t265_1">
@@ -61,6 +80,10 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="odometry" name="realsense_t265_1_odom">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
 </gazebo>
 
 <gazebo reference="hub_4">
