@@ -23,10 +23,10 @@ void setup() {
   digitalWrite(29, HIGH);
   digitalWrite(46, HIGH);
   digitalWrite(48, HIGH);
-  analogWrite(10, 100);
-  analogWrite(11, 100);
-  analogWrite(8, 100);
-  analogWrite(9, 100);
+  analogWrite(10, 150);
+  analogWrite(11, 150);
+  analogWrite(8, 150);
+  analogWrite(9, 150);
   //forward
   digitalWrite(30, HIGH);
   digitalWrite(34, LOW);
