@@ -23,54 +23,54 @@ void setup() {
   digitalWrite(29, HIGH);
   digitalWrite(46, HIGH);
   digitalWrite(48, HIGH);
-  analogWrite(10, 150);
-  analogWrite(11, 150);
-  analogWrite(8, 150);
-  analogWrite(9, 150);
+  analogWrite(10, 100);
+  analogWrite(11, 100);
+  analogWrite(8, 100);
+  analogWrite(9, 100);
   //forward
-  digitalWrite(30, LOW);
-  digitalWrite(34, HIGH);
-  digitalWrite(36, LOW);
+  digitalWrite(30, HIGH);
+  digitalWrite(34, LOW);
   digitalWrite(32, HIGH);
-  digitalWrite(42, LOW);
+  digitalWrite(36, LOW);
   digitalWrite(40, HIGH);
+  digitalWrite(42, LOW);
   digitalWrite(38, LOW);
   digitalWrite(44, HIGH);
   //Await
-  delay(500);
+  delay(1000);
   //backwards
-  digitalWrite(30, HIGH);
-  digitalWrite(34, LOW);
-  digitalWrite(36, HIGH);
-  digitalWrite(32, LOW);
-  digitalWrite(42, HIGH);
-  digitalWrite(40, LOW);
-  digitalWrite(38, HIGH);
-  digitalWrite(44, LOW);
-  //Await
-  delay(500);
-  //turn right
   digitalWrite(30, LOW);
   digitalWrite(34, HIGH);
-  digitalWrite(36, HIGH);
   digitalWrite(32, LOW);
-  digitalWrite(42, LOW);
-  digitalWrite(40, HIGH);
+  digitalWrite(36, HIGH);
+  digitalWrite(40, LOW);
+  digitalWrite(42, HIGH);
   digitalWrite(38, HIGH);
   digitalWrite(44, LOW);
   //Await
-  delay(500);
+  delay(1000);
   //turn left
   digitalWrite(30, HIGH);
   digitalWrite(34, LOW);
-  digitalWrite(36, LOW);
-  digitalWrite(32, HIGH);
-  digitalWrite(42, HIGH);
+  digitalWrite(32, LOW);
+  digitalWrite(36, HIGH);
   digitalWrite(40, LOW);
+  digitalWrite(42, HIGH);
   digitalWrite(38, LOW);
   digitalWrite(44, HIGH);
   //Await
-  delay(500);
+  delay(1000);
+  //turn right
+  digitalWrite(30, LOW);
+  digitalWrite(34, HIGH);
+  digitalWrite(32, HIGH);
+  digitalWrite(36, LOW);
+  digitalWrite(40, HIGH);
+  digitalWrite(42, LOW);
+  digitalWrite(38, HIGH);
+  digitalWrite(44, LOW);
+  //Await
+  delay(1000);
   //Unload pwm
   analogWrite(10, 0);
   analogWrite(11, 0);
