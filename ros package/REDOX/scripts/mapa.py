@@ -11,4 +11,4 @@ sub = rospy.Subscriber("/map",OccupancyGrid, escutou)
 pub = rospy.Publisher('/costmap',OccupancyGrid)
 
 while not rospy.is_shutdown():
-    print('a')
+    pass

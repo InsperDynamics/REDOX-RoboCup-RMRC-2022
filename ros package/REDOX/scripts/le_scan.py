@@ -23,15 +23,14 @@ if __name__=="__main__":
 
 	rospy.init_node("le_scan")
 
-	#velocidade_saida = rospy.Publisher("/cmd_vel", Twist, queue_size = 3 )
+	velocidade_saida = rospy.Publisher("/cmd_vel", Twist, queue_size = 3 )
 	recebe_scan = rospy.Subscriber("/scan", LaserScan, scaneou)
 
 
 
 	while not rospy.is_shutdown():
-		print("Oeee")
-		#velocidade = Twist(Vector3(0, 0, 0), Vector3(0, 0, 1))
-		#velocidade_saida.publish(velocidade)
+		velocidade = Twist(Vector3(0, 0, 0), Vector3(0, 0, 1))
+		velocidade_saida.publish(velocidade)
 		rospy.sleep(2)
 
 
