@@ -1,0 +1,27 @@
+#!/bin/bash
+
+cd ~
+sudo apt update
+sudo apt upgrade
+sudo apt install curl
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update
+sudo apt install ros-melodic-desktop-full
+apt search ros-melodic
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo rosdep init
+rosdep update
+
+cd ~
+sudo apt-get install libzbar-dev
+sudo apt install sox
+git clone https://github.com/libsdl-org/SDL
+mkdir build
+cd build
+../configure
+make
+sudo make install
+cd ~

@@ -261,41 +261,15 @@ To evaluate and run the software, a few dependencies have to be present on the t
 
 Firstly, the user is required to install ROS on their machine. More instructions on this task can be found at [http://wiki.ros.org/ROS/Installation](http://wiki.ros.org/ROS/Installation) (for Ubuntu 18.04, the Melodic Morenia distribution is recommended). This is the middleware required for all virtual nodes to communicate.
 
-Additionally, OpenCV, ZBar and SDL are required for the main portion of the software to execute correctly. To do so, run the following commands at root level:
+Additionally, OpenCV, ZBar and SDL are required for the main portion of the software to execute correctly.
 
-git clone https://github.com/libsdl-org/SDL
-cd SDL
-mkdir build
-cd build
-../configure
-make
-sudo make install
-
-cd ~
-
-sudo apt update
-
-sudo apt-get install libzbar-dev
-
-sudo apt install -y cmake g++ wget unzip
-
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-
-unzip opencv.zip
-
-mkdir -p build &amp;&amp; cd build
-
-cmake ../opencv-4.x
-
-cmake --build .
-
-Arduino IDE should be installed to manage and upload code to the Arduino Mega. Instructions to do this on Linux machines can be found at [https://docs.arduino.cc/software/ide-v1/tutorials/Linux](https://docs.arduino.cc/software/ide-v1/tutorials/Linux). Lastly for dependencies, the user can install SoX to transmit input from the robot´s microphone to the operator in real time. This can be done via the command:
-
-sudo apt install sox
+Arduino IDE should be installed to manage and upload code to the Arduino Mega. Instructions to do this on Linux machines can be found at [https://docs.arduino.cc/software/ide-v1/tutorials/Linux](https://docs.arduino.cc/software/ide-v1/tutorials/Linux). Lastly for dependencies, the user can install SoX to transmit input from the robot´s microphone to the operator in real time.
 
 To run the team´s code, use git to clone the repository at [https://github.com/InsperDynamics/REDOX-RoboCup-RMRC-Challenge](https://github.com/InsperDynamics/REDOX-RoboCup-RMRC-Challenge).
 
 The Arduino\_Side folder contains software to be uploaded via ArduinoIDE, and the main C++ software is found at Machine Vision and should be compiled via g++. Use catkin\_make command to build necessary ROS packages prior to launching the interface.
+
+ A bash file is included in order to automatically install all of the necessary dependencies on a Jetson Nano device with a fresh installation of the official JetPack OS.
 
 To access the robot via VNC, the team recommends the usage of VNC Viewer. The instructions on this page can be used to find the IP address of the main board: [https://help.ubuntu.com/stable/ubuntu-help/net-findip.html.en](https://help.ubuntu.com/stable/ubuntu-help/net-findip.html.en). In case of difficulties while trying to forward input from the gamepad to the VNC server, the user can use USB/IP (install and setup instructions at [http://usbip.sourceforge.net/](http://usbip.sourceforge.net/) ).
 
