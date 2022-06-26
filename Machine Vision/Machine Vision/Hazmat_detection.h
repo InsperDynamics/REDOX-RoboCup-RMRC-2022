@@ -87,8 +87,8 @@ vector<String> getOutputsNames(const Net& net)
 
 static void InitializeHazmat()
 {
-    string modelfile = "../yolov3-tiny.weights";
-    string configfile = "../yolov3-tiny.cfg";
+    string modelfile = "yolov3-tiny.weights";
+    string configfile = "yolov3-tiny.cfg";
     network = readNetFromDarknet(configfile, modelfile);
     network.setPreferableBackend(DNN_BACKEND_DEFAULT);
     network.setPreferableTarget(DNN_TARGET_OPENCL);

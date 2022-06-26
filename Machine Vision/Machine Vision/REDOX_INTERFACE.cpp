@@ -87,7 +87,6 @@ void setup(int argc, char** argv)
 	namedWindow("Processing");
 	namedWindow("CO2");
 	namedWindow("Thermal");
-	system("gnome-terminal -- htop");
 	CreateServoSliders();
 	CreateModeButtons();
 	capture.open(current_camera_index);
