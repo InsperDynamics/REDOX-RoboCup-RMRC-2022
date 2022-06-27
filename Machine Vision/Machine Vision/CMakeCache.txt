@@ -403,6 +403,9 @@ gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 //Path to a library.
 lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
 
+//The directory containing a CMake configuration file for librealsense2.
+librealsense2_DIR:PATH=librealsense2_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
 
@@ -411,6 +414,9 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for realsense2.
+realsense2_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/realsense2
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake

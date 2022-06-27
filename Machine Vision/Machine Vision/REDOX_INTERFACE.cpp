@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <opencv2/opencv.hpp>
+#include "Realsense_images.h"
 #include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Servos_controller.h"
@@ -13,8 +14,8 @@ using namespace std;
 using namespace cv;
 int resolution_horizontal = 1366;
 int resolution_vertical = 768;
-const int number_of_cameras = 4;
-int current_camera_index = 0;
+const int number_of_cameras = 3;
+int current_camera = 1;
 VideoCapture capture;
 Mat webcam_image;
 
@@ -22,29 +23,43 @@ void checkUserInput()
 {
 	UpdateGamepadInput();
 	UpdateServosInput();
-	if (gamepad_command == "previous_camera")
+	if (gamepad_command == "previous_camera" || gamepad_command == "next_camera")
 	{
-		current_camera_index--;
-		if (current_camera_index < 0)
-			current_camera_index = number_of_cameras - 1;
-		capture.open(current_camera_index);
+		if (gamepad_command == "previous_camera")
+			current_camera--;
+		else if (gamepad_command == "next_camera")
+			current_camera++;
+		if (current_camera < 0)
+			current_camera = number_of_cameras;
+		else if (current_camera > number_of_cameras)
+			current_camera = 0;
+		switch (current_camera)
+		{
+			case 1:
+				//front camera, use ReadRealsenseWebcam()
+				break;
+			case 2:
+				capture.open(0);
+				capture.set(CAP_PROP_FPS, 30);
+				break;
+			case 3:
+				capture.open(1);
+				capture.set(CAP_PROP_FPS, 30);
+				break;
+		}
 	}
-	else if (gamepad_command == "next_camera")
+	else if (!autonomous_movement)
 	{
-		current_camera_index++;
-		if (current_camera_index > number_of_cameras - 1)
-			current_camera_index = 0;
-		capture.open(current_camera_index);
-	}
-	else if (!servos_command.empty() && !autonomous_movement)
-	{
-		cout << servos_command << "\n";
-		WriteArduino(servos_command, servos_value, 0);
-	}
-	else if (!gamepad_command.empty() && !autonomous_movement)
-	{
-		cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
-		WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
+		if (!servos_command.empty())
+		{
+			cout << servos_command << "\n";
+			WriteArduino(servos_command, servos_value, 0);
+		}
+		else if (!gamepad_command.empty())
+		{
+			cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
+			WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
+		}
 	}
 }
 
@@ -53,7 +68,11 @@ void checkSensorsFeed()
 	ReadArduino();
 	UpdateGas(current_gas);
 	UpdateThermal(current_temperature);
-	capture >> webcam_image;
+	if (current_camera == 1)
+		webcam_image = ReadRealsenseWebcam();
+	else
+		capture >> webcam_image;
+	resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_LINEAR);
 	if (qr_detection)
 		webcam_image = ReadQR(webcam_image);
 	if (hazmat_detection)
@@ -65,15 +84,12 @@ void checkSensorsFeed()
 void updateInterface()
 {
 	resizeWindow("REDOX", resolution_horizontal, resolution_vertical);
-	copyMakeBorder(webcam_image, webcam_image, int((resolution_vertical - webcam_image.rows)/3), int((resolution_vertical - webcam_image.rows) / 2), int((resolution_horizontal - webcam_image.cols) / 2), int((resolution_horizontal - webcam_image.cols) / 2), 0, Scalar(50, 50, 50));
 	imshow("REDOX", webcam_image);
 	imshow("CO2", gas_image);
 	imshow("Thermal", thermal_image);
 	moveWindow("REDOX", 0, 0);
 	moveWindow("Thermal", 0, 0);
 	moveWindow("CO2", 0, thermal_height * upscale_factor);
-	moveWindow("Claw", 0, resolution_vertical - 300);
-	moveWindow("Processing", resolution_horizontal - 320, resolution_vertical - 250);
 }
 
 void setup(int argc, char** argv) 
@@ -81,6 +97,7 @@ void setup(int argc, char** argv)
 	system("gnome-terminal -- play '|rec --buffer 512 -d'");
 	system("gnome-terminal -- roscore");
 	ConnectROS(argc, argv);
+	InitializeRealsenseWebcam();
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
@@ -89,7 +106,6 @@ void setup(int argc, char** argv)
 	namedWindow("Thermal");
 	CreateServoSliders();
 	CreateModeButtons();
-	capture.open(current_camera_index);
 	InitializeQR();
 	InitializeHazmat();
 }
@@ -99,7 +115,7 @@ void loop()
 	checkUserInput();
 	checkSensorsFeed();
 	updateInterface();
-	waitKey(1);
+	waitKey(30);
 }
 
 int main(int argc, char** argv)

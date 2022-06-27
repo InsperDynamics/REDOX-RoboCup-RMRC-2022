@@ -101,6 +101,7 @@ Redox: /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.1.1
 Redox: /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.1.1
 Redox: /usr/lib/aarch64-linux-gnu/libopencv_video.so.4.1.1
 Redox: /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.1.1
+Redox: /usr/lib/aarch64-linux-gnu/librealsense2.so.2.50.0
 Redox: /usr/local/lib/libSDL2.so
 Redox: /opt/ros/melodic/lib/libtf.so
 Redox: /opt/ros/melodic/lib/libtf2_ros.so

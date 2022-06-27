@@ -306,6 +306,47 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
+ /home/insper/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Realsense_images.h \
+ /usr/include/librealsense2/rs.hpp /usr/include/librealsense2/rs.h \
+ /usr/include/librealsense2/rsutil.h \
+ /usr/lib/gcc/aarch64-linux-gnu/7/include/stdbool.h \
+ /usr/include/librealsense2/h/rs_types.h \
+ /usr/include/librealsense2/h/rs_sensor.h \
+ /usr/include/librealsense2/h/rs_types.h \
+ /usr/include/librealsense2/h/rs_context.h \
+ /usr/include/librealsense2/h/rs_device.h \
+ /usr/include/librealsense2/h/rs_sensor.h \
+ /usr/include/librealsense2/h/rs_frame.h \
+ /usr/include/librealsense2/h/rs_option.h \
+ /usr/include/librealsense2/h/rs_processing.h \
+ /usr/include/librealsense2/h/rs_option.h \
+ /usr/include/librealsense2/h/rs_record_playback.h \
+ /usr/include/librealsense2/hpp/rs_types.hpp \
+ /usr/include/librealsense2/rs.h \
+ /usr/include/librealsense2/h/rs_context.h \
+ /usr/include/librealsense2/h/rs_device.h \
+ /usr/include/librealsense2/h/rs_frame.h \
+ /usr/include/librealsense2/h/rs_processing.h \
+ /usr/include/librealsense2/h/rs_record_playback.h \
+ /usr/include/librealsense2/h/rs_sensor.h \
+ /usr/include/librealsense2/h/rs_pipeline.h \
+ /usr/include/librealsense2/h/rs_config.h /usr/include/c++/7/iterator \
+ /usr/include/c++/7/bits/stream_iterator.h \
+ /usr/include/librealsense2/hpp/rs_context.hpp \
+ /usr/include/librealsense2/hpp/rs_types.hpp \
+ /usr/include/librealsense2/hpp/rs_record_playback.hpp \
+ /usr/include/librealsense2/hpp/rs_device.hpp \
+ /usr/include/librealsense2/hpp/rs_sensor.hpp \
+ /usr/include/librealsense2/hpp/rs_frame.hpp \
+ /usr/include/librealsense2/hpp/rs_processing.hpp \
+ /usr/include/librealsense2/hpp/rs_options.hpp \
+ /usr/include/librealsense2/hpp/rs_device.hpp \
+ /usr/include/librealsense2/hpp/rs_frame.hpp \
+ /usr/include/librealsense2/hpp/rs_processing.hpp \
+ /usr/include/librealsense2/hpp/rs_record_playback.hpp \
+ /usr/include/librealsense2/hpp/rs_sensor.hpp \
+ /usr/include/librealsense2/hpp/rs_pipeline.hpp \
+ /usr/include/librealsense2/hpp/rs_context.hpp \
  /home/insper/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/ROS_communication.h \
  /usr/include/c++/7/thread /opt/ros/melodic/include/ros/ros.h \
  /opt/ros/melodic/include/ros/time.h \
@@ -894,8 +935,7 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /opt/ros/melodic/include/ros/publisher.h \
  /opt/ros/melodic/include/ros/message.h /usr/include/boost/array.hpp \
  /usr/include/boost/swap.hpp /usr/include/boost/core/swap.hpp \
- /usr/include/boost/detail/iterator.hpp /usr/include/c++/7/iterator \
- /usr/include/c++/7/bits/stream_iterator.h \
+ /usr/include/boost/detail/iterator.hpp \
  /opt/ros/melodic/include/ros/serialization.h \
  /opt/ros/melodic/include/ros/serialized_message.h \
  /opt/ros/melodic/include/ros/message_traits.h \
