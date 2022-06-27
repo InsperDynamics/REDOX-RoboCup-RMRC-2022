@@ -25,6 +25,8 @@ void checkUserInput()
 	UpdateServosInput();
 	if (gamepad_command == "previous_camera" || gamepad_command == "next_camera")
 	{
+		if (current_camera == 3)
+			capture.open(0);
 		if (gamepad_command == "previous_camera")
 			current_camera--;
 		else if (gamepad_command == "next_camera")
@@ -39,7 +41,6 @@ void checkUserInput()
 				//front camera, use ReadRealsenseWebcam()
 				break;
 			case 2:
-				capture.open(0);
 				capture.set(CAP_PROP_FPS, 30);
 				break;
 			case 3:
@@ -57,6 +58,11 @@ void checkUserInput()
 		}
 		else if (!gamepad_command.empty())
 		{
+			if (current_camera == 2)
+			{
+				gamepad_value_1 = -gamepad_value_1;
+				gamepad_value_2 = -gamepad_value_2;
+			}
 			cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
 			WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
 		}
@@ -106,6 +112,7 @@ void setup(int argc, char** argv)
 	namedWindow("Thermal");
 	CreateServoSliders();
 	CreateModeButtons();
+	capture.open(0);
 	InitializeQR();
 	InitializeHazmat();
 }
