@@ -31,7 +31,7 @@ void gasCallback(const std_msgs::UInt16& gas) {
 void ConnectROS(int argc, char** argv)
 {
 	system("gnome-terminal -- roscore");
-	system("gnome-terminal -- chmod a+rw /dev/ttyACM0");
+	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0");
 	ros::init(argc, argv, "redox_main");
 	ros::NodeHandle nodehandle;
 	pub_command = nodehandle.advertise<std_msgs::String>("arduino_command", 1000);
