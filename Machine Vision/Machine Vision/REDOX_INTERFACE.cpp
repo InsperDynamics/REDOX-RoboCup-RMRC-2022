@@ -101,7 +101,6 @@ void updateInterface()
 void setup(int argc, char** argv) 
 {
 	system("gnome-terminal -- play '|rec --buffer 512 -d'");
-	system("gnome-terminal -- roscore");
 	ConnectROS(argc, argv);
 	InitializeRealsenseWebcam();
 	InitializeGamepad();

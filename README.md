@@ -267,7 +267,8 @@ Arduino IDE should be installed to manage and upload code to the Arduino Mega. I
 
 To run the team´s code, use git to clone the repository at [https://github.com/InsperDynamics/REDOX-RoboCup-RMRC-Challenge](https://github.com/InsperDynamics/REDOX-RoboCup-RMRC-Challenge).
 
-The Arduino\_Side folder contains software to be uploaded via ArduinoIDE, and the main C++ software is found at Machine Vision and should be compiled via g++. Use catkin\_make command to build necessary ROS packages prior to launching the interface.
+The Arduino\_Side folder contains software to be uploaded via ArduinoIDE, all necessary external libraries can be installed via library manager. They are: rosserial (version 0.7.9), Adafruit_AMG88xx (any version) and Adafruit_CCS811 (any version).
+The main C++ software is found at Machine Vision and should be compiled via g++. Use catkin\_make command to build necessary ROS packages prior to launching the interface.
 
  A bash file is included in order to automatically install all of the necessary dependencies on a Jetson Nano device with a fresh installation of the official JetPack OS.
 
