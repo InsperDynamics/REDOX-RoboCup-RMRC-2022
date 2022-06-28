@@ -48,6 +48,7 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
 
 void setup() {
   MotorsInitialize();
+  SensorsInitialize();
   nodehandle.initNode();
   nodehandle.advertise(pub_temperature);
   nodehandle.advertise(pub_gas);
@@ -64,5 +65,6 @@ void loop() {
   pub_temperature.publish(&temperature);
   pub_gas.publish(&gas);
   nodehandle.spinOnce();
+  delay(1);
   ControlMotors(current_command, current_value_1, current_value_2);
 }
