@@ -4,7 +4,7 @@
 
 # Robocup Rescue 2022
 
-Antônio Amaral Egydio Martins, Arthur Martins de Souza Barreto,
+Arthur Martins de Souza Barreto, Enricco Gemha
 
 Felipe Catapano Emrich Melo, Rafael Eli Katri.
 
