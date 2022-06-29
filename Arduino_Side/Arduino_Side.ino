@@ -49,8 +49,7 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
 void setup() {
   MotorsInitialize();
   SensorsInitialize();
-  Serial.begin(115200);
-  nodehandle.getHardware()->setBaud(115200);
+  nodehandle.getHardware()->setBaud(9600);
   nodehandle.initNode();
   nodehandle.advertise(pub_temperature);
   nodehandle.advertise(pub_gas);

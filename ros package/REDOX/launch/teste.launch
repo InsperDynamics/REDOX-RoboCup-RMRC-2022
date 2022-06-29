@@ -9,12 +9,12 @@
     </node>
 
     <node pkg="move_base" respawn="false" type="move_base" name="roda" output="screen">
-        <rosparam file="$(find exemplos_221)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
-        <rosparam file="$(find exemplos_221)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find exemplos_221)/cfg/global_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find exemplos_221)/cfg/local_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find exemplos_221)/cfg/teb_local_planner.yaml" command="load" />
-        <rosparam file="$(find exemplos_221)/cfg/voronoi.yaml" command="load" />
+        <rosparam file="$(find REDOX)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+        <rosparam file="$(find REDOX)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find REDOX)/cfg/global_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find REDOX)/cfg/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find REDOX)/cfg/teb_local_planner.yaml" command="load" />
+        <rosparam file="$(find REDOX)/cfg/voronoi.yaml" command="load" />
         <param name="clearing_rotation_allowed" value="false"/>
         <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
         <param name="base_global_planner" value="voronoi_planner/VoronoiPlanner" />
@@ -34,6 +34,6 @@
         <param name="min_frontier_size" value="0.75"/>
     </node>
 
-    <node pkg="rviz" type="rviz" output="screen" name="rviz_m" args="-d $(find exemplos_221)/rviz/default.rviz"/>
+    <node pkg="rviz" type="rviz" output="screen" name="rviz_m" args="-d $(find REDOX)/rviz/default.rviz"/>
 
 </launch>

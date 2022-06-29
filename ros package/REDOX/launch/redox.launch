@@ -10,11 +10,11 @@
 
     <node pkg="move_base" respawn="false" type="move_base" name="roda" output="screen">
         <remap from="cmd_vel" to="a"/>
-        <rosparam file="$(find exemplos_221)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
-        <rosparam file="$(find exemplos_221)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find exemplos_221)/cfg/global_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find exemplos_221)/cfg/local_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find exemplos_221)/cfg/voronoi.yaml" command="load" />
+        <rosparam file="$(find REDOX)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+        <rosparam file="$(find REDOX)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find REDOX)/cfg/global_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find REDOX)/cfg/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find REDOX)/cfg/voronoi.yaml" command="load" />
         <param name="base_global_planner" value="voronoi_planner/VoronoiPlanner" />
         <param name="planner_frequency" value="2.0"/>
         <param name="recovery_behavior_enabled" value="false"/>
@@ -33,8 +33,8 @@
         <param name="min_frontier_size" value="0.75"/>
     </node>
 
-    <node pkg="exemplos_221" type="redox_local_planner.py" name="redox_local_planner" output="screen"/>
+    <node pkg="REDOX" type="redox_local_planner.py" name="redox_local_planner" output="screen"/>
 
-    <node pkg="rviz" type="rviz" output="screen" name="rviz_m" args="-d $(find exemplos_221)/rviz/default.rviz"/>
+    <node pkg="rviz" type="rviz" output="screen" name="rviz_m" args="-d $(find REDOX)/rviz/default.rviz"/>
 
 </launch>
