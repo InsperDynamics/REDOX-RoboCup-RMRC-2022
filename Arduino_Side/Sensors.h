@@ -15,9 +15,9 @@ void SensorsInitialize() {
 
 void ReadSensors() {
   GasDetector.readData();
-	CO2level = (GasDetector.geteCO2() * 0.5) + (CO2level * 0.5);
+	CO2level = GasDetector.geteCO2();
 	ThermalImager.readPixels(amg88_pixels);
 	for (int i=0; i < AMG88xx_PIXEL_ARRAY_SIZE; i++) {
-		amg88_pixels[i] = (map(constrain(amg88_pixels[i], MINTEMP, MAXTEMP), MINTEMP, MAXTEMP, 0, 255) * 0.5) + (amg88_pixels[i] * 0.5);
+		amg88_pixels[i] = map(constrain(amg88_pixels[i], MINTEMP, MAXTEMP), MINTEMP, MAXTEMP, 0, 255);
 	}
 }

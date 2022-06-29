@@ -50,6 +50,7 @@ void ConnectROS(int argc, char** argv)
 void ReadArduino() 
 {
 	ros::spinOnce();
+	sleep_for(microseconds(1000));
 }
 
 void WriteArduino(string command, int value_1, int value_2)

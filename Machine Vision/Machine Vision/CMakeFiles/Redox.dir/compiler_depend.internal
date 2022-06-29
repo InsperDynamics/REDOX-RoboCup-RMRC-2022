@@ -1254,7 +1254,7 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o
  /opt/ros/melodic/include/std_msgs/String.h
  /opt/ros/melodic/include/ros/message_operations.h
  /opt/ros/melodic/include/std_msgs/UInt16.h
- /opt/ros/melodic/include/std_msgs/Float32MultiArray.h
+ /opt/ros/melodic/include/std_msgs/Int8MultiArray.h
  /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/melodic/include/std_msgs/MultiArrayDimension.h
  /home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/Gamepad_controller.h

@@ -51,6 +51,11 @@ void setup() {
   SensorsInitialize();
   nodehandle.getHardware()->setBaud(9600);
   nodehandle.initNode();
+  temperature.layout.dim[0].label = "temperature";
+  temperature.layout.dim[0].size = AMG88xx_PIXEL_ARRAY_SIZE;
+  temperature.layout.dim[0].stride = AMG88xx_PIXEL_ARRAY_SIZE;
+  temperature.layout.data_offset = 0;
+  temperature.data = (float *)malloc(sizeof(float)*AMG88xx_PIXEL_ARRAY_SIZE);
   nodehandle.advertise(pub_temperature);
   nodehandle.advertise(pub_gas);
   nodehandle.subscribe(sub_command);
@@ -61,7 +66,9 @@ void setup() {
 void loop() {
   ReadSensors();
   temperature.data_length = AMG88xx_PIXEL_ARRAY_SIZE;
-  memcpy(temperature.data, amg88_pixels, sizeof(amg88_pixels));
+  for (int i=0; i < AMG88xx_PIXEL_ARRAY_SIZE; i++) {
+    temperature.data[i] = amg88_pixels[i];
+  }
   gas.data = CO2level;
   pub_temperature.publish(&temperature);
   pub_gas.publish(&gas);
