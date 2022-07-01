@@ -12,21 +12,32 @@
 #include "Hazmat_detection.h"
 using namespace std;
 using namespace cv;
-int resolution_horizontal = 1366;
-int resolution_vertical = 768;
+//Recommended resolution for monitor display: set to 1280x720
+int resolution_horizontal = 800;
+int resolution_vertical = 450;
 const int number_of_cameras = 3;
 int current_camera = 1;
 VideoCapture capture;
 Mat webcam_image;
 
+void openCamera(int index)
+{
+	capture.open(index);
+	capture.set(CAP_PROP_FPS, 30);
+	capture.set(CAP_PROP_CONVERT_RGB, false);
+}
+
 void checkUserInput()
 {
-	UpdateGamepadInput();
 	UpdateServosInput();
+	if (use_keyboard == false)
+		UpdateGamepadInput();
+	else
+		UpdateKeyboardInput();
 	if (gamepad_command == "previous_camera" || gamepad_command == "next_camera")
 	{
 		if (current_camera == 3)
-			capture.open(0);
+			openCamera(0);
 		if (gamepad_command == "previous_camera")
 			current_camera--;
 		else if (gamepad_command == "next_camera")
@@ -35,19 +46,8 @@ void checkUserInput()
 			current_camera = number_of_cameras;
 		else if (current_camera > number_of_cameras)
 			current_camera = 0;
-		switch (current_camera)
-		{
-			case 1:
-				//front camera, use ReadRealsenseWebcam()
-				break;
-			case 2:
-				capture.set(CAP_PROP_FPS, 30);
-				break;
-			case 3:
-				capture.open(1);
-				capture.set(CAP_PROP_FPS, 30);
-				break;
-		}
+		if (current_camera == 3)
+			openCamera(1);
 	}
 	else if (!autonomous_movement)
 	{
@@ -78,7 +78,7 @@ void checkSensorsFeed()
 		webcam_image = ReadRealsenseWebcam();
 	else
 		capture >> webcam_image;
-	resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_LINEAR);
+	resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_NEAREST);
 	if (qr_detection)
 		webcam_image = ReadQR(webcam_image);
 	if (hazmat_detection)
@@ -111,7 +111,7 @@ void setup(int argc, char** argv)
 	namedWindow("Thermal");
 	CreateServoSliders();
 	CreateModeButtons();
-	capture.open(0);
+	openCamera(0);
 	InitializeQR();
 	InitializeHazmat();
 }
@@ -121,7 +121,7 @@ void loop()
 	checkUserInput();
 	checkSensorsFeed();
 	updateInterface();
-	waitKey(30);
+	waitKey(1);
 }
 
 int main(int argc, char** argv)

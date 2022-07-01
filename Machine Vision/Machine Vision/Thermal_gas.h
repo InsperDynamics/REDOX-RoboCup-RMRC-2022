@@ -21,6 +21,6 @@ void UpdateGas(int current_gas)
 
 void UpdateThermal(float current_temperature[thermal_width * thermal_height])
 {
-	thermal_image = Mat(thermal_height, thermal_width, CV_64FC1, current_temperature);
-	resize(thermal_image, thermal_image, Size(), upscale_factor, upscale_factor, INTER_CUBIC);
+	thermal_image = Mat(thermal_height, thermal_width, CV_32FC1, current_temperature);
+	resize(thermal_image, thermal_image, Size(), upscale_factor, upscale_factor, INTER_NEAREST);
 }

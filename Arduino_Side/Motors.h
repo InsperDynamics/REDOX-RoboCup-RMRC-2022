@@ -4,8 +4,8 @@
 #define enableC 46
 #define enableD 48
 #define motorUL 10
-#define motorULdirA 36
-#define motorULdirB 32
+#define motorULdirA 32
+#define motorULdirB 36
 #define motorLR 8
 #define motorLRdirA 44
 #define motorLRdirB 38
@@ -102,36 +102,36 @@ void MotorsInitialize(){
 }
 
 void URForward(){
-  digitalWrite(motorURdirA, LOW);
-  digitalWrite(motorURdirB, HIGH);
-}
-void URBackwards(){
   digitalWrite(motorURdirA, HIGH);
   digitalWrite(motorURdirB, LOW);
 }
-void ULForward(){
-  digitalWrite(motorULdirA, LOW);
-  digitalWrite(motorULdirB, HIGH);
+void URBackwards(){
+  digitalWrite(motorURdirA, LOW);
+  digitalWrite(motorURdirB, HIGH);
 }
-void ULBackwards(){
+void ULForward(){
   digitalWrite(motorULdirA, HIGH);
   digitalWrite(motorULdirB, LOW);
 }
-void LRForward(){
-  digitalWrite(motorLRdirA, LOW);
-  digitalWrite(motorLRdirB, HIGH);
+void ULBackwards(){
+  digitalWrite(motorULdirA, LOW);
+  digitalWrite(motorULdirB, HIGH);
 }
-void LRBackwards(){
+void LRForward(){
   digitalWrite(motorLRdirA, HIGH);
   digitalWrite(motorLRdirB, LOW);
 }
-void LLForward(){
-  digitalWrite(motorLLdirA, LOW);
-  digitalWrite(motorLLdirB, HIGH);
+void LRBackwards(){
+  digitalWrite(motorLRdirA, LOW);
+  digitalWrite(motorLRdirB, HIGH);
 }
-void LLBackwards(){
+void LLForward(){
   digitalWrite(motorLLdirA, HIGH);
   digitalWrite(motorLLdirB, LOW);
+}
+void LLBackwards(){
+  digitalWrite(motorLLdirA, LOW);
+  digitalWrite(motorLLdirB, HIGH);
 }
 
 void Move(int speedL, int speedR){
