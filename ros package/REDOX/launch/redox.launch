@@ -1,11 +1,18 @@
 <launch>
+    
+    <include file="$(find ydlidar_ros_driver)/launch/X4.launch"/>
 
-    <node  pkg="tf" name="scan2scan" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_scan /scan 100"/>
+    <include file="$(find realsense2_camera)/launch/rs_t265.launch"> 
+    </include>
+    
+    <node  pkg="tf" name="scan2scan" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_scan laser_frame 100"/>
     <node  pkg="tf" name="scan2basef" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_link base_scan 100"/>
-    <node  pkg="tf" name="scan2base" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_footprint base_link 100"/>
+    <node  pkg="tf" name="base2basecam" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_link base_cam 100"/>
+    <node  pkg="tf" name="base2basef" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_footprint base_link 100"/>
 
-    <node pkg="gmapping" type="slam_gmapping" name="walter" output="screen">
+    <node pkg="gmapping" type="slam_gmapping" name="gmap" output="screen">
         <param name="base_frame" type="string" value="base_footprint"/>
+        <param name="odom_frame" type="string" value="/camera/odom/sample"/>
     </node>
 
     <node pkg="move_base" respawn="false" type="move_base" name="roda" output="screen">
