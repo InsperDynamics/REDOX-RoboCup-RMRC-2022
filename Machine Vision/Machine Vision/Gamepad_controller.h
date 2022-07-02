@@ -5,8 +5,8 @@
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
-static const int JOYSTICK_DEAD_ZONE = 8000;
-static const int JOYSTICK_MAXIMUM_ZONE = 32900;
+static const int JOYSTICK_DEAD_ZONE = 2000;
+static const int JOYSTICK_MAXIMUM_ZONE = 33000;
 static int xAnalog_left = 0;
 static int yAnalog_left = 0;
 string gamepad_command = "";

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/PS5_controller_test.dir/PS5_controller_test.cpp.o  -o PS5_controller_test  -L/usr/local/lib -Wl,-rpath,/usr/local/lib -Wl,--enable-new-dtags -lSDL2 

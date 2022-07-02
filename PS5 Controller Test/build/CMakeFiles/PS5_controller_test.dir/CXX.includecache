@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/borg/REDOX-RoboCup-RMRC-Challenge/PS5 Controller Test/PS5_controller_test.cpp
+iostream
+-
+math.h
+-
+SDL2/SDL.h
+/home/borg/REDOX-RoboCup-RMRC-Challenge/PS5 Controller Test/SDL2/SDL.h
+
