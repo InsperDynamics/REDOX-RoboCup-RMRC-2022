@@ -10,7 +10,7 @@ while True:
     ret, img = cap.read()
     resized = cv2.resize(img, (resolution_horizontal, resolution_vertical))
     cv2.imshow('test', resized)
-    keypressed = cv2.waitKey(30)
+    keypressed = cv2.waitKey(1)
     if keypressed == ord('q'):
         break
   
