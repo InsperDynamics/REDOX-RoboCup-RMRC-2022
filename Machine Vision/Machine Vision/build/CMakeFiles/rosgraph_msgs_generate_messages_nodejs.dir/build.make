@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
+CMAKE_SOURCE_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
+CMAKE_BINARY_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
 
 # Utility rule file for rosgraph_msgs_generate_messages_nodejs.
 
@@ -78,6 +78,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend:
-	cd "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
 

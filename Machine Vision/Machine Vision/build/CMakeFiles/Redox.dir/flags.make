@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"Redox\"
 
-CXX_INCLUDES = -I"/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv4 -isystem /usr/local/include/SDL2
+CXX_INCLUDES = -I"/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv4 -isystem /opt/ros/melodic/include -isystem /usr/local/include/SDL2
 
 CXX_FLAGS = 
 

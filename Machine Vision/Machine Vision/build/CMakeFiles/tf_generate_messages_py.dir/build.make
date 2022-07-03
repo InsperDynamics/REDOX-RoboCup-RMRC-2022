@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
+CMAKE_SOURCE_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
+CMAKE_BINARY_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
 
 # Utility rule file for tf_generate_messages_py.
 
@@ -78,6 +78,6 @@ CMakeFiles/tf_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/tf_generate_messages_py.dir/clean
 
 CMakeFiles/tf_generate_messages_py.dir/depend:
-	cd "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/tf_generate_messages_py.dir/depend
 

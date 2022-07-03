@@ -7,6 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel:$CMAKE_PREFIX_PATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel:$CMAKE_PREFIX_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision:$ROS_PACKAGE_PATH"

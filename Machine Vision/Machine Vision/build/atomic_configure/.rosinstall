@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/setup.sh
+    local-name: /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/setup.sh

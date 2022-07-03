@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
+CMAKE_SOURCE_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
+CMAKE_BINARY_DIR = "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build"
 
 # Utility rule file for clean_test_results.
 
@@ -67,7 +67,7 @@ include CMakeFiles/clean_test_results.dir/compiler_depend.make
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/insper/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/build/test_results
+	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build" "/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

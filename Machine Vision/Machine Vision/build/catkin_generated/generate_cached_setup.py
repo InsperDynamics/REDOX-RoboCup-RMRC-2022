@@ -19,9 +19,9 @@ except ImportError:
             break
     from catkin.environment_cache import generate_environment_script
 
-code = generate_environment_script('/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/env.sh')
+code = generate_environment_script('/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/devel/env.sh')
 
-output_filename = '/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/catkin_generated/setup_cached.sh'
+output_filename = '/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/catkin_generated/setup_cached.sh'
 with open(output_filename, 'w') as f:
     # print('Generate script for cached setup "%s"' % output_filename)
     f.write('\n'.join(code))

@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/insper/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/gtest/googlemock/cmake_install.cmake")
+  include("/home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine Vision/Machine Vision/build/gtest/googlemock/cmake_install.cmake")
 
 endif()
 

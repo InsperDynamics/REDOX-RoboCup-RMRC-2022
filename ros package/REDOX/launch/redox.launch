@@ -6,13 +6,14 @@
     </include>
     
     <node  pkg="tf" name="scan2scan" type="static_transform_publisher" args=" 0.0 0.0 0.0 0.0 0.0 3.14159 base_scan laser_frame 100"/>
-    <node  pkg="tf" name="scan2basef" type="static_transform_publisher" args=" -0.032185 0.065774 -0.107327 0.0 0.0 0.0 base_link base_scan 100"/>
-    <node  pkg="tf" name="base2basecam" type="static_transform_publisher" args=" -0.05392 0.101943 -0.131472 0.0 0.0 0.0 base_link camera_base 100"/>
-    <node  pkg="tf" name="base2basef" type="static_transform_publisher" args=" 0.031732 -0.01 -0.02485 0.0 0.0 0.0 base_footprint base_link 100"/>
+    <node  pkg="tf" name="scan2base" type="static_transform_publisher" args=" -0.032185 0.065774 -0.107327 0.0 0.0 0.0 base_link base_scan 100"/>
+    <node  pkg="tf" name="base2basef" type="static_transform_publisher" args=" 0.031732 -0.008 -0.02485 0.0 0.0 0.0 base_footprint base_link 100"/>
+    <node  pkg="tf" name="cam2basef" type="static_transform_publisher" args=" -0.02218 0.12679 -0.12347 0.0 0.0 0.0 camera_link base_footprint 100"/>
+
 
     <node pkg="gmapping" type="slam_gmapping" name="gmap" output="screen">
         <param name="base_frame" type="string" value="base_footprint"/>
-        <param name="odom_frame" type="string" value="/camera/odom/sample"/>
+        <param name="odom_frame" type="string" value="camera_odom_frame"/>
     </node>
 
     <node pkg="move_base" respawn="false" type="move_base" name="roda" output="screen">
