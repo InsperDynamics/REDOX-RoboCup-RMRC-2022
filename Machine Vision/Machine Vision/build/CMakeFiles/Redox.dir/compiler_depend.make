@@ -1341,7 +1341,7 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
-  ../Servos_controller.h \
+  ../Claw.h \
   ../Mode_switcher.h \
   ../Thermal_gas.h \
   ../QR_read.h \
@@ -1385,8 +1385,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 ../QR_read.h:
 
 ../Mode_switcher.h:
-
-../Servos_controller.h:
 
 /usr/local/include/SDL2/SDL_version.h:
 
@@ -3397,6 +3395,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/config/compiler/gcc.hpp:
 
 /usr/include/boost/preprocessor/control/iif.hpp:
+
+../Claw.h:
 
 /usr/include/boost/preprocessor/iterate.hpp:
 

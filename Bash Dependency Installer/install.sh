@@ -56,6 +56,9 @@ sudo apt install sox
 
 sudo snap install arduino
 
+sudo apt-get install ros-melodic-rosserial-arduino
+sudo apt-get install ros-melodic-rosserial
+
 sudo apt update
 sudo apt install software-properties-common apt-transport-https wget
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -

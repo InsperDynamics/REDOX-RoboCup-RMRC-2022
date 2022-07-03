@@ -27,7 +27,8 @@ void openCamera(int index)
 	{
 		if (captureClaw.isOpened())
 			captureClaw.release();
-		capture.open(index);
+		if (!capture.isOpened())
+			capture.open(0);
 		capture.set(CAP_PROP_FPS, 30);
 		capture.set(CAP_PROP_CONVERT_RGB, false);
 	}

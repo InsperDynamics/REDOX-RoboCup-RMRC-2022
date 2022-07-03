@@ -1198,7 +1198,7 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Servos_controller.h \
+ /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Claw.h \
  /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Mode_switcher.h \
  /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Thermal_gas.h \
  /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/QR_read.h \
