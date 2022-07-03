@@ -36,7 +36,7 @@ void ConnectROS(int argc, char** argv)
 	sleep_for(seconds(10));
 	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0");
 	sleep_for(seconds(10));
-	system("gnome-terminal -- rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=9600");
+	system("gnome-terminal -- rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=115200");
 	ros::init(argc, argv, "redox_main");
 	ros::NodeHandle nodehandle;
 	pub_command = nodehandle.advertise<std_msgs::String>("arduino_command", 1000);

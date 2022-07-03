@@ -5,14 +5,9 @@
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
-<<<<<<< HEAD
-static const int JOYSTICK_DEAD_ZONE = 2000;
-static const int JOYSTICK_MAXIMUM_ZONE = 33000;
-=======
 static const int JOYSTICK_DEAD_ZONE = 8000;
 static const int JOYSTICK_MAXIMUM_ZONE = 32900;
 static int max_pwm = 200;
->>>>>>> 0748732cda5fa46d12f797002c3daf1ee92e78bf
 static int xAnalog_left = 0;
 static int yAnalog_left = 0;
 string gamepad_command = "";

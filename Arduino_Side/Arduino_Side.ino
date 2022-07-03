@@ -49,7 +49,7 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
 void setup() {
   MotorsInitialize();
   SensorsInitialize();
-  nodehandle.getHardware()->setBaud(9600);
+  nodehandle.getHardware()->setBaud(115200);
   nodehandle.initNode();
   temperature.layout.dim[0].label = "temperature";
   temperature.layout.dim[0].size = AMG88xx_PIXEL_ARRAY_SIZE;

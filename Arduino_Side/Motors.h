@@ -86,19 +86,19 @@ void MotorsInitialize(){
   pinMode(motorLR, OUTPUT);
   pinMode(motorLRdirA, OUTPUT);
   pinMode(motorLRdirB, OUTPUT);
-  basearmA.attach(basearmA_pin);
-  basearmB.attach(basearmB_pin);
-  forearm.attach(forearm_pin);
-  hand.attach(hand_pin);
-  gripperOpener.attach(gripperOpener_pin);
-  gripperTurner.attach(gripperTurner_pin);
+  //basearmA.attach(basearmA_pin);
+  //basearmB.attach(basearmB_pin);
+  //forearm.attach(forearm_pin);
+  //hand.attach(hand_pin);
+  //gripperOpener.attach(gripperOpener_pin);
+  //gripperTurner.attach(gripperTurner_pin);
   MotorsRelease();
-  basearmA.write(90);
-  basearmB.write(90);
-  forearm.write(90);
-  hand.write(90);
-  gripperTurner.write(90);
-  gripperOpener.write(90);
+  //basearmA.write(90);
+  //basearmB.write(90);
+  //forearm.write(90);
+  //hand.write(90);
+  //gripperTurner.write(90);
+  //gripperOpener.write(90);
 }
 
 void URForward(){
