@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#! /usr/bin/env python2
 # -*- coding:utf-8 -*-
 
 import rospy
@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, Path
 from tf.transformations import euler_from_quaternion
 from geometry_msgs.msg import PoseStamped, Point
-from math import atan2, inf, sqrt, degrees
+from math import atan2, sqrt, degrees
 raio_robo = 0.3
 x = 0
 y = 0
@@ -41,8 +41,8 @@ def euclidean_distance(point1, point2):
 def getAlpha(alpha_curr):
     global x, y, theta, raio_robo, poses
     point1 = [x, y]
-    point2 = [inf, inf]
-    dist_atual = inf
+    point2 = [9999999, 9999999]
+    dist_atual = 9999999
     for pose in poses:
         point_candidate = [pose.pose.position.x, pose.pose.position.y]
         dist_candidate = euclidean_distance(point1, point_candidate)
