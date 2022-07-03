@@ -5,9 +5,9 @@
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
-static const int JOYSTICK_DEAD_ZONE = 8000;
-static const int JOYSTICK_MAXIMUM_ZONE = 32900;
-static int max_pwm = 200;
+static const int JOYSTICK_DEAD_ZONE = 2000;
+static const int JOYSTICK_MAXIMUM_ZONE = 33000;
+static int max_pwm = 250;
 static int xAnalog_left = 0;
 static int yAnalog_left = 0;
 string gamepad_command = "";
@@ -70,7 +70,7 @@ void UpdateAnalog()
 
 void UpdateGamepadInput()
 {
-	int pwm = max(abs(xAnalog_left), abs(yAnalog_left));
+	int pwm = static_cast<int>(sqrt(xAnalog_left * xAnalog_left + yAnalog_left * yAnalog_left));
 	double theta = atan2(yAnalog_left, xAnalog_left);
 	if (theta < 0)
 		theta += 2 * M_PI;
