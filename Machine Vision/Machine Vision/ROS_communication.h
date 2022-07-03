@@ -23,7 +23,9 @@ ros::Subscriber sub_temperature;
 ros::Subscriber sub_gas;
 
 void temperatureCallback(const std_msgs::Float32MultiArray& temperature) {
-	memcpy(&current_temperature, &temperature.data, sizeof(temperature.data));
+	for (int i=0; i < 64; i++) {
+    	current_temperature[i] = temperature.data[i];
+  	}
 }
 
 void gasCallback(const std_msgs::UInt16& gas) {

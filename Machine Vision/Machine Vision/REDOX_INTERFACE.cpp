@@ -22,7 +22,7 @@ Mat webcam_image;
 
 void openCamera(int index)
 {
-	//1 = t265(front), 2 = c920(back), 3 = imx219(claw)
+	//1 = t265(front), 2 = c920(back), 3 = ov5647(claw)
 	if (index == 1 || index == 2)
 	{
 		if (captureClaw.isOpened())
