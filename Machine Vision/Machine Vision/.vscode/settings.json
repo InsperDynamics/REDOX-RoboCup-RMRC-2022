@@ -8,6 +8,7 @@
         "numeric": "cpp",
         "ostream": "cpp",
         "sstream": "cpp",
-        "nonlinearoptimization": "cpp"
+        "nonlinearoptimization": "cpp",
+        "string": "cpp"
     }
 }

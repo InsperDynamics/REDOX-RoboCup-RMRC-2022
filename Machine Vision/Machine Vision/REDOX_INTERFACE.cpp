@@ -60,8 +60,9 @@ void checkUserInput()
 		{
 			if (current_camera == 2)
 			{
-				gamepad_value_1 = -gamepad_value_1;
-				gamepad_value_2 = -gamepad_value_2;
+				int temp = gamepad_value_1;	
+				gamepad_value_1 = -gamepad_value_2;
+				gamepad_value_2 = -temp;
 			}
 			cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
 			WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
