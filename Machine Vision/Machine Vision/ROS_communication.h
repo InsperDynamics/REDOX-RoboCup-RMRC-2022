@@ -7,12 +7,14 @@
 #include <std_msgs/String.h>
 #include <std_msgs/UInt16.h>
 #include <std_msgs/Float32MultiArray.h>
+#include <geometry_msgs/Twist.h>
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
-bool autonomous_mode = false;
 float current_temperature[64] = {0};
 int current_gas = 0;
+int cmdvel_linear_x = 0;
+int cmdvel_angular_z = 0;
 std_msgs::String arduino_command;
 std_msgs::UInt16 arduino_value_1;
 std_msgs::UInt16 arduino_value_2;
@@ -21,22 +23,32 @@ ros::Publisher pub_value_1;
 ros::Publisher pub_value_2;
 ros::Subscriber sub_temperature;
 ros::Subscriber sub_gas;
+ros::Subscriber sub_cmdvel;
 
-void temperatureCallback(const std_msgs::Float32MultiArray& temperature) {
+void temperatureCallback(const std_msgs::Float32MultiArray& temperature)
+{
 	for (int i=0; i < 64; i++) {
     	current_temperature[i] = temperature.data[i];
   	}
 }
 
-void gasCallback(const std_msgs::UInt16& gas) {
+void gasCallback(const std_msgs::UInt16& gas)
+{
 	current_gas = gas.data;
+}
+
+void cmdvelCallback(const geometry_msgs::Twist& cmdvel)
+{
+	cmdvel_linear_x = int(cmdvel.linear.x);
+	cmdvel_angular_z = int(cmdvel.angular.z);
 }
 
 void ConnectROS(int argc, char** argv)
 {
 	system("gnome-terminal -- roscore");
 	sleep_for(seconds(10));
-	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0");
+	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0 ; 
+	cd ~/catkin_ws ; chmod 0777 src/ydlidar_ros_driver/startup/* ; sudo sh src/ydlidar_ros_driver/startup/initenv.sh");
 	sleep_for(seconds(10));
 	system("gnome-terminal -- rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=115200");
 	ros::init(argc, argv, "redox_main");
@@ -46,7 +58,8 @@ void ConnectROS(int argc, char** argv)
 	pub_value_2 = nodehandle.advertise<std_msgs::UInt16>("arduino_value_2", 1000);
 	sub_temperature = nodehandle.subscribe("temperature", 1000, &temperatureCallback);
 	sub_gas = nodehandle.subscribe("gas", 1000, &gasCallback);
-	system("gnome-terminal -x bash -c 'roslaunch ../../catkin_ws/redox_autonomous.launch'");
+	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
+	//system("gnome-terminal -- roslaunch REDOX redox.launch");
 }
 
 void ReadArduino() 

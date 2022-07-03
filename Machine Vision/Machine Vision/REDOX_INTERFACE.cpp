@@ -77,6 +77,20 @@ void checkUserInput()
 			cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
 			WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
 		}
+	} 
+	else if (autonomous_movement)
+	{
+		int pwm_l = 0;
+		int pwm_r = 0;
+		//transform cmdvel_linear_x and cmdvel_angular_z to pwm_l and pwm_r
+		if (current_camera == 2)
+		{
+			int temp = pwm_l;	
+			pwm_l = -pwm_r;
+			pwm_r = -temp;
+		}
+		cout << gamepad_command << " " << to_string(pwm_l) << " " << to_string(pwm_r) << "\n";
+		WriteArduino(gamepad_command, pwm_l, pwm_r);
 	}
 }
 
