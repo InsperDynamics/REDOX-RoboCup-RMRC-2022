@@ -9,6 +9,14 @@ int basearmA_pos_temp = 90, forearm_pos_temp = 90, hand_pos_temp = 90, gripperTu
 string servos_command;
 int servos_value = 90;
 
+string csi_gstreamer_pipeline (int display_width, int display_height) 
+{
+    return "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)" + to_string(display_width) + ", height=(int)" +
+           to_string(display_height) + ", framerate=(fraction)" + to_string(30) +
+           "/1 ! nvvidconv flip-method=" + to_string(0) + " ! video/x-raw, width=(int)" + to_string(display_width) + ", height=(int)" +
+           to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+}
+
 void CreateServoSliders()
 {
 	createTrackbar("Basearm", "Claw", &basearmA_pos_temp, 180);

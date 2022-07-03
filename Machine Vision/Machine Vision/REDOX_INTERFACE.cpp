@@ -4,7 +4,7 @@
 #include "Realsense_images.h"
 #include "ROS_communication.h"
 #include "Gamepad_controller.h"
-#include "Servos_controller.h"
+#include "Claw.h"
 #include "Mode_switcher.h"
 #include "Thermal_gas.h"
 #include "QR_read.h"
@@ -15,16 +15,28 @@ using namespace cv;
 //Recommended resolution for monitor display: set to 1280x720
 int resolution_horizontal = 800;
 int resolution_vertical = 450;
-const int number_of_cameras = 3;
 int current_camera = 1;
 VideoCapture capture;
+VideoCapture captureClaw;
 Mat webcam_image;
 
 void openCamera(int index)
 {
-	capture.open(index);
-	capture.set(CAP_PROP_FPS, 30);
-	capture.set(CAP_PROP_CONVERT_RGB, false);
+	//1 = t265(front), 2 = c920(back), 3 = imx219(claw)
+	if (index == 1 || index == 2)
+	{
+		if (captureClaw.isOpened())
+			captureClaw.release();
+		capture.open(index);
+		capture.set(CAP_PROP_FPS, 30);
+		capture.set(CAP_PROP_CONVERT_RGB, false);
+	}
+	else if (index == 3)
+	{
+		if (capture.isOpened())
+			capture.release();
+		captureClaw = VideoCapture(csi_gstreamer_pipeline(resolution_horizontal, resolution_vertical), CAP_GSTREAMER);
+	}
 }
 
 void checkUserInput()
@@ -36,18 +48,15 @@ void checkUserInput()
 		UpdateKeyboardInput();
 	if (gamepad_command == "previous_camera" || gamepad_command == "next_camera")
 	{
-		if (current_camera == 3)
-			openCamera(0);
 		if (gamepad_command == "previous_camera")
 			current_camera--;
 		else if (gamepad_command == "next_camera")
 			current_camera++;
 		if (current_camera < 0)
-			current_camera = number_of_cameras;
-		else if (current_camera > number_of_cameras)
+			current_camera = 3;
+		else if (current_camera > 3)
 			current_camera = 0;
-		if (current_camera == 3)
-			openCamera(1);
+		openCamera(current_camera);
 	}
 	else if (!autonomous_movement)
 	{
@@ -77,8 +86,10 @@ void checkSensorsFeed()
 	UpdateThermal(current_temperature);
 	if (current_camera == 1)
 		webcam_image = ReadRealsenseWebcam();
-	else
+	else if (current_camera == 2)
 		capture >> webcam_image;
+	else if (current_camera == 3)
+		captureClaw.read(webcam_image);
 	resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_NEAREST);
 	if (qr_detection)
 		webcam_image = ReadQR(webcam_image);
@@ -94,9 +105,6 @@ void updateInterface()
 	imshow("REDOX", webcam_image);
 	imshow("CO2", gas_image);
 	imshow("Thermal", thermal_image);
-	moveWindow("REDOX", 0, 0);
-	moveWindow("Thermal", 0, 0);
-	moveWindow("CO2", 0, thermal_height * upscale_factor);
 }
 
 void setup(int argc, char** argv) 
@@ -112,7 +120,7 @@ void setup(int argc, char** argv)
 	namedWindow("Thermal");
 	CreateServoSliders();
 	CreateModeButtons();
-	openCamera(0);
+	openCamera(1);
 	InitializeQR();
 	InitializeHazmat();
 }
