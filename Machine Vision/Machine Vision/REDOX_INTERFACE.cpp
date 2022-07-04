@@ -10,6 +10,9 @@
 #include "QR_read.h"
 #include "Motion_detection.h"
 #include "Hazmat_detection.h"
+#define WHEEL_RADIUS 0.08
+#define WHEELBASE 0.168
+#define MAX_SPEED 0.75
 using namespace std;
 using namespace cv;
 //Recommended resolution for monitor display: set to 1280x720
@@ -59,38 +62,36 @@ void checkUserInput()
 			current_camera = 0;
 		openCamera(current_camera);
 	}
-	else if (!autonomous_movement)
+	else if (!servos_command.empty())
 	{
-		if (!servos_command.empty())
+		cout << servos_command << "\n";
+		WriteArduino(servos_command, servos_value, 0);
+	}
+	else if (!autonomous_movement && !gamepad_command.empty())
+	{
+		if (current_camera == 2)
 		{
-			cout << servos_command << "\n";
-			WriteArduino(servos_command, servos_value, 0);
+			int temp = gamepad_value_1;	
+			gamepad_value_1 = -gamepad_value_2;
+			gamepad_value_2 = -temp;
 		}
-		else if (!gamepad_command.empty())
-		{
-			if (current_camera == 2)
-			{
-				int temp = gamepad_value_1;	
-				gamepad_value_1 = -gamepad_value_2;
-				gamepad_value_2 = -temp;
-			}
-			cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
-			WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
-		}
+		cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
+		WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
 	} 
 	else if (autonomous_movement)
 	{
-		int pwm_l = 0;
-		int pwm_r = 0;
-		//transform cmdvel_linear_x and cmdvel_angular_z to pwm_l and pwm_r
+		float v_l = ((2 * cmdvel_linear_x) - (cmdvel_angular_z * WHEELBASE)) / (2 * WHEEL_RADIUS);
+		float v_r = ((2 * cmdvel_linear_x) + (cmdvel_angular_z * WHEELBASE)) / (2 * WHEEL_RADIUS);
+		int pwm_l = int(v_l * (max_pwm / MAX_SPEED));
+		int pwm_r = int(v_r * (max_pwm / MAX_SPEED));
 		if (current_camera == 2)
 		{
 			int temp = pwm_l;	
 			pwm_l = -pwm_r;
 			pwm_r = -temp;
 		}
-		cout << gamepad_command << " " << to_string(pwm_l) << " " << to_string(pwm_r) << "\n";
-		WriteArduino(gamepad_command, pwm_l, pwm_r);
+		cout << "(AUTONOMOUS) MotorsMove " << to_string(pwm_l) << " " << to_string(pwm_r) << "\n";
+		WriteArduino("MotorsMove", pwm_l, pwm_r);
 	}
 }
 

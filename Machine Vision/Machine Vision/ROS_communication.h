@@ -13,8 +13,8 @@ using namespace std::this_thread;
 using namespace std::chrono;
 float current_temperature[64] = {0};
 int current_gas = 0;
-int cmdvel_linear_x = 0;
-int cmdvel_angular_z = 0;
+float cmdvel_linear_x = 0;
+float cmdvel_angular_z = 0;
 std_msgs::String arduino_command;
 std_msgs::UInt16 arduino_value_1;
 std_msgs::UInt16 arduino_value_2;
@@ -39,8 +39,8 @@ void gasCallback(const std_msgs::UInt16& gas)
 
 void cmdvelCallback(const geometry_msgs::Twist& cmdvel)
 {
-	cmdvel_linear_x = int(cmdvel.linear.x);
-	cmdvel_angular_z = int(cmdvel.angular.z);
+	cmdvel_linear_x = cmdvel.linear.x;
+	cmdvel_angular_z = cmdvel.angular.z;
 }
 
 void ConnectROS(int argc, char** argv)
@@ -59,7 +59,7 @@ void ConnectROS(int argc, char** argv)
 	sub_temperature = nodehandle.subscribe("temperature", 1000, &temperatureCallback);
 	sub_gas = nodehandle.subscribe("gas", 1000, &gasCallback);
 	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
-	//system("gnome-terminal -- roslaunch REDOX redox.launch");
+	system("gnome-terminal -- roslaunch REDOX redox.launch");
 }
 
 void ReadArduino() 
