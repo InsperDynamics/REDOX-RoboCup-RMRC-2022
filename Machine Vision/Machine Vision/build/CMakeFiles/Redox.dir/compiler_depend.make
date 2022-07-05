@@ -1256,6 +1256,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /opt/ros/melodic/include/std_msgs/Float32MultiArray.h \
   /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h \
   /opt/ros/melodic/include/std_msgs/MultiArrayDimension.h \
+  /opt/ros/melodic/include/geometry_msgs/Twist.h \
+  /opt/ros/melodic/include/geometry_msgs/Vector3.h \
   ../Gamepad_controller.h \
   /usr/local/include/SDL2/SDL.h \
   /usr/local/include/SDL2/SDL_main.h \
@@ -2892,6 +2894,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/bits/exception.h:
 
+/opt/ros/melodic/include/geometry_msgs/Twist.h:
+
 /usr/include/aarch64-linux-gnu/bits/typesizes.h:
 
 /usr/include/stdio.h:
@@ -3087,6 +3091,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/opencv4/opencv2/flann/nn_index.h:
 
 /usr/include/aarch64-linux-gnu/bits/select.h:
+
+/opt/ros/melodic/include/geometry_msgs/Vector3.h:
 
 /usr/include/c++/7/bits/stl_iterator.h:
 

@@ -47,8 +47,7 @@ void ConnectROS(int argc, char** argv)
 {
 	system("gnome-terminal -- roscore");
 	sleep_for(seconds(10));
-	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0 ; 
-	cd ~/catkin_ws ; chmod 0777 src/ydlidar_ros_driver/startup/* ; sudo sh src/ydlidar_ros_driver/startup/initenv.sh");
+	system("gnome-terminal -- sudo chmod a+rw /dev/ttyACM0 ; cd ~/catkin_ws ; chmod 0777 src/ydlidar_ros_driver/startup/* ; sudo sh src/ydlidar_ros_driver/startup/initenv.sh");
 	sleep_for(seconds(10));
 	system("gnome-terminal -- rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=115200");
 	ros::init(argc, argv, "redox_main");
@@ -59,7 +58,7 @@ void ConnectROS(int argc, char** argv)
 	sub_temperature = nodehandle.subscribe("temperature", 1000, &temperatureCallback);
 	sub_gas = nodehandle.subscribe("gas", 1000, &gasCallback);
 	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
-	system("gnome-terminal -- roslaunch REDOX redox.launch");
+	//system("gnome-terminal -- roslaunch REDOX redox.launch");
 }
 
 void ReadArduino() 

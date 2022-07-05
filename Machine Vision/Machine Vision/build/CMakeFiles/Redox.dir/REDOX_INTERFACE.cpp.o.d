@@ -1131,6 +1131,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /opt/ros/melodic/include/std_msgs/Float32MultiArray.h \
  /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h \
  /opt/ros/melodic/include/std_msgs/MultiArrayDimension.h \
+ /opt/ros/melodic/include/geometry_msgs/Twist.h \
+ /opt/ros/melodic/include/geometry_msgs/Vector3.h \
  /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Gamepad_controller.h \
  /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
  /usr/local/include/SDL2/SDL_stdinc.h \
