@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import rospy
+from std_msgs import Float64MultiArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, Path
 from tf.transformations import euler_from_quaternion
@@ -10,17 +11,26 @@ from math import atan2, sqrt, degrees
 raio_robo = 0.3
 x = 0
 y = 0
+x_min, x_max, y_min, y_max = 0.0, 0.0, 0.0, 0.0
 theta = 0
 alpha = 0
 poses = []
 goal = [0, 0]
 
 def recebeu_odom(dado):
-    global x
-    global y 
+    global x, x_min, x_max
+    global y, y_min, y_max 
     global theta
     x = dado.pose.pose.position.x
     y = dado.pose.pose.position.y
+    if x < x_min:
+        x_min = x
+    elif x > x_max:
+        x_max = x
+    if y < y_min:
+        y_min = y
+    elif y > y_max:
+        y_max = y
     ora_q = dado.pose.pose.orientation
     (roll,pitch,theta) = euler_from_quaternion([ora_q.x,ora_q.y,ora_q.z,ora_q.w])
 
@@ -78,8 +88,11 @@ if __name__=="__main__":
     topic_voronoi = rospy.Subscriber("/roda/VoronoiPlanner/plan", Path, recebeu_path)
     topic_goal = rospy.Subscriber("/move_base/current_goal", PoseStamped, recebeu_goal)
     topic_vel = rospy.Publisher('/cmd_vel',Twist)
+    topic_pts = rospy.Publisher('/redox_local_planner/points',Float64MultiArray)
     rospy.sleep(10)
     while not rospy.is_shutdown():
+        data = [x_min,x_max,y_min,y_max]
+        topic_pts.publish(data)
         alpha = getAlpha(alpha)
         print(alpha, goal)
         vel = getVel(alpha, 15)
