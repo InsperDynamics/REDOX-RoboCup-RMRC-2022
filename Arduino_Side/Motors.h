@@ -151,8 +151,8 @@ void Move(int speedL, int speedR){
     URBackwards();
     LRBackwards();
   }
-  analogWrite(motorUL, constrain(abs(speedL), 0, 220));
-  analogWrite(motorLL, constrain(abs(speedL), 0, 220));
-  analogWrite(motorUR, constrain(abs(speedR), 0, 220));
-  analogWrite(motorLR, constrain(abs(speedR), 0, 220));
+  analogWrite(motorUL, constrain(abs(speedL), 0, 255));
+  analogWrite(motorLL, constrain(abs(speedL), 0, 255));
+  analogWrite(motorUR, constrain(abs(speedR), 0, 255));
+  analogWrite(motorLR, constrain(abs(speedR), 0, 255));
 }
