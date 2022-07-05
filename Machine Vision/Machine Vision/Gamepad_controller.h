@@ -2,11 +2,11 @@
 #include <iostream>
 #include <math.h>
 #include "SDL2/SDL.h"
+#define JOYSTICK_DEAD_ZONE 4000
+#define JOYSTICK_MAXIMUM_ZONE 33000
 using namespace std;
 static SDL_Joystick* gGameController = NULL;
 static SDL_Event sdl_event;
-static const int JOYSTICK_DEAD_ZONE = 4000;
-static const int JOYSTICK_MAXIMUM_ZONE = 33000;
 static int max_pwm = 250;
 static int xAnalog_left = 0;
 static int yAnalog_left = 0;
@@ -36,12 +36,33 @@ void UpdateAnalog()
 			int buttonId = sdl_event.jbutton.button;
 			switch (buttonId)
 			{
+			case 0:
+				gamepad_command = "dexterity_mode";
+				return;
+				break;
+			case 1:
+				gamepad_command = "motion_detection";
+				return;
+				break;
+			case 2:
+				gamepad_command = "qr_detection";
+				return;
+				break;
+			case 3:
+				gamepad_command = "hazmat_detection";
+				return;
+				break;
 			case 4:
 				gamepad_command = "previous_camera";
 				return;
 				break;
 			case 5:
 				gamepad_command = "next_camera";
+				return;
+				break;
+			case 6:
+			case 7:
+				gamepad_command = "autonomous_mode";
 				return;
 				break;
 			}

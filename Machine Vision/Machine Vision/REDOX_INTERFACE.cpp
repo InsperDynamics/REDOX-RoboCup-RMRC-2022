@@ -5,7 +5,6 @@
 #include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Claw.h"
-#include "Mode_switcher.h"
 #include "Thermal_gas.h"
 #include "QR_read.h"
 #include "Motion_detection.h"
@@ -22,6 +21,11 @@ int current_camera = 1;
 VideoCapture capture;
 VideoCapture captureClaw;
 Mat webcam_image;
+bool autonomous_mode = false;
+bool dexterity_mode = false;
+bool qr_detection = false;
+bool hazmat_detection = false;
+bool motion_detection = false;
 
 void openCamera(int index)
 {
@@ -62,12 +66,22 @@ void checkUserInput()
 			current_camera = 0;
 		openCamera(current_camera);
 	}
+	else if (gamepad_command == "autonomous_mode")
+		autonomous_mode = !autonomous_mode;
+	else if (gamepad_command == "dexterity_mode")
+		dexterity_mode = !dexterity_mode;
+	else if (gamepad_command == "motion_detection")
+		motion_detection = !motion_detection;
+	else if (gamepad_command == "qr_detection")
+		qr_detection = !qr_detection;
+	else if (gamepad_command == "hazmat_detection")
+		hazmat_detection = !hazmat_detection;
 	else if (!servos_command.empty())
 	{
 		cout << servos_command << "\n";
 		WriteArduino(servos_command, servos_value, 0);
 	}
-	else if (!autonomous_movement && !gamepad_command.empty())
+	else if (!autonomous_mode && !gamepad_command.empty())
 	{
 		if (current_camera == 2)
 		{
@@ -78,7 +92,7 @@ void checkUserInput()
 		cout << gamepad_command << " " << to_string(gamepad_value_1) << " " << to_string(gamepad_value_2) << "\n";
 		WriteArduino(gamepad_command, gamepad_value_1, gamepad_value_2);
 	} 
-	else if (autonomous_movement)
+	else if (autonomous_mode)
 	{
 		float v_l = ((2 * cmdvel_linear_x) - (cmdvel_angular_z * WHEELBASE)) / (2 * WHEEL_RADIUS);
 		float v_r = ((2 * cmdvel_linear_x) + (cmdvel_angular_z * WHEELBASE)) / (2 * WHEEL_RADIUS);
@@ -135,7 +149,6 @@ void setup(int argc, char** argv)
 	namedWindow("CO2");
 	namedWindow("Thermal");
 	CreateServoSliders();
-	CreateModeButtons();
 	openCamera(1);
 	InitializeQR();
 	InitializeHazmat();
