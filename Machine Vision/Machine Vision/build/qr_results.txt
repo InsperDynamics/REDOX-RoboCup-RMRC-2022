@@ -1,0 +1,9 @@
+
+Decode Result: 
+Hello :)
+
+Decode Result: 
+http://en.m.wikipedia.org
+
+Decode Result: 
+https://pt.wikipedia.org
