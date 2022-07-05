@@ -74,7 +74,7 @@ def getVel(alpha,k):
 
 if __name__=="__main__":
     rospy.init_node("redox_local_planner")
-    topic_odom = rospy.Subscriber("/odom", Odometry , recebeu_odom)
+    topic_odom = rospy.Subscriber("/camera/odom/sample", Odometry , recebeu_odom)
     topic_voronoi = rospy.Subscriber("/roda/VoronoiPlanner/plan", Path, recebeu_path)
     topic_goal = rospy.Subscriber("/move_base/current_goal", PoseStamped, recebeu_goal)
     topic_vel = rospy.Publisher('/cmd_vel',Twist)

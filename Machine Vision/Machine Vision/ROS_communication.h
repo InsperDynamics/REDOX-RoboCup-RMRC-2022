@@ -58,7 +58,7 @@ void ConnectROS(int argc, char** argv)
 	sub_temperature = nodehandle.subscribe("temperature", 1000, &temperatureCallback);
 	sub_gas = nodehandle.subscribe("gas", 1000, &gasCallback);
 	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
-	//system("gnome-terminal -- roslaunch REDOX redox.launch");
+	system("gnome-terminal -- roslaunch REDOX redox.launch");
 }
 
 void ReadArduino() 
