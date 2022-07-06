@@ -1,9 +1,9 @@
 import cv2
-resolution_horizontal = 1366
-resolution_vertical = 768
+resolution_horizontal = 1280
+resolution_vertical = 720
   
 # define a video capture object
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(cv2.CAP_PROP_FPS, 30)
   
 while True:

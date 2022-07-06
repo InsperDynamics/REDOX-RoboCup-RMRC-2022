@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import rospy
-from std_msgs import Float64MultiArray
+from std_msgs.msg import Float64MultiArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, Path
 from tf.transformations import euler_from_quaternion

@@ -1344,7 +1344,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
   ../Claw.h \
-  ../Mode_switcher.h \
   ../Thermal_gas.h \
   ../QR_read.h \
   /usr/include/zbar.h \
@@ -1385,8 +1384,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/zbar/Decoder.h:
 
 ../QR_read.h:
-
-../Mode_switcher.h:
 
 /usr/local/include/SDL2/SDL_version.h:
 

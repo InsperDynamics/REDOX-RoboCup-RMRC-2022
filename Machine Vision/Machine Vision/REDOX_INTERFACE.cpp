@@ -29,13 +29,13 @@ bool motion_detection = false;
 
 void openCamera(int index)
 {
-	//1 = t265(front), 2 = c920(back), 3 = ov5647(claw)
+	//1 = t265(front), 2 = c920(back), 3 = imx219(claw)
 	if (index == 1 || index == 2)
 	{
 		if (captureClaw.isOpened())
 			captureClaw.release();
 		if (!capture.isOpened())
-			capture.open(0);
+			capture.open(1);
 		capture.set(CAP_PROP_FPS, 30);
 		capture.set(CAP_PROP_CONVERT_RGB, false);
 	}
@@ -43,7 +43,7 @@ void openCamera(int index)
 	{
 		if (capture.isOpened())
 			capture.release();
-		captureClaw = VideoCapture(csi_gstreamer_pipeline(resolution_horizontal, resolution_vertical), CAP_GSTREAMER);
+		captureClaw = VideoCapture(csi_gstreamer_pipeline(1280, 720), CAP_GSTREAMER);
 	}
 }
 
