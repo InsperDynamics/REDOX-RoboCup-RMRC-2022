@@ -145,7 +145,6 @@ void setup(int argc, char** argv)
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
-	namedWindow("Processing");
 	namedWindow("CO2");
 	namedWindow("Thermal");
 	CreateServoSliders();
@@ -167,7 +166,20 @@ int main(int argc, char** argv)
 	setup(argc, argv);
 	while (true)
 	{
-		loop();
+		try
+			loop();
+		catch (const exception& e)
+			cout << e.what() << endl;
+		catch (const Exception& e)
+			cout << e.what() << endl;
+		catch (const rs2::camera_disconnected_error& ex)
+    		cout << "Realsense Camera was disconnected! Please connect it back" << endl;
+		catch (const rs2::recoverable_error& e)
+			cout << "Realsense Operation failed! please try again" << endl;
+		catch (const rs2::error& e)
+			cout << "Realsense error occurred!" << endl;
+		catch (...)
+			cout << "Unknown error occurred!" << endl;
 	}
 	return 0;
 }
