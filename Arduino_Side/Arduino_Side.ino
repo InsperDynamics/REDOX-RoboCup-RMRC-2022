@@ -4,6 +4,7 @@
 #include <std_msgs/Float32MultiArray.h>
 #include "Sensors.h"
 #include "Motors.h"
+#include "Servos.h"
 
 String current_command = "";
 int current_value_1 = 0;
