@@ -69,7 +69,14 @@ void checkUserInput()
 	else if (gamepad_command == "autonomous_mode")
 		autonomous_mode = !autonomous_mode;
 	else if (gamepad_command == "dexterity_mode")
+	{
 		dexterity_mode = !dexterity_mode;
+		cout << "DEXTERITY: " << to_string(dexterity_mode) << "\n";
+		if (dexterity_mode)
+			WriteArduino("ExtendClaw", 0, 0);
+		else
+			WriteArduino("RetractClaw", 0, 0);
+	}
 	else if (gamepad_command == "motion_detection")
 		motion_detection = !motion_detection;
 	else if (gamepad_command == "qr_detection")

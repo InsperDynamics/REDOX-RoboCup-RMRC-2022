@@ -1,20 +1,17 @@
 #! /usr/bin/env python2
 # -*- coding:utf-8 -*-
 
-from cmath import inf
 import rospy
-from std_msgs.msg import Float64MultiArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, OccupancyGrid
 from tf.transformations import euler_from_quaternion
-from geometry_msgs.msg import PoseStamped, Point
-from sensor_msgs.msg import LaserScan
 from math import atan2, sqrt, degrees
 raio_roda = 0.08
 largura_robo = 0.23
 x = 0
 y = 0
-F, R, L, B = inf, inf, inf, inf
+theta = 0
+F, R, L, B = 0, 0, 0, 0
 map = []
 isRe = False
 c1 = 1
@@ -22,9 +19,11 @@ c2 = 3
 c3 = 0.6
 
 def recebeu_odom(dado):
-    global x, y
+    global x, y, theta
     x = dado.pose.pose.position.x
     y = dado.pose.pose.position.y
+    ora_q = dado.pose.pose.orientation
+    (roll,pitch,theta) = euler_from_quaternion([ora_q.x,ora_q.y,ora_q.z,ora_q.w])
 
 def recebeu_map(dado):
     global map

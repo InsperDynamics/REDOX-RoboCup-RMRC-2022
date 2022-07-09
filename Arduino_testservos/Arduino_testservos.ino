@@ -8,14 +8,19 @@
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
 
 void setup() {
-  //basearmA.attach(basearmA_pin);
-  //basearmB.attach(basearmB_pin);
-  //forearm.attach(forearm_pin);
-  //hand.attach(hand_pin);
+  basearmA.attach(basearmA_pin);
+  basearmB.attach(basearmB_pin);
+  forearm.attach(forearm_pin);
+  hand.attach(hand_pin);
   gripperOpener.attach(gripperOpener_pin);
-  //gripperTurner.attach(gripperTurner_pin);
+  gripperTurner.attach(gripperTurner_pin);
 }
 
 void loop() {
-  gripperOpener.write(90);
+  forearm.write(0);
+  hand.write(0);
+  basearmA.write(130);
+  basearmB.write(50);
+  gripperOpener.write(110);
+  gripperTurner.write(90);
 }

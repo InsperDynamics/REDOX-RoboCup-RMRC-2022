@@ -38,6 +38,10 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
     MoveServo(3, command_parameter_1);
   } else if (command == "MoveGripperOpener"){
     MoveServo(4, command_parameter_1);
+  } else if (commmand == "RetractClaw"){
+    RetractClaw();
+  } else if (command == "ExtendClaw"){
+    ExtendClaw();
   } else if (command == "MotorsStop"){
     MotorsStop();
   } else if (command == "MotorsRelease"){
@@ -49,6 +53,7 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
 
 void setup() {
   MotorsInitialize();
+  RetractClaw();
   SensorsInitialize();
   nodehandle.getHardware()->setBaud(115200);
   nodehandle.initNode();

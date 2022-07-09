@@ -6,15 +6,16 @@
 #define gripperTurner_pin 3
 #define gripperOpener_pin 2
 Servo basearmA, basearmB, forearm, hand, gripperTurner, gripperOpener;
+bool extended = false;
 
 void MoveServo(int servo, int pos){
   switch(servo){
     case 0:
-      basearmA.write(constrain(pos, 0, 180));
-      basearmB.write(constrain(180 - pos, 0, 180));
+      basearmA.write(constrain(pos, 60, 130));
+      basearmB.write(constrain(180 - pos, 60, 130));
       break;
     case 1:
-      forearm.write(constrain(pos, 0, 180));
+      forearm.write(constrain(pos, 50, 120));
       break;
     case 2:
       hand.write(constrain(pos, 0, 180));
@@ -23,7 +24,7 @@ void MoveServo(int servo, int pos){
       gripperTurner.write(constrain(pos, 0, 180));
       break;
     case 4:
-      gripperOpener.write(constrain(pos, 60, 120));
+      gripperOpener.write(constrain(pos, 20, 110));
       break;
   }
 }
@@ -47,16 +48,23 @@ void DetachServos(){
 }
 
 void RetractClaw(){
-    //retract positions
+    forearm.write(0);
+    hand.write(0);
+    basearmA.write(130);
+    basearmB.write(50);
+    gripperOpener.write(110);
+    gripperTurner.write(90);
+    extended = false;
+    DetachServos();
 }
 
 void ExtendClaw(){
-    //extend positions
-}
-
-void ServosInitialize(){
     AttachServos();
-    RetractClaw();
-    delay(2000);
-    DetachServos();
+    forearm.write(50);
+    hand.write(180);
+    basearmA.write(80);
+    basearmB.write(100);
+    gripperOpener.write(20);
+    gripperTurner.write(90);
+    extended = true;
 }
