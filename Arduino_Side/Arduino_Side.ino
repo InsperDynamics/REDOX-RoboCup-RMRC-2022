@@ -38,7 +38,7 @@ void ControlMotors(String command, int command_parameter_1, int command_paramete
     MoveServo(3, command_parameter_1);
   } else if (command == "MoveGripperOpener"){
     MoveServo(4, command_parameter_1);
-  } else if (commmand == "RetractClaw"){
+  } else if (command == "RetractClaw"){
     RetractClaw();
   } else if (command == "ExtendClaw"){
     ExtendClaw();
