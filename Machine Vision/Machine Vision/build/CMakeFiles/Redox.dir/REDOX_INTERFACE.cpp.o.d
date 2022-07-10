@@ -306,48 +306,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
- /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/Realsense_images.h \
- /opt/ros/melodic/include/librealsense2/rs.hpp \
- /opt/ros/melodic/include/librealsense2/rs.h \
- /opt/ros/melodic/include/librealsense2/rsutil.h \
- /usr/lib/gcc/aarch64-linux-gnu/7/include/stdbool.h \
- /opt/ros/melodic/include/librealsense2/h/rs_types.h \
- /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
- /opt/ros/melodic/include/librealsense2/h/rs_types.h \
- /opt/ros/melodic/include/librealsense2/h/rs_context.h \
- /opt/ros/melodic/include/librealsense2/h/rs_device.h \
- /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
- /opt/ros/melodic/include/librealsense2/h/rs_frame.h \
- /opt/ros/melodic/include/librealsense2/h/rs_option.h \
- /opt/ros/melodic/include/librealsense2/h/rs_processing.h \
- /opt/ros/melodic/include/librealsense2/h/rs_option.h \
- /opt/ros/melodic/include/librealsense2/h/rs_record_playback.h \
- /opt/ros/melodic/include/librealsense2/hpp/rs_types.hpp \
- /opt/ros/melodic/include/librealsense2/rs.h \
- /opt/ros/melodic/include/librealsense2/h/rs_context.h \
- /opt/ros/melodic/include/librealsense2/h/rs_device.h \
- /opt/ros/melodic/include/librealsense2/h/rs_frame.h \
- /opt/ros/melodic/include/librealsense2/h/rs_processing.h \
- /opt/ros/melodic/include/librealsense2/h/rs_record_playback.h \
- /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
- /opt/ros/melodic/include/librealsense2/h/rs_pipeline.h \
- /opt/ros/melodic/include/librealsense2/h/rs_config.h \
- /usr/include/c++/7/iterator /usr/include/c++/7/bits/stream_iterator.h \
- /opt/ros/melodic/include/librealsense2/hpp/rs_context.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_types.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_record_playback.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_device.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_sensor.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_frame.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_processing.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_options.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_device.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_frame.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_processing.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_record_playback.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_sensor.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_pipeline.hpp \
- /opt/ros/melodic/include/librealsense2/hpp/rs_context.hpp \
  /home/insper/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Machine\ Vision/Machine\ Vision/ROS_communication.h \
  /usr/include/c++/7/thread /opt/ros/melodic/include/ros/ros.h \
  /opt/ros/melodic/include/ros/time.h \
@@ -936,7 +894,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /opt/ros/melodic/include/ros/publisher.h \
  /opt/ros/melodic/include/ros/message.h /usr/include/boost/array.hpp \
  /usr/include/boost/swap.hpp /usr/include/boost/core/swap.hpp \
- /usr/include/boost/detail/iterator.hpp \
+ /usr/include/boost/detail/iterator.hpp /usr/include/c++/7/iterator \
+ /usr/include/c++/7/bits/stream_iterator.h \
  /opt/ros/melodic/include/ros/serialization.h \
  /opt/ros/melodic/include/ros/serialized_message.h \
  /opt/ros/melodic/include/ros/message_traits.h \
@@ -1125,8 +1084,29 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: \
  /opt/ros/melodic/include/ros/param.h \
  /opt/ros/melodic/include/ros/topic.h \
  /opt/ros/melodic/include/ros/node_handle.h \
- /opt/ros/melodic/include/std_msgs/String.h \
+ /opt/ros/melodic/include/image_transport/image_transport.h \
+ /opt/ros/melodic/include/image_transport/publisher.h \
+ /opt/ros/melodic/include/sensor_msgs/Image.h \
  /opt/ros/melodic/include/ros/message_operations.h \
+ /opt/ros/melodic/include/std_msgs/Header.h \
+ /opt/ros/melodic/include/image_transport/single_subscriber_publisher.h \
+ /opt/ros/melodic/include/image_transport/exception.h \
+ /opt/ros/melodic/include/image_transport/loader_fwds.h \
+ /opt/ros/melodic/include/image_transport/subscriber.h \
+ /opt/ros/melodic/include/image_transport/transport_hints.h \
+ /opt/ros/melodic/include/image_transport/camera_publisher.h \
+ /opt/ros/melodic/include/sensor_msgs/CameraInfo.h \
+ /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h \
+ /opt/ros/melodic/include/image_transport/camera_subscriber.h \
+ /opt/ros/melodic/include/cv_bridge/cv_bridge.h \
+ /opt/ros/melodic/include/sensor_msgs/CompressedImage.h \
+ /opt/ros/melodic/include/sensor_msgs/image_encodings.h \
+ /usr/include/opencv4/opencv2/core/core.hpp \
+ /usr/include/opencv4/opencv2/imgproc/imgproc.hpp \
+ /usr/include/opencv4/opencv2/imgproc/types_c.h \
+ /usr/include/opencv4/opencv2/core/core_c.h \
+ /usr/include/opencv4/opencv2/core/types_c.h \
+ /opt/ros/melodic/include/std_msgs/String.h \
  /opt/ros/melodic/include/std_msgs/UInt16.h \
  /opt/ros/melodic/include/std_msgs/Float32MultiArray.h \
  /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h \

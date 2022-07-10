@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <opencv2/opencv.hpp>
-#include "Realsense_images.h"
 #include "ROS_communication.h"
 #include "Gamepad_controller.h"
 #include "Claw.h"
@@ -122,7 +121,7 @@ void checkSensorsFeed()
 	UpdateGas(current_gas);
 	UpdateThermal(current_temperature);
 	if (current_camera == 1)
-		webcam_image = rs_cv_ptr.clone();
+		webcam_image = rs_img.clone();
 	else if (current_camera == 2)
 		capture >> webcam_image;
 	else if (current_camera == 3)
@@ -148,7 +147,6 @@ void setup(int argc, char** argv)
 {
 	system("gnome-terminal -- play '|rec --buffer 512 -d'");
 	ConnectROS(argc, argv);
-	InitializeRealsenseWebcam();
 	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
@@ -188,18 +186,6 @@ int main(int argc, char** argv)
 		catch (const cv::Exception& e)
 		{
 			cout << e.what() << endl;
-		}
-		catch (const rs2::camera_disconnected_error& ex)
-		{
-			cout << "Realsense Camera was disconnected! Please connect it back" << endl;
-		}
-		catch (const rs2::recoverable_error& e)
-		{
-			cout << "Realsense Operation failed! please try again" << endl;
-		}
-		catch (const rs2::error& e)
-		{
-			cout << "Realsense error occurred!" << endl;
 		}
 		catch (...)
 		{

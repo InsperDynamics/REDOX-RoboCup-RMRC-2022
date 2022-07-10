@@ -65,6 +65,8 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code
 
+sudo ln -s /usr/include/opencv4/opencv2 /usr/include/opencv
+
 sudo reboot
 
 # After running this script, you can setup ros workspace, upload the Arduino code, recompile the machine vision interface, and setup VNC.

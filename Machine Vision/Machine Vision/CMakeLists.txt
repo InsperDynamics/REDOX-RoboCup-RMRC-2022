@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   tf
   genmsg
+  cv_bridge
+  image_transport
 )
 
 include_directories(${PROJECT_SOURCE_DIR})

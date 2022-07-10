@@ -28,8 +28,9 @@ ros::Publisher pub_value_2;
 ros::Subscriber sub_temperature;
 ros::Subscriber sub_gas;
 ros::Subscriber sub_cmdvel;
-ros::Subscriber sub_realsense_fisheye;
-Mat rs_cv_ptr;
+image_transport::Subscriber sub_realsense_fisheye;
+cv_bridge::CvImagePtr rs_cv_ptr;
+Mat rs_img = Mat::zeros(Size(800, 450), CV_8UC3);
 
 void temperatureCallback(const std_msgs::Float32MultiArray& temperature)
 {
@@ -51,10 +52,10 @@ void cmdvelCallback(const geometry_msgs::Twist& cmdvel)
 
 void realsense_fisheyeCallback(const sensor_msgs::ImageConstPtr& msg)
 {
-	cv_bridge::CvImagePtr cv_ptr;
 	try
 	{
 		rs_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::MONO8);
+		cvtColor(rs_cv_ptr->image, rs_img, CV_GRAY2RGB);
 	}
 	catch (cv_bridge::Exception& e)
 	{
@@ -79,7 +80,8 @@ void ConnectROS(int argc, char** argv)
 	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
 	system("gnome-terminal -- roslaunch REDOX redox.launch");
 	sleep_for(seconds(10));
-	sub_realsense_fisheye = nodehandle.subscribe("/camera/fisheye2/image_raw", 1000, &realsense_fisheyeCallback);
+	image_transport::ImageTransport imagetransport(nodehandle);
+	sub_realsense_fisheye = imagetransport.subscribe("/camera/fisheye2/image_raw", 1000, &realsense_fisheyeCallback);
 }
 
 void ReadArduino() 

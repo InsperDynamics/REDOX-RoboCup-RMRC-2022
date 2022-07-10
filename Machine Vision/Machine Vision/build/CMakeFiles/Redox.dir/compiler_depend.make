@@ -377,49 +377,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /usr/include/opencv4/opencv2/video.hpp \
   /usr/include/opencv4/opencv2/video/tracking.hpp \
   /usr/include/opencv4/opencv2/video/background_segm.hpp \
-  ../Realsense_images.h \
-  /opt/ros/melodic/include/librealsense2/rs.hpp \
-  /opt/ros/melodic/include/librealsense2/rs.h \
-  /opt/ros/melodic/include/librealsense2/rsutil.h \
-  /usr/lib/gcc/aarch64-linux-gnu/7/include/stdbool.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_types.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_types.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_context.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_device.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_frame.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_option.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_processing.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_option.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_record_playback.h \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_types.hpp \
-  /opt/ros/melodic/include/librealsense2/rs.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_context.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_device.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_frame.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_processing.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_record_playback.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_sensor.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_pipeline.h \
-  /opt/ros/melodic/include/librealsense2/h/rs_config.h \
-  /usr/include/c++/7/iterator \
-  /usr/include/c++/7/bits/stream_iterator.h \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_context.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_types.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_record_playback.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_device.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_sensor.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_frame.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_processing.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_options.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_device.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_frame.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_processing.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_record_playback.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_sensor.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_pipeline.hpp \
-  /opt/ros/melodic/include/librealsense2/hpp/rs_context.hpp \
   ../ROS_communication.h \
   /usr/include/c++/7/thread \
   /opt/ros/melodic/include/ros/ros.h \
@@ -1053,6 +1010,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /usr/include/boost/swap.hpp \
   /usr/include/boost/core/swap.hpp \
   /usr/include/boost/detail/iterator.hpp \
+  /usr/include/c++/7/iterator \
+  /usr/include/c++/7/bits/stream_iterator.h \
   /opt/ros/melodic/include/ros/serialization.h \
   /opt/ros/melodic/include/ros/serialized_message.h \
   /opt/ros/melodic/include/ros/message_traits.h \
@@ -1250,8 +1209,29 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
   /opt/ros/melodic/include/ros/param.h \
   /opt/ros/melodic/include/ros/topic.h \
   /opt/ros/melodic/include/ros/node_handle.h \
-  /opt/ros/melodic/include/std_msgs/String.h \
+  /opt/ros/melodic/include/image_transport/image_transport.h \
+  /opt/ros/melodic/include/image_transport/publisher.h \
+  /opt/ros/melodic/include/sensor_msgs/Image.h \
   /opt/ros/melodic/include/ros/message_operations.h \
+  /opt/ros/melodic/include/std_msgs/Header.h \
+  /opt/ros/melodic/include/image_transport/single_subscriber_publisher.h \
+  /opt/ros/melodic/include/image_transport/exception.h \
+  /opt/ros/melodic/include/image_transport/loader_fwds.h \
+  /opt/ros/melodic/include/image_transport/subscriber.h \
+  /opt/ros/melodic/include/image_transport/transport_hints.h \
+  /opt/ros/melodic/include/image_transport/camera_publisher.h \
+  /opt/ros/melodic/include/sensor_msgs/CameraInfo.h \
+  /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h \
+  /opt/ros/melodic/include/image_transport/camera_subscriber.h \
+  /opt/ros/melodic/include/cv_bridge/cv_bridge.h \
+  /opt/ros/melodic/include/sensor_msgs/CompressedImage.h \
+  /opt/ros/melodic/include/sensor_msgs/image_encodings.h \
+  /usr/include/opencv4/opencv2/core/core.hpp \
+  /usr/include/opencv4/opencv2/imgproc/imgproc.hpp \
+  /usr/include/opencv4/opencv2/imgproc/types_c.h \
+  /usr/include/opencv4/opencv2/core/core_c.h \
+  /usr/include/opencv4/opencv2/core/types_c.h \
+  /opt/ros/melodic/include/std_msgs/String.h \
   /opt/ros/melodic/include/std_msgs/UInt16.h \
   /opt/ros/melodic/include/std_msgs/Float32MultiArray.h \
   /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h \
@@ -1399,6 +1379,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/local/include/SDL2/SDL_messagebox.h:
 
+/usr/local/include/SDL2/SDL_loadso.h:
+
 /usr/local/include/SDL2/SDL_hints.h:
 
 /usr/local/include/SDL2/SDL_haptic.h:
@@ -1431,8 +1413,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/linux/posix_types.h:
 
-/usr/include/aarch64-linux-gnu/asm/types.h:
-
 /usr/include/aarch64-linux-gnu/bits/sigcontext.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/sigevent_t.h:
@@ -1459,7 +1439,33 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/local/include/SDL2/SDL_stdinc.h:
 
+/usr/include/opencv4/opencv2/imgproc/types_c.h:
+
+/usr/include/opencv4/opencv2/core/core.hpp:
+
+/opt/ros/melodic/include/sensor_msgs/image_encodings.h:
+
+/opt/ros/melodic/include/sensor_msgs/CompressedImage.h:
+
+/usr/include/aarch64-linux-gnu/asm/types.h:
+
+/opt/ros/melodic/include/cv_bridge/cv_bridge.h:
+
+/opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h:
+
+/usr/include/opencv4/opencv2/core/types_c.h:
+
+/opt/ros/melodic/include/sensor_msgs/CameraInfo.h:
+
+/opt/ros/melodic/include/image_transport/camera_publisher.h:
+
+/opt/ros/melodic/include/image_transport/exception.h:
+
 /opt/ros/melodic/include/ros/message_operations.h:
+
+/opt/ros/melodic/include/sensor_msgs/Image.h:
+
+/opt/ros/melodic/include/image_transport/image_transport.h:
 
 /opt/ros/melodic/include/ros/topic.h:
 
@@ -1617,6 +1623,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/iterator/detail/facade_iterator_category.hpp:
 
+/usr/include/boost/iterator/iterator_categories.hpp:
+
 /usr/include/boost/iterator/detail/config_def.hpp:
 
 /usr/include/boost/iterator/interoperable.hpp:
@@ -1624,6 +1632,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/iterator/iterator_traits.hpp:
 
 /usr/include/boost/lexical_cast.hpp:
+
+/opt/ros/melodic/include/ros/service_callback_helper.h:
 
 /usr/include/boost/numeric/conversion/detail/conversion_traits.hpp:
 
@@ -1670,6 +1680,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /opt/ros/melodic/include/ros/service_traits.h:
 
 /usr/include/boost/call_traits.hpp:
+
+/usr/include/c++/7/iterator:
 
 /opt/ros/melodic/include/ros/publisher.h:
 
@@ -1743,6 +1755,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/type_traits/is_volatile.hpp:
 
+/usr/include/opencv4/opencv2/core/core_c.h:
+
 /usr/include/boost/type_traits/is_const.hpp:
 
 /usr/include/boost/smart_ptr/make_shared_array.hpp:
@@ -1785,6 +1799,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/smart_ptr/detail/operator_bool.hpp:
 
+/usr/include/boost/smart_ptr/detail/yield_k.hpp:
+
 /usr/include/boost/smart_ptr/detail/spinlock.hpp:
 
 /usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:
@@ -1807,7 +1823,11 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/smart_ptr/detail/sp_counted_base_std_atomic.hpp:
 
+/usr/include/boost/smart_ptr/detail/sp_has_sync.hpp:
+
 /usr/include/boost/smart_ptr/detail/shared_count.hpp:
+
+/opt/ros/melodic/include/image_transport/transport_hints.h:
 
 /usr/include/boost/checked_delete.hpp:
 
@@ -1818,6 +1838,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/iterator.hpp:
 
 /opt/ros/melodic/include/ros/static_assert.h:
+
+/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:
 
 /opt/ros/melodic/include/ros/assert.h:
 
@@ -1931,6 +1953,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/distance.hpp:
 
+/opt/ros/melodic/include/image_transport/single_subscriber_publisher.h:
+
 /usr/include/boost/mpl/aux_/size_impl.hpp:
 
 /usr/include/boost/mpl/size.hpp:
@@ -2041,7 +2065,13 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/aux_/reverse_fold_impl.hpp:
 
+/opt/ros/melodic/include/std_msgs/Header.h:
+
 /usr/include/boost/mpl/reverse_fold.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp:
+
+/usr/include/boost/mpl/aux_/fold_impl.hpp:
 
 /opt/ros/melodic/include/ros/console_backend.h:
 
@@ -2103,53 +2133,11 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp:
 
-/usr/include/boost/mpl/protect.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
-
-/usr/include/boost/mpl/aux_/config/bind.hpp:
-
-/usr/include/boost/mpl/bind.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
-
-/usr/include/boost/type_traits/is_fundamental.hpp:
-
-/usr/include/boost/mpl/aux_/arg_typedef.hpp:
-
-/usr/include/boost/mpl/aux_/arity_spec.hpp:
-
-/usr/include/boost/mpl/aux_/config/gpu.hpp:
-
-/usr/include/boost/mpl/assert.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:
-
-/usr/include/boost/mpl/aux_/msvc_never_true.hpp:
-
-/opt/ros/melodic/include/ros/transport_hints.h:
-
-/usr/include/boost/mpl/aux_/config/has_apply.hpp:
-
-/usr/include/boost/numeric/conversion/detail/meta.hpp:
-
-/usr/include/boost/type_traits/is_base_and_derived.hpp:
-
-/usr/include/boost/mpl/apply_fwd.hpp:
-
-/usr/include/boost/mpl/apply.hpp:
-
-/usr/include/boost/numeric/conversion/bounds.hpp:
-
-/usr/include/boost/mpl/aux_/iter_apply.hpp:
-
 /usr/include/opencv4/opencv2/highgui.hpp:
 
 /usr/include/opencv4/opencv2/flann/index_testing.h:
 
 /usr/include/opencv4/opencv2/dnn/dnn.hpp:
-
-/opt/ros/melodic/include/librealsense2/h/rs_processing.h:
 
 /usr/include/c++/7/bits/hashtable_policy.h:
 
@@ -2159,6 +2147,10 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/aarch64-linux-gnu/sys/select.h:
 
+/usr/include/boost/numeric/conversion/bounds.hpp:
+
+/usr/include/boost/mpl/aux_/iter_apply.hpp:
+
 /usr/lib/gcc/aarch64-linux-gnu/7/include/float.h:
 
 /usr/include/opencv4/opencv2/flann/lsh_index.h:
@@ -2166,6 +2158,10 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/aarch64-linux-gnu/bits/locale.h:
 
 /usr/include/opencv4/opencv2/flann/composite_index.h:
+
+/usr/include/c++/7/bits/stream_iterator.h:
+
+/usr/include/c++/7/bits/char_traits.h:
 
 /usr/include/boost/mpl/list/aux_/front.hpp:
 
@@ -2194,12 +2190,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/opencv4/opencv2/flann/random.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h:
-
-/opt/ros/melodic/include/ros/console.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp:
-
-/usr/include/opencv4/opencv2/flann/allocator.h:
 
 /usr/include/boost/type_traits/is_float.hpp:
 
@@ -2259,6 +2249,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/opencv4/opencv2/dnn/layer.hpp:
 
+/usr/include/opencv4/opencv2/dnn/dict.hpp:
+
 /usr/include/c++/7/bits/locale_facets_nonio.h:
 
 /usr/include/opencv4/opencv2/dnn/version.hpp:
@@ -2266,6 +2258,12 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/opencv4/opencv2/flann/config.h:
 
 /usr/include/opencv4/opencv2/features2d.hpp:
+
+/usr/include/boost/concept/usage.hpp:
+
+/usr/include/boost/mpl/equal_to.hpp:
+
+/usr/include/opencv4/opencv2/core/ovx.hpp:
 
 /usr/include/boost/mpl/minus.hpp:
 
@@ -2347,10 +2345,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/locale:
 
-/usr/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp:
-
-/opt/ros/melodic/include/librealsense2/rs.h:
-
 /usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp:
 
 /usr/include/opencv4/opencv2/core/traits.hpp:
@@ -2379,17 +2373,17 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/tuple:
 
+/usr/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:
+
+/usr/include/boost/type_traits/is_fundamental.hpp:
+
+/usr/include/boost/mpl/aux_/arg_typedef.hpp:
+
 /usr/include/boost/type_traits/is_array.hpp:
 
 /usr/include/boost/mpl/O1_size.hpp:
 
 /usr/include/c++/7/bits/unique_ptr.h:
-
-/usr/include/boost/function/function_template.hpp:
-
-/usr/include/boost/mpl/aux_/config/pp_counter.hpp:
-
-/usr/include/opencv4/opencv2/imgproc.hpp:
 
 /usr/include/opencv4/opencv2/dnn/utils/inference_engine.hpp:
 
@@ -2414,12 +2408,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/mpl/push_front_fwd.hpp:
 
 /usr/include/c++/7/bits/shared_ptr_atomic.h:
-
-/usr/include/aarch64-linux-gnu/bits/sigaction.h:
-
-/usr/include/boost/mpl/bind_fwd.hpp:
-
-/usr/include/boost/predef/os/ios.h:
 
 /usr/include/aarch64-linux-gnu/c++/7/bits/c++config.h:
 
@@ -2589,6 +2577,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/predef/compiler/visualc.h:
 
+/usr/include/boost/mpl/aux_/config/bind.hpp:
+
 /usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
 
 /usr/include/c++/7/climits:
@@ -2610,8 +2600,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
 
 /usr/include/c++/7/bits/concept_check.h:
-
-/opt/ros/melodic/include/librealsense2/h/rs_context.h:
 
 /usr/lib/gcc/aarch64-linux-gnu/7/include/stdint.h:
 
@@ -2679,6 +2667,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/preprocessor/arithmetic/dec.hpp:
 
+/usr/include/boost/mpl/aux_/arity_spec.hpp:
+
 /usr/include/aarch64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/c++/7/bits/locale_conv.h:
@@ -2691,6 +2681,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/opencv4/opencv2/flann/autotuned_index.h:
 
+/usr/include/c++/7/bits/stringfwd.h:
+
 /usr/include/boost/mpl/list/aux_/item.hpp:
 
 /usr/include/c++/7/ext/alloc_traits.h:
@@ -2699,13 +2691,11 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/typeinfo:
 
+/usr/include/boost/mpl/apply.hpp:
+
 /usr/include/boost/config/no_tr1/functional.hpp:
 
 /usr/include/aarch64-linux-gnu/bits/floatn-common.h:
-
-/opt/ros/melodic/include/ros/service_callback_helper.h:
-
-/opt/ros/melodic/include/librealsense2/h/rs_device.h:
 
 /usr/include/c++/7/bits/stl_tree.h:
 
@@ -2919,8 +2909,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/ext/atomicity.h:
 
-/opt/ros/melodic/include/librealsense2/h/rs_pipeline.h:
-
 /usr/include/c++/7/stdexcept:
 
 /usr/include/c++/7/bits/stl_vector.h:
@@ -2956,6 +2944,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/type_traits/has_left_shift.hpp:
 
 /usr/include/boost/predef/hardware.h:
+
+/usr/include/boost/mpl/aux_/msvc_never_true.hpp:
 
 /usr/include/c++/7/bits/stl_function.h:
 
@@ -3067,6 +3057,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/bits/refwrap.h:
 
+/usr/include/opencv4/opencv2/core/cuda.inl.hpp:
+
 /usr/include/aarch64-linux-gnu/asm/errno.h:
 
 /usr/include/c++/7/bits/postypes.h:
@@ -3129,12 +3121,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/bits/locale_facets.h:
 
-/usr/include/boost/mpl/aux_/na_assert.hpp:
-
-/usr/include/c++/7/bits/stl_multimap.h:
-
-/usr/include/opencv4/opencv2/core/async.hpp:
-
 /usr/include/boost/mpl/vector/aux_/size.hpp:
 
 /usr/include/opencv4/opencv2/core/types.hpp:
@@ -3146,10 +3132,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/aarch64-linux-gnu/bits/byteswap.h:
 
 /usr/include/c++/7/unordered_map:
-
-/usr/include/boost/smart_ptr/detail/yield_k.hpp:
-
-/opt/ros/melodic/include/librealsense2/h/rs_sensor.h:
 
 /usr/include/boost/predef/library/std/_prefix.h:
 
@@ -3233,10 +3215,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /opt/ros/melodic/include/ros/ros.h:
 
-/usr/include/boost/mpl/aux_/has_apply.hpp:
-
-/usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp:
-
 /usr/include/boost/mpl/aux_/na.hpp:
 
 /usr/include/c++/7/queue:
@@ -3273,106 +3251,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/opencv4/opencv2/video/background_segm.hpp:
 
-../Realsense_images.h:
-
-/usr/include/aarch64-linux-gnu/c++/7/bits/time_members.h:
-
-/usr/include/opencv4/opencv2/core/hal/interface.h:
-
-/usr/include/boost/config/detail/select_stdlib_config.hpp:
-
-/usr/local/include/SDL2/SDL_loadso.h:
-
-/usr/lib/gcc/aarch64-linux-gnu/7/include/stdbool.h:
-
-/usr/include/boost/smart_ptr/detail/sp_has_sync.hpp:
-
-/opt/ros/melodic/include/librealsense2/h/rs_types.h:
-
-/usr/include/zbar/ImageScanner.h:
-
-/opt/ros/melodic/include/ros/subscribe_options.h:
-
-/usr/include/aarch64-linux-gnu/bits/getopt_core.h:
-
-/usr/include/boost/type_traits/has_minus_assign.hpp:
-
-/usr/include/wchar.h:
-
-/usr/include/boost/predef/hardware/simd/ppc/versions.h:
-
-/usr/include/c++/7/bits/stringfwd.h:
-
-/opt/ros/melodic/include/librealsense2/h/rs_frame.h:
-
-/usr/include/boost/iterator/iterator_categories.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_types.hpp:
-
-/opt/ros/melodic/include/librealsense2/h/rs_config.h:
-
-/usr/include/c++/7/iterator:
-
-/usr/include/boost/mpl/pop_front_fwd.hpp:
-
-/usr/include/c++/7/bits/char_traits.h:
-
-/usr/include/c++/7/bits/stream_iterator.h:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_context.hpp:
-
-/usr/include/opencv4/opencv2/dnn/dict.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_record_playback.hpp:
-
-/usr/include/boost/predef/architecture/ppc.h:
-
-/usr/include/boost/preprocessor/seq/fold_left.hpp:
-
-/usr/include/boost/preprocessor/cat.hpp:
-
-/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp:
-
-/usr/include/boost/predef/hardware/simd/arm/versions.h:
-
-/usr/include/boost/mpl/list/aux_/begin_end.hpp:
-
-/usr/include/boost/mpl/aux_/fold_impl.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_device.hpp:
-
-/usr/include/boost/predef/hardware/simd/arm.h:
-
-/usr/include/errno.h:
-
-/usr/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_sensor.hpp:
-
-/usr/include/boost/concept/usage.hpp:
-
-/usr/include/boost/mpl/equal_to.hpp:
-
-/usr/include/opencv4/opencv2/core/ovx.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_frame.hpp:
-
-/usr/include/boost/make_shared.hpp:
-
-/usr/include/log4cxx/level.h:
-
-/usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
-
-/usr/include/opencv4/opencv2/core/cuda.inl.hpp:
-
-/opt/ros/melodic/include/librealsense2/h/rs_option.h:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_processing.hpp:
-
-/usr/include/boost/mpl/list/aux_/empty.hpp:
-
-/opt/ros/melodic/include/librealsense2/hpp/rs_options.hpp:
-
 /opt/ros/melodic/include/ros/platform.h:
 
 /usr/include/boost/math/special_functions/round.hpp:
@@ -3399,11 +3277,21 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/preprocessor/control/iif.hpp:
 
+/usr/include/aarch64-linux-gnu/c++/7/bits/time_members.h:
+
+/usr/include/opencv4/opencv2/core/hal/interface.h:
+
+/usr/include/boost/config/detail/select_stdlib_config.hpp:
+
 ../Claw.h:
 
 /usr/include/boost/preprocessor/iterate.hpp:
 
 /usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/opt/ros/melodic/include/ros/transport_hints.h:
+
+/usr/include/boost/mpl/aux_/config/has_apply.hpp:
 
 /usr/include/unistd.h:
 
@@ -3411,13 +3299,9 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/c++/7/bits/cxxabi_init_exception.h:
 
-/opt/ros/melodic/include/librealsense2/hpp/rs_pipeline.hpp:
-
 /usr/include/aarch64-linux-gnu/bits/posix_opt.h:
 
 /usr/local/include/SDL2/SDL_main.h:
-
-/opt/ros/melodic/include/librealsense2/rsutil.h:
 
 /usr/include/stdc-predef.h:
 
@@ -3431,6 +3315,18 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/aux_/template_arity_fwd.hpp:
 
+/usr/include/zbar/ImageScanner.h:
+
+/opt/ros/melodic/include/ros/subscribe_options.h:
+
+/usr/include/aarch64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/boost/type_traits/has_minus_assign.hpp:
+
+/usr/include/wchar.h:
+
+/usr/include/boost/predef/hardware/simd/ppc/versions.h:
+
 /usr/include/boost/range/begin.hpp:
 
 /usr/include/c++/7/bits/uniform_int_dist.h:
@@ -3438,12 +3334,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/config/detail/select_platform_config.hpp:
 
 /usr/include/boost/mpl/aux_/config/integral.hpp:
-
-/usr/include/boost/lexical_cast/try_lexical_convert.hpp:
-
-/usr/include/boost/mpl/apply_wrap.hpp:
-
-/usr/include/boost/config/detail/suffix.hpp:
 
 /usr/local/include/SDL2/SDL_misc.h:
 
@@ -3507,6 +3397,18 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/predef/architecture/mips.h:
 
+/usr/include/boost/predef/architecture/ppc.h:
+
+/usr/include/boost/preprocessor/seq/fold_left.hpp:
+
+/usr/include/boost/preprocessor/cat.hpp:
+
+/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp:
+
+/usr/include/boost/predef/hardware/simd/arm/versions.h:
+
+/usr/include/boost/mpl/list/aux_/begin_end.hpp:
+
 /usr/include/boost/mpl/vector/aux_/push_front.hpp:
 
 /usr/include/boost/predef/architecture/rs6k.h:
@@ -3522,10 +3424,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /opt/ros/melodic/include/ros/message_traits.h:
 
 /usr/include/boost/predef/architecture/x86/64.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp:
-
-/usr/include/boost/predef/architecture/z.h:
 
 /usr/include/boost/range/end.hpp:
 
@@ -3586,6 +3484,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/opencv4/opencv2/videoio.hpp:
 
 /usr/include/boost/predef/compiler/sgi_mipspro.h:
+
+/usr/include/boost/mpl/aux_/config/gpu.hpp:
 
 /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h:
 
@@ -3651,6 +3551,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/predef/os/bsd/bsdi.h:
 
+/usr/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
+
 /usr/include/boost/core/swap.hpp:
 
 /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h:
@@ -3674,6 +3576,8 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/mpl/aux_/config/ttp.hpp:
 
 /usr/include/boost/predef/os/bsd/open.h:
+
+/opt/ros/melodic/include/image_transport/loader_fwds.h:
 
 /usr/include/boost/swap.hpp:
 
@@ -3709,8 +3613,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/predef/hardware/simd.h:
 
-/opt/ros/melodic/include/librealsense2/rs.hpp:
-
 /usr/include/boost/predef/hardware/simd/x86.h:
 
 /usr/include/boost/predef/hardware/simd/ppc.h:
@@ -3718,6 +3620,12 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/boost/predef/compiler/metrowerks.h:
 
 /usr/include/boost/predef/version.h:
+
+/usr/include/boost/function/function_template.hpp:
+
+/usr/include/opencv4/opencv2/imgproc.hpp:
+
+/usr/include/boost/mpl/aux_/config/pp_counter.hpp:
 
 /usr/include/c++/7/bits/stl_raw_storage_iter.h:
 
@@ -3883,8 +3791,6 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/bind/bind_mf_cc.hpp:
 
-/opt/ros/melodic/include/librealsense2/h/rs_record_playback.h:
-
 /usr/include/aarch64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/boost/preprocessor/detail/auto_rec.hpp:
@@ -3939,13 +3845,23 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/list/aux_/pop_front.hpp:
 
+/usr/include/boost/mpl/pop_front_fwd.hpp:
+
 /opt/ros/melodic/include/ros/exception.h:
 
 /usr/include/boost/mpl/list/aux_/push_back.hpp:
 
+/usr/include/boost/mpl/list/aux_/empty.hpp:
+
 /usr/include/log4cxx/logstring.h:
 
 /usr/include/boost/mpl/empty_fwd.hpp:
+
+/usr/include/boost/make_shared.hpp:
+
+/usr/include/log4cxx/level.h:
+
+/usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
 
 /usr/include/boost/move/detail/config_end.hpp:
 
@@ -3957,11 +3873,23 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/mpl/iterator_tags.hpp:
 
+/opt/ros/melodic/include/image_transport/camera_subscriber.h:
+
 /usr/include/boost/mpl/aux_/config/arrays.hpp:
+
+/usr/include/boost/mpl/bind.hpp:
 
 /usr/include/boost/mpl/aux_/lambda_spec.hpp:
 
 /usr/include/boost/mpl/list/aux_/preprocessed/plain/list10.hpp:
+
+/opt/ros/melodic/include/image_transport/subscriber.h:
+
+/usr/include/boost/predef/hardware/simd/arm.h:
+
+/usr/include/errno.h:
+
+/usr/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp:
 
 /usr/local/include/SDL2/SDL_gesture.h:
 
@@ -4009,11 +3937,15 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 
 /usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
 
+/usr/include/boost/mpl/protect.hpp:
+
 /usr/include/boost/mpl/begin_end.hpp:
 
 /usr/include/boost/mpl/aux_/begin_end_impl.hpp:
 
 /usr/include/boost/mpl/eval_if.hpp:
+
+/opt/ros/melodic/include/image_transport/publisher.h:
 
 /usr/include/boost/predef/language/stdc.h:
 
@@ -4024,3 +3956,45 @@ CMakeFiles/Redox.dir/REDOX_INTERFACE.cpp.o: ../REDOX_INTERFACE.cpp \
 /usr/include/c++/7/list:
 
 /usr/include/boost/mpl/find.hpp:
+
+/usr/include/boost/numeric/conversion/detail/meta.hpp:
+
+/usr/include/boost/type_traits/is_base_and_derived.hpp:
+
+/usr/include/boost/mpl/apply_fwd.hpp:
+
+/opt/ros/melodic/include/ros/console.h:
+
+/usr/include/opencv4/opencv2/flann/allocator.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp:
+
+/usr/include/boost/lexical_cast/try_lexical_convert.hpp:
+
+/usr/include/boost/config/detail/suffix.hpp:
+
+/usr/include/boost/mpl/apply_wrap.hpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp:
+
+/usr/include/boost/mpl/aux_/has_apply.hpp:
+
+/usr/include/c++/7/bits/stl_multimap.h:
+
+/usr/include/opencv4/opencv2/core/async.hpp:
+
+/usr/include/boost/mpl/aux_/na_assert.hpp:
+
+/usr/include/boost/mpl/assert.hpp:
+
+/usr/include/boost/predef/architecture/z.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/sigaction.h:
+
+/usr/include/boost/predef/os/ios.h:
+
+/usr/include/boost/mpl/bind_fwd.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
