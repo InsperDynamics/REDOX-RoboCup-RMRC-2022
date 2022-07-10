@@ -122,7 +122,7 @@ void checkSensorsFeed()
 	UpdateGas(current_gas);
 	UpdateThermal(current_temperature);
 	if (current_camera == 1)
-		webcam_image = ReadRealsenseWebcam();
+		webcam_image = rs_cv_ptr.clone();
 	else if (current_camera == 2)
 		capture >> webcam_image;
 	else if (current_camera == 3)
@@ -178,6 +178,10 @@ int main(int argc, char** argv)
 			loop();
 		}
 		catch (const exception& e)
+		{
+			cout << e.what() << endl;
+		}
+		catch ( ros::Exception &e )
 		{
 			cout << e.what() << endl;
 		}

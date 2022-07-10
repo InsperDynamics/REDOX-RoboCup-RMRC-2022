@@ -4,6 +4,9 @@
 #include <chrono>
 #include <thread>
 #include <ros/ros.h>
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/opencv.hpp>
 #include <std_msgs/String.h>
 #include <std_msgs/UInt16.h>
 #include <std_msgs/Float32MultiArray.h>
@@ -11,6 +14,7 @@
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
+using namespace cv;
 float current_temperature[64] = {0};
 int current_gas = 0;
 float cmdvel_linear_x = 0;
@@ -24,6 +28,8 @@ ros::Publisher pub_value_2;
 ros::Subscriber sub_temperature;
 ros::Subscriber sub_gas;
 ros::Subscriber sub_cmdvel;
+ros::Subscriber sub_realsense_fisheye;
+Mat rs_cv_ptr;
 
 void temperatureCallback(const std_msgs::Float32MultiArray& temperature)
 {
@@ -43,6 +49,19 @@ void cmdvelCallback(const geometry_msgs::Twist& cmdvel)
 	cmdvel_angular_z = cmdvel.angular.z;
 }
 
+void realsense_fisheyeCallback(const sensor_msgs::ImageConstPtr& msg)
+{
+	cv_bridge::CvImagePtr cv_ptr;
+	try
+	{
+		rs_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::MONO8);
+	}
+	catch (cv_bridge::Exception& e)
+	{
+		cout << e.what() << endl;
+	}
+}
+
 void ConnectROS(int argc, char** argv)
 {
 	system("gnome-terminal -- roscore");
@@ -59,6 +78,8 @@ void ConnectROS(int argc, char** argv)
 	sub_gas = nodehandle.subscribe("gas", 1000, &gasCallback);
 	sub_cmdvel = nodehandle.subscribe("cmd_vel", 1000, &cmdvelCallback);
 	system("gnome-terminal -- roslaunch REDOX redox.launch");
+	sleep_for(seconds(10));
+	sub_realsense_fisheye = nodehandle.subscribe("/camera/fisheye2/image_raw", 1000, &realsense_fisheyeCallback);
 }
 
 void ReadArduino() 
