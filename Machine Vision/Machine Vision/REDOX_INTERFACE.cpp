@@ -174,19 +174,33 @@ int main(int argc, char** argv)
 	while (true)
 	{
 		try
+		{
 			loop();
+		}
 		catch (const exception& e)
+		{
 			cout << e.what() << endl;
-		catch (const Exception& e)
+		}
+		catch (const cv::Exception& e)
+		{
 			cout << e.what() << endl;
+		}
 		catch (const rs2::camera_disconnected_error& ex)
-    		cout << "Realsense Camera was disconnected! Please connect it back" << endl;
+		{
+			cout << "Realsense Camera was disconnected! Please connect it back" << endl;
+		}
 		catch (const rs2::recoverable_error& e)
+		{
 			cout << "Realsense Operation failed! please try again" << endl;
+		}
 		catch (const rs2::error& e)
+		{
 			cout << "Realsense error occurred!" << endl;
+		}
 		catch (...)
+		{
 			cout << "Unknown error occurred!" << endl;
+		}
 	}
 	return 0;
 }
