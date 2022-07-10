@@ -5,7 +5,7 @@ import rospy
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import  Odometry, OccupancyGrid
 from tf.transformations import euler_from_quaternion
-from math import atan2, sqrt, degrees
+from math import cos, sin, pi
 raio_roda = 0.08
 largura_robo = 0.23
 x = 0
@@ -13,9 +13,10 @@ y = 0
 theta = 0
 F, R, L, B = 0, 0, 0, 0
 map = []
+mapwidth = 0
+mapheight = 0
 isRe = False
 c1 = 1
-c2 = 3
 c3 = 0.6
 
 def recebeu_odom(dado):
@@ -26,15 +27,37 @@ def recebeu_odom(dado):
     (roll,pitch,theta) = euler_from_quaternion([ora_q.x,ora_q.y,ora_q.z,ora_q.w])
 
 def recebeu_map(dado):
-    global map
+    global map, mapwidth, mapheight
     mapwidth = dado.info.width
     mapheight = dado.info.height
     for i in range(mapheight):
         for j in range(mapwidth):
             map.append(dado.data[i * mapwidth + j])
 
-def getFRLB():
-    pass
+def getFBRL():
+    global F, R, L, B
+    global isRe
+    global theta
+    F, R, L, B = mapwidth, mapwidth, mapwidth, mapwidth
+    if not isRe:
+        alphas = [0, pi, 7*pi/4, pi/4]
+    else:
+        alphas = [0, pi, 5*pi/4, 3*pi/4]
+    for d in range(1, mapwidth):
+        if F < mapwidth and R < mapwidth and L < mapwidth and B < mapwidth:
+            break
+        for alpha_idx in range(len(alphas)):
+            xp = x + (d * cos(alphas[alpha_idx] + theta))
+            yp = y + (d * sin(alphas[alpha_idx] + theta))
+            if map[int(yp * mapwidth + xp)] >= 50:
+                if alpha_idx == 0 and F == mapwidth:
+                    F = d
+                elif alpha_idx == 1 and B == mapwidth:
+                    B = d
+                elif alpha_idx == 2 and R == mapwidth:
+                    R = d
+                elif alpha_idx == 3 and L == mapwidth:
+                    L = d
     
 def getVel():
     global isRe, raio_roda
