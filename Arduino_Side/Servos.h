@@ -24,11 +24,7 @@ void MoveServo(int servo, int pos){
       gripperTurner.write(constrain(pos, 0, 180));
       break;
     case 4:
-      if (pos > 90){
-        gripperOpener.write(60);
-      } else {
-        gripperOpener.write(20);
-      }
+      gripperOpener.write(constrain(pos, 20, 60));
       break;
   }
 }
