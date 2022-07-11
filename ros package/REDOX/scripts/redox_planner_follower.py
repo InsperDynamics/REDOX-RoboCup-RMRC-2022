@@ -35,10 +35,10 @@ def recebeu_map(dado):
             map.append(dado.data[i * mapwidth + j])
 
 def getFBRL():
-    global F, R, L, B
+    global F, B, R, L
     global isRe
     global theta
-    F, R, L, B = mapwidth, mapwidth, mapwidth, mapwidth
+    F, B, R, L = mapwidth, mapwidth, mapwidth, mapwidth
     if not isRe:
         alphas = [0, pi, 7*pi/4, pi/4]
     else:
@@ -66,8 +66,8 @@ def getVel():
     z = erro
     x = c3 - (raio_roda * z)
     if isRe:
-        erro = c1 * (L - R)
-        x = - c3 - (raio_roda * z)
+        x = -x
+        z = -z
     return x, z
 
 def checkBump():
@@ -92,6 +92,7 @@ if __name__=="__main__":
     topic_map = rospy.Subscriber("/map", OccupancyGrid, recebeu_map)
     rospy.sleep(10)
     while not rospy.is_shutdown():
+        getFBRL()
         checkBump()
         x, z = getVel()
         vel = Twist()

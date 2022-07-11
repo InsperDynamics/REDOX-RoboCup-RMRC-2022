@@ -11,11 +11,11 @@ bool extended = false;
 void MoveServo(int servo, int pos){
   switch(servo){
     case 0:
-      basearmA.write(constrain(pos, 60, 130));
-      basearmB.write(constrain(180 - pos, 60, 130));
+      basearmA.write(constrain(pos, 60, 120));
+      basearmB.write(constrain(180 - pos, 60, 120));
       break;
     case 1:
-      forearm.write(constrain(pos, 50, 120));
+      forearm.write(constrain(pos, 20, 120));
       break;
     case 2:
       hand.write(constrain(pos, 0, 180));
@@ -62,8 +62,8 @@ void ExtendClaw(){
     AttachServos();
     forearm.write(50);
     hand.write(180);
-    basearmA.write(80);
-    basearmB.write(100);
+    basearmA.write(70);
+    basearmB.write(110);
     gripperOpener.write(20);
     gripperTurner.write(90);
     extended = true;
