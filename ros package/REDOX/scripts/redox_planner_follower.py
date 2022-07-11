@@ -8,13 +8,10 @@ from tf.transformations import euler_from_quaternion
 from math import cos, sin, pi
 raio_roda = 0.08
 largura_robo = 0.23
-x = 0
-y = 0
-theta = 0
+x, y, theta = 0, 0, 0
 F, R, L, B = 0, 0, 0, 0
 map = []
-mapwidth = 0
-mapheight = 0
+mapwidth, mapheight, mapresolution = 0, 0, 1
 isRe = False
 c1 = 1
 c3 = 0.6
@@ -27,17 +24,16 @@ def recebeu_odom(dado):
     (roll,pitch,theta) = euler_from_quaternion([ora_q.x,ora_q.y,ora_q.z,ora_q.w])
 
 def recebeu_map(dado):
-    global map, mapwidth, mapheight
-    mapwidth = dado.info.width
-    mapheight = dado.info.height
+    global map, mapwidth, mapheight, mapresolution
+    mapwidth = dado.info.width #cells
+    mapheight = dado.info.height #cells
+    mapresolution = dado.info.resolution #m/cell
     for i in range(mapheight):
         for j in range(mapwidth):
             map.append(dado.data[i * mapwidth + j])
 
 def getFBRL():
-    global F, B, R, L
-    global isRe
-    global theta
+    global F, B, R, L, isRe, theta, mapwidth
     F, B, R, L = mapwidth, mapwidth, mapwidth, mapwidth
     if not isRe:
         alphas = [0, pi, 7*pi/4, pi/4]
@@ -60,8 +56,7 @@ def getFBRL():
                     L = d
     
 def getVel():
-    global isRe, raio_roda
-    global c1, c3
+    global isRe, raio_roda, c1, c3
     erro = c1 * (R - L)
     z = erro
     x = c3 - (raio_roda * z)
@@ -71,10 +66,9 @@ def getVel():
     return x, z
 
 def checkBump():
-    global largura_robo
-    global F, R, L, B
-    global isRe
-    if ((not isRe and F < largura_robo) or (isRe and B < largura_robo)) and abs(R - L) < largura_robo:
+    global largura_robo, F, R, L, B, isRe, mapresolution
+    largura_robo_cells = largura_robo / mapresolution
+    if ((not isRe and F < largura_robo_cells) or (isRe and B < largura_robo_cells)) and abs(R - L) < largura_robo_cells:
         vel = Twist()
         vel.linear.x = c3
         vel.angular.z = 0
