@@ -24,7 +24,11 @@ void MoveServo(int servo, int pos){
       gripperTurner.write(constrain(pos, 0, 180));
       break;
     case 4:
-      gripperOpener.write(constrain(pos, 20, 110));
+      if (pos > 90){
+        gripperOpener.write(60);
+      } else {
+        gripperOpener.write(20);
+      }
       break;
   }
 }
@@ -52,7 +56,7 @@ void RetractClaw(){
     hand.write(0);
     basearmA.write(130);
     basearmB.write(50);
-    gripperOpener.write(110);
+    gripperOpener.write(60);
     gripperTurner.write(90);
     extended = false;
     DetachServos();

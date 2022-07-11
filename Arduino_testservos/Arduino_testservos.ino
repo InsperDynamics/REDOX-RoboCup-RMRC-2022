@@ -21,6 +21,6 @@ void loop() {
   hand.write(0);
   basearmA.write(130);
   basearmB.write(50);
-  gripperOpener.write(110);
+  gripperOpener.write(60);
   gripperTurner.write(90);
 }
