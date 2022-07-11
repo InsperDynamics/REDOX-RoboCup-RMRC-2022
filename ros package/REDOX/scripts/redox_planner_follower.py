@@ -82,7 +82,7 @@ def checkBump():
 if __name__=="__main__":
     rospy.init_node("redox_planner_follower")
     topic_odom = rospy.Subscriber("/camera/odom/sample", Odometry , recebeu_odom)
-    topic_vel = rospy.Publisher('/cmd_vel',Twist)
+    topic_vel = rospy.Publisher('/cmd_vel',Twist,queue_size=1000)
     topic_map = rospy.Subscriber("/map", OccupancyGrid, recebeu_map)
     rospy.sleep(10)
     while not rospy.is_shutdown():
