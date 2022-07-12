@@ -16,7 +16,7 @@
     </node>
 
     <node pkg="REDOX" type="redox_planner_follower.py" name="redox_planner_follower" output="screen"/>
-    <param name="robot_description" textfile="$(find redox_robot_description)/urdf/redox_robot.xacro"/>
+    <param name="robot_description" textfile="$(find redox_robot_description)/urdf/redox_ros.xacro"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find REDOX)/rviz/default.rviz"/>

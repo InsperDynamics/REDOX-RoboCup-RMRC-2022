@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<robot name="redox_ros" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find redox_robot_description)/urdf/redox_robot.xacro"/>
+
+  <link name="world" />
+  <joint name="orientation" type="fixed">
+    <origin xyz="0 0 0" rpy="${radians(180)} 0 ${radians(90)}" />
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
+</robot>
