@@ -15,7 +15,7 @@ using namespace std;
 using namespace cv;
 //Recommended resolution for monitor display: set to 1280x720
 int resolution_horizontal = 800;
-int resolution_vertical = 450;
+int resolution_vertical = 448;
 int current_camera = 1;
 VideoCapture capture;
 VideoCapture captureClaw;
@@ -126,7 +126,8 @@ void checkSensorsFeed()
 		capture >> webcam_image;
 	else if (current_camera == 3)
 		captureClaw.read(webcam_image);
-	resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_NEAREST);
+	if (current_camera == 1 || current_camera == 3)
+		resize(webcam_image, webcam_image, Size(resolution_horizontal, resolution_vertical), INTER_NEAREST);
 	if (qr_detection)
 		webcam_image = ReadQR(webcam_image);
 	if (hazmat_detection)

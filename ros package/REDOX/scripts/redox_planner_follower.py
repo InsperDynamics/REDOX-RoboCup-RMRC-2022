@@ -13,7 +13,7 @@ F, R, L, B = 0, 0, 0, 0
 map = []
 mapwidth, mapheight, mapresolution = 0, 0, 1
 isRe = False
-c1 = 1
+c1 = 0.0001
 c3 = 0.6
 
 def recebeu_odom(dado):
@@ -43,17 +43,20 @@ def getFBRL():
         if F < mapwidth and R < mapwidth and L < mapwidth and B < mapwidth:
             break
         for alpha_idx in range(len(alphas)):
-            xp = x + (d * cos(alphas[alpha_idx] + theta))
-            yp = y + (d * sin(alphas[alpha_idx] + theta))
-            if map[int(yp * mapwidth + xp)] >= 50:
-                if alpha_idx == 0 and F == mapwidth:
-                    F = d
-                elif alpha_idx == 1 and B == mapwidth:
-                    B = d
-                elif alpha_idx == 2 and R == mapwidth:
-                    R = d
-                elif alpha_idx == 3 and L == mapwidth:
-                    L = d
+            try:
+                xp = x + (d * cos(alphas[alpha_idx] + theta))
+                yp = y + (d * sin(alphas[alpha_idx] + theta))
+                if map[int(yp * mapwidth + xp)] >= 50:
+                    if alpha_idx == 0 and F == mapwidth:
+                        F = d
+                    elif alpha_idx == 1 and B == mapwidth:
+                        B = d
+                    elif alpha_idx == 2 and R == mapwidth:
+                        R = d
+                    elif alpha_idx == 3 and L == mapwidth:
+                        L = d
+            except:
+                pass
     
 def getVel():
     global isRe, raio_roda, c1, c3

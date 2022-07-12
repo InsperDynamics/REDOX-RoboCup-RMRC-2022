@@ -6,8 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
-        - /RobotModel1/Links1
       Splitter Ratio: 0.5
     Tree Height: 421
   - Class: rviz/Selection
@@ -64,160 +62,6 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/LaserScan
-      Color: 255; 255; 255
-      Color Transformer: ""
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Min Color: 0; 0; 0
-      Name: LaserScan
-      Position Transformer: ""
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic: /scan
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-        back_camera_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_scan_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        bracket_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        bracket_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        bracket_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        bracket_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        dcmotor_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        dcmotor_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        dcmotor_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        dcmotor_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        gas_sensor_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hub_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hub_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hub_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hub_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        realsense_t265_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thermal_camera_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -261,11 +105,31 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4003978371620178
+      Pitch: 0.785398006439209
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.2103979587554932
-    Saved: ~
+      Yaw: 0.785398006439209
+    Saved:
+      - Class: rviz/Orbit
+        Distance: 10
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: Orbit
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.785398006439209
+        Target Frame: <Fixed Frame>
+        Value: Orbit (rviz)
+        Yaw: 0.785398006439209
 Window Geometry:
   Displays:
     collapsed: false
