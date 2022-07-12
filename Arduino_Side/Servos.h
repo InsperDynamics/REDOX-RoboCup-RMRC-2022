@@ -55,6 +55,7 @@ void RetractClaw(){
     gripperOpener.write(60);
     gripperTurner.write(90);
     extended = false;
+    delay(3000);
     DetachServos();
 }
 
