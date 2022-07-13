@@ -597,4 +597,12 @@
   <child link="thermal_camera_1"/>
 </joint>
 
+<link name="world" />
+  <joint name="orientation" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265359 0 1.57079632679" />
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
+</link>
+
 </robot>
