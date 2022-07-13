@@ -603,6 +603,5 @@
     <parent link="world" />
     <child link="base_link" />
   </joint>
-</link>
 
 </robot>
