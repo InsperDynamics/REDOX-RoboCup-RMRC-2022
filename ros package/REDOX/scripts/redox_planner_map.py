@@ -33,7 +33,7 @@ def recebeu_map(dado):
             map.append(dado.data[i * mapwidth + j])
 
 def getFBRL():
-    global F, B, R, L, isRe, theta, mapwidth
+    global F, B, R, L, x, y, isRe, theta, mapwidth, mapheight, mapresolution
     F, B, R, L = mapwidth, mapwidth, mapwidth, mapwidth
     if not isRe:
         alphas = [0, pi, 7*pi/4, pi/4]
@@ -43,10 +43,12 @@ def getFBRL():
         if F < mapwidth and R < mapwidth and L < mapwidth and B < mapwidth:
             break
         for alpha_idx in range(len(alphas)):
+            xp = int(x + (d * cos(alphas[alpha_idx] + theta)))
+            yp = int(y + (d * sin(alphas[alpha_idx] + theta)))
+            #print xp, yp
             try:
-                xp = x + (d * cos(alphas[alpha_idx] + theta))
-                yp = y + (d * sin(alphas[alpha_idx] + theta))
-                if map[int(yp * mapwidth + xp)] >= 50:
+                print (yp + int(mapheight/2)) * mapwidth + (xp + int(mapwidth/2))
+                if map[(yp + int(mapheight/2)) * mapwidth + (xp + int(mapwidth/2))] >= 50:
                     if alpha_idx == 0 and F == mapwidth:
                         F = d
                     elif alpha_idx == 1 and B == mapwidth:
@@ -55,7 +57,7 @@ def getFBRL():
                         R = d
                     elif alpha_idx == 3 and L == mapwidth:
                         L = d
-            except:
+            except Exception as e:
                 pass
     
 def getVel():

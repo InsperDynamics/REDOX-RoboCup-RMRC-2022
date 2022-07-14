@@ -5,8 +5,8 @@
 using namespace std;
 using namespace cv;
 #define MAX_GAS_VALUE 3000
-#define MAX_TEMP_VALUE 50
-#define MIN_TEMP_VALUE 0
+#define MAX_TEMP_VALUE 30
+#define MIN_TEMP_VALUE 20
 const int thermal_width = 8;
 const int thermal_height = 8;
 const int upscale_factor = 20;

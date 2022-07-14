@@ -131,7 +131,10 @@ void checkSensorsFeed()
 	if (qr_detection)
 		webcam_image = ReadQR(webcam_image);
 	if (hazmat_detection)
+	{
+		cout << to_string(webcam_image.dims) << endl;
 		webcam_image = DetectHazmat(webcam_image);
+	}
 	if (motion_detection)
 		webcam_image = DetectMotion(webcam_image);
 }

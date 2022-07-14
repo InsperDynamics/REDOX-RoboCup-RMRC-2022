@@ -2,7 +2,10 @@
 #include <string>
 #include <opencv2/opencv.hpp>
 #include "Hazmat_detection.h"
+using namespace std;
+using namespace cv;
 Mat webcam_image;
+VideoCapture capture;
 
 int main(int argc, char** argv)
 {
