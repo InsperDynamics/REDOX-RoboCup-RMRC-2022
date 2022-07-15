@@ -1,4 +1,4 @@
-# Install script for directory: /home/borg/REDOX-RoboCup-RMRC-Challenge/PS5 Controller Test
+# Install script for directory: /home/borg/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Controller Test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/borg/REDOX-RoboCup-RMRC-Challenge/PS5 Controller Test/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/borg/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Controller Test/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

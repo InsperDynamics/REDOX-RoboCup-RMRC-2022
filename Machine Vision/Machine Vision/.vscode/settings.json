@@ -69,5 +69,11 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp"
-    }
+    },
+    "python.autoComplete.extraPaths": [
+        "/home/borg/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/local/python",
+        "/usr/lib/python"
+    ]
 }
