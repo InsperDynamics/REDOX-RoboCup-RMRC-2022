@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/borg/REDOX-RoboCup-RMRC-Challenge/PS5 Controller Test" -I/usr/local/include/SDL2 
+CXX_INCLUDES = -I"/home/borg/catkin_ws/src/REDOX-RoboCup-RMRC-Challenge/Controller Test" -I/usr/local/include/SDL2 
 

@@ -18,13 +18,7 @@ bool use_keyboard = false;
 void InitializeGamepad()
 {
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
-    if (SDL_NumJoysticks() < 1)
-	{
-		cout << "Warning: No joysticks connected! Using keyboard instead\n";
-		use_keyboard = true;
-	}
-    else
-        gGameController = SDL_JoystickOpen(0);
+    gGameController = SDL_JoystickOpen(0);
 }
 
 void UpdateAnalog()

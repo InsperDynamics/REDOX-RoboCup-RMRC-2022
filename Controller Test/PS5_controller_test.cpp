@@ -10,10 +10,7 @@ static const int JOYSTICK_MAXIMUM_ZONE = 33000;
 void InitializeGamepad()
 {
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
-    if (SDL_NumJoysticks() < 1)
-        cout << "Warning: No joysticks connected!\n";
-    else
-        gGameController = SDL_JoystickOpen(0);
+    gGameController = SDL_JoystickOpen(0);
 }
 
 void UpdateAnalog()
@@ -42,9 +39,19 @@ void UpdateAnalog()
 
 int main()
 {
-    InitializeGamepad();
     while (true)
     {
+        if (SDL_NumJoysticks() < 1)
+        {
+            try
+            {
+                InitializeGamepad();
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+        }
         UpdateAnalog();
     }
     return 0;

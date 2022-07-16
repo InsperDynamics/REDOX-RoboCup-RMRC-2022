@@ -151,7 +151,6 @@ void setup(int argc, char** argv)
 {
 	system("gnome-terminal -- play '|rec --buffer 512 -d'");
 	ConnectROS(argc, argv);
-	InitializeGamepad();
 	namedWindow("REDOX", WINDOW_AUTOSIZE);
 	namedWindow("Claw");
 	namedWindow("CO2");
@@ -164,6 +163,17 @@ void setup(int argc, char** argv)
 
 void loop()
 {
+	if (SDL_NumJoysticks() < 1)
+	{
+		try
+		{
+			InitializeGamepad();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
 	checkUserInput();
 	checkSensorsFeed();
 	updateInterface();
